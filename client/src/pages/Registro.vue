@@ -18,12 +18,12 @@
             class="q-gutter-md q-ma-md"
           >
           <div class="animated-body" v-show="show">
-              <q-input outlined class="q-ma-sm gray" v-model="form. full_name" label="Introduce tu Nombre">
+              <q-input outlined class="q-ma-sm gray" v-model="form.full_name" label="Introduce tu Nombre">
                 <template v-slot:prepend>
                   <q-icon name="account_circle" color="black"></q-icon>
                 </template>
               </q-input>
-              <q-input outlined class="q-ma-sm gray" v-model="form. last_name" label="Introduce tu Apellido">
+              <q-input outlined class="q-ma-sm gray" v-model="form.last_name" label="Introduce tu Apellido">
                 <template v-slot:prepend>
                   <q-icon name="account_circle" color="black"></q-icon>
                 </template>
@@ -104,7 +104,7 @@ export default {
   validations: {
     password: { required },
     password2: {
-      sameAspassword: sameAs('password')
+      sameAsPassword: sameAs('password')
     }
   },
   mounted () {
