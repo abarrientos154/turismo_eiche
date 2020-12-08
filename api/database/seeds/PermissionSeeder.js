@@ -21,7 +21,7 @@ const permissionData = [
   },
   {
     id: 2,
-    name: 'Tecnico',
+    name: 'turismo',
     description: 'Permiso'
   },
   {

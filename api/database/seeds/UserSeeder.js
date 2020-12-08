@@ -19,23 +19,23 @@ const Factory = use('Factory')
 const userData = [
   {
     _id: '5e90d6e6f75366526a680091',
-    email: 'admin@elevadores.com',
-    password: 'elevadores2020',
+    email: 'admin@turismo.com',
+    password: 'turismo2020',
     full_name: 'Administrador del Sistema',
     roles: [1]
   },
   {
     _id: '5e90d6e6f75366526a680092',
-    email: 'cliente@elevadores.com',
-    password: 'elevadores2020',
+    email: 'cliente@turismo.com',
+    password: 'turismo2020',
     full_name: 'Usuario Cliente de Ejemplo',
     roles: [2]
   },
   {
     _id: '5e90d6e6f75366526a680093',
-    email: 'tecnico@elevadores.com',
-    password: 'elevadores2020',
-    full_name: 'Usuario Tecnico de Ejemplo',
+    email: 'proveedor@turismo.com',
+    password: 'turismo2020',
+    full_name: 'Usuario Proveedror de Ejemplo',
     roles: [3]
   }
 ]

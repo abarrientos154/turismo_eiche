@@ -13,7 +13,9 @@ class User extends Model {
   static fieldValidationRules() {
     const rulesUser = {
       full_name: "string",
+      last_name: "string",
       email: 'required|email',
+      phone: "number",
       password: 'required|string|max:256'
     }
     return rulesUser
