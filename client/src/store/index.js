@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
 
 import generals from './generals'
 

@@ -14,7 +14,7 @@
               >
             </div>
           <q-form
-            @submit="onSubmit"
+            @submit="registrarse()"
             class="q-gutter-md q-ma-md"
           >
           <div class="animated-body" v-show="show">
