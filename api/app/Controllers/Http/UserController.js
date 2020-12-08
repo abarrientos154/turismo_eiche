@@ -97,7 +97,7 @@ class UserController {
     console.log(permissions, 'permissions')
     token.email = user.email
     let data = {}
-    data.ELEV_SESSION_INFO = token
+    data.TUR_SESSION_INFO = token
     return data
   }
 

@@ -23,7 +23,7 @@ export default async ({ store, Vue }) => {
             message: 'Registro guardado con éxito!'
           })
         } else { // Es Login
-          localStorage.setItem('PRUEBAS_NAEL_INFO', JSON.stringify(response.data))
+          localStorage.setItem('TUR_SESSION_INFO', JSON.stringify(response.data))
         }
       }
     }
@@ -45,13 +45,13 @@ export default async ({ store, Vue }) => {
           message: 'Correo y/o Contraseña Incorrectos',
           color: 'black'
         })
-        localStorage.removeItem('PRUEBAS_NAEL_INFO')
+        localStorage.removeItem('TUR_SESSION_INFO')
       } else if (error.response.status === 403) {
         Notify.create({
           message: error.response.data,
           color: 'red'
         })
-        localStorage.removeItem('PRUEBAS_NAEL_INFO')
+        localStorage.removeItem('TUR_SESSION_INFO')
       } else if (error.response.status === 404) {
         Notify.create({
           message: 'Ruta no encontrada - 404',
@@ -59,7 +59,7 @@ export default async ({ store, Vue }) => {
         })
       } else if (error.response.status === 422) {
         Notify.create({
-          message: 'Datos Inválidos: ' + error.response.data[0].message,
+          message: error.response.data[0].message,
           color: 'red',
           position: 'bottom'
         })
@@ -114,7 +114,7 @@ export default async ({ store, Vue }) => {
     // Antes de enviar cada petición se añade el token si existe
 
     store.dispatch('generals/fetchAccessToken')
-    const token = (store.state.generals.PRUEBAS_NAEL_INFO !== null) ? store.state.generals.PRUEBAS_NAEL_INFO.token : false
+    const token = (store.state.generals.TUR_SESSION_INFO !== null) ? store.state.generals.TUR_SESSION_INFO.token : false
     // console.log('token', token)
     if (token) {
       if (!config.headers) { config.headers = {} }
