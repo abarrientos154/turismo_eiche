@@ -1,15 +1,14 @@
 <template>
-  <div>
-            <q-card class="absolute-center" style="width:80%; height:85%">
-              <q-card-section style="width:100%; height:100%">
-                <div class="absolute-center" style="width:100%">
+  <div class="fullscreen row justify-center items-center bg-grey-3">
+    <q-card style="width: 450px;border-radius:12px" class="q-ma-sm q-pa-lg shadow-3">
+    <q-card-section align="center">
                 <div class="row justify-center">
                   <q-img
-                    style="width:300px"
+                    style="width:250px"
                 src="~assets/quasar-logo-full.svg"
                   ></q-img>
                 </div>
-                <div class="row justify-center text-subtitle1 text-grey">¡Bienvenido!</div>
+                <div class="text-h6 text-grey-9 text-bold">¡Bienvenido!</div>
                 <div class="row justify-center q-py-xs">
                 <q-input
                   style="margin: auto;
@@ -56,7 +55,7 @@
                 </q-input>
                 </div>
                 <div class="row justify-center">
-                <div class="q-px-sm text-subtitle2 text-grey">¿olvidaste tu contraseña?</div>
+                <div class="text-h9 text-grey-9 text-bold">¿Olvidaste la contraseña?</div>
                 </div>
                 <div class="row justify-center q-pa-md">
 
@@ -75,12 +74,10 @@
                 <div class="row justify-center">
                   <q-btn label="registrate aqui" color="primary" @click="$router.push('/registro')" />
                 </div>
-                </div>
-                <div class="row absolute-bottom justify-center q-py-sm">
-                  <div class="q-px-sm text-subtitle2 text-grey">Términos y condiciones de uso</div>
-
-                </div>
               </q-card-section>
+              <div class="row absolute-bottom justify-center q-py-sm">
+                  <div class="q-px-sm text-subtitle2 text-grey">Términos y condiciones de uso</div>
+                </div>
             </q-card>
   </div>
 </template>
