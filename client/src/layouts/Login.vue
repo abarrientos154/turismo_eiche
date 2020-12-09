@@ -1,15 +1,15 @@
 <template>
   <div>
-            <q-card class="shadow-13 absolute-center" style="width:80%; height:85%">
+            <q-card class="absolute-center" style="width:80%; height:85%">
               <q-card-section style="width:100%; height:100%">
                 <div class="absolute-center" style="width:100%">
                 <div class="row justify-center">
                   <q-img
-                    style="width:100px"
-                    src="app-logo-128x128.png"
+                    style="width:300px"
+                src="~assets/quasar-logo-full.svg"
                   ></q-img>
                 </div>
-                <div class="row justify-center text-subtitle1 text-grey">Ingresa a la plataforma</div>
+                <div class="row justify-center text-subtitle1 text-grey">¡Bienvenido!</div>
                 <div class="row justify-center q-py-xs">
                 <q-input
                   style="margin: auto;
@@ -21,13 +21,12 @@
                   placeholder="Ingrese su email"
                   autofocus
                   outlined
-                  rounded
                   :error="$v.form.email.$error"
                   error-message="Este campo es requerido"
                   @blur="$v.form.email.$touch()"
                 >
                   <template v-slot:append>
-                    <q-icon name="mail"></q-icon>
+                    <q-icon name="mail" color= "primary"></q-icon>
                   </template>
                 </q-input>
                 </div>
@@ -41,7 +40,6 @@
                   :type="isPwd ? 'password' : 'text'"
                   v-model="form.password"
                   placeholder="Ingrese su contraseña"
-                  rounded
                   outlined
                   :error="$v.form.password.$error"
                   error-message="Este campo es requerido"
@@ -51,14 +49,18 @@
                   <q-icon
                     :name="isPwd ? 'visibility_off' : 'visibility'"
                     class="cursor-pointer"
+                    color= "primary"
                     @click="isPwd = !isPwd"
                   />
                 </template>
                 </q-input>
                 </div>
+                <div class="row justify-center">
+                <div class="q-px-sm text-subtitle2 text-grey">¿olvidaste tu contraseña?</div>
+                </div>
                 <div class="row justify-center q-pa-md">
+
                   <q-btn
-                    rounded
                     icon-right="arrow_right"
                     color="primary"
                     :loading="loading"
@@ -71,13 +73,12 @@
                   </q-btn>
                 </div>
                 <div class="row justify-center">
-                  <q-btn label="registrate aqui" dense flat @click="$router.push('/registro')" />
+                  <q-btn label="registrate aqui" color="primary" @click="$router.push('/registro')" />
                 </div>
                 </div>
                 <div class="row absolute-bottom justify-center q-py-sm">
                   <div class="q-px-sm text-subtitle2 text-grey">Términos y condiciones de uso</div>
-                  <div class="q-px-sm text-subtitle2 text-grey">Página web</div>
-                  <div class="q-px-sm text-subtitle2 text-grey">Desarrollado por Eiche</div>
+
                 </div>
               </q-card-section>
             </q-card>
@@ -121,7 +122,7 @@ export default {
             if (this.user.roles[0] === 1) {
               this.$router.push('inicio_admin')
             } else if (this.user.roles[0] === 2) {
-              this.$router.push('inicio')
+              this.$router.push('home')
             }
           } else {
             console.log('error de ususario')
@@ -135,3 +136,9 @@ export default {
   }
 }
 </script>
+<style>
+  .fondo {
+  background-image: url("../../public/images.jpg");
+  background-size: cover;
+}
+</style>
