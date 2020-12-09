@@ -75,6 +75,7 @@
             <div class="animated-body" v-show="show">
               <div class="text-center q-ma-sm">
                 <q-btn color="black" icon="forward" label="Registrarse" @click="registrarse()" push />
+                <q-btn color="black" icon="arrow_back" label="Volver" push @click="$router.go(-1)" />
               </div>
             </div>
           </q-form>
@@ -105,6 +106,9 @@ export default {
     password: { required },
     password2: {
       sameAsPassword: sameAs('password')
+    },
+    form: {
+      email: { required }
     }
   },
   mounted () {
@@ -112,16 +116,19 @@ export default {
   },
   methods: {
     registrarse () {
-      console.log(this.form, 'form')
-      this.$api.post('register', this.form).then(res => {
-        if (res) { // si el registro fue correcto entro
-          this.$router.go(-1) // y lo regreso para el login, esta funcion es para volver atras entonces obvio si estoy en el registro atras esta el login
-          this.$q.notify({ // esto es para mostrar un mensaje flotante
-            message: 'Ya formas parte del Proyecto, Bienvenido',
-            color: 'positive'
-          })
-        }
-      })
+      if (!this.$v.form.$error && !this.$v.password.$error && this.$v.password2.$error) {
+        this.form.password = this.password
+        console.log(this.form, 'form')
+        this.$api.post('register', this.form).then(res => {
+          if (res) { // si el registro fue correcto entro
+            this.$router.go(-1) // y lo regreso para el login, esta funcion es para volver atras entonces obvio si estoy en el registro atras esta el login
+            this.$q.notify({ // esto es para mostrar un mensaje flotante
+              message: 'Ya formas parte del Proyecto, Bienvenido',
+              color: 'positive'
+            })
+          }
+        })
+      }
     }
   }
 }

@@ -71,7 +71,7 @@
                   </q-btn>
                 </div>
                 <div class="row justify-center">
-                  <q-btn label="registrate aqui" dense flat @click="$router.push('/register')" />
+                  <q-btn label="registrate aqui" dense flat @click="$router.push('/registro')" />
                 </div>
                 </div>
                 <div class="row absolute-bottom justify-center q-py-sm">
