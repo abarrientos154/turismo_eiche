@@ -17,7 +17,7 @@
         <q-space />
       <q-btn icon="stars" />
         <q-space />
-      <q-btn icon="stars" round dense />
+      <q-btn size="22px" icon="stars" round dense />
         <q-space />
       <q-btn icon="stars" />
         <q-space />
