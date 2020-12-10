@@ -15,14 +15,20 @@
     </div>
     </q-header>
 
-    <q-footer bordered class="bg-primary text-white">
-        <q-tabs no-caps active-color="primary" indicator-color="transparent" class="text-grey" v-model="tab">
-           <q-btn dense rounded  color="white" text-color="black" label="Standard" />
-           <q-btn dense rounded  color="white" text-color="black" label="Standard" />
-           <q-btn dense rounded  color="white" text-color="black" label="Standard" />
-           <q-btn dense rounded  color="white" text-color="black" label="Standard" />
-           <q-btn dense rounded  color="white" text-color="black" label="Standard" />
-        </q-tabs>
+    <q-footer class="bg-primary text-white">
+       <div class="q-mt-none
+">
+      <q-tabs
+        v-model="tab"
+        align="justify"
+        class="bg-primary text-white shadow-2"      >
+        <q-tab name="mails" icon="mail" />
+        <q-tab name="mails" icon="mail" />
+        <q-tab name="mails" icon="mail" />
+        <q-tab name="alarms" icon="alarm" />
+        <q-tab name="alarms" icon="alarm" />
+      </q-tabs>
+  </div>
       </q-footer>
 
     <q-page-container>
