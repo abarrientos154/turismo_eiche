@@ -3,27 +3,27 @@
     <q-header>
     <div class="bg-primary row justify-center">
       <div style="left:0px; position:absolute">
-        <q-btn round dense color="primary" icon="menu" />
+         <q-btn round>
+      <q-avatar size="50px">
+        <img src="~assets/quasar-logo-full.svg">
+      </q-avatar>
+    </q-btn>
       </div>
       <div style="right:0px; position:absolute">
-        <q-btn round dense icon="settings" color="primary" />
+        <q-btn round dense icon="settings" size="20px" color="primary" />
       </div>
     </div>
     </q-header>
 
-    <q-footer>
-      <div class="bg-primary row justify-center">
-      <q-btn icon="stars"  />
-        <q-space />
-      <q-btn icon="stars" />
-        <q-space />
-      <q-btn size="22px" icon="stars" round dense />
-        <q-space />
-      <q-btn icon="stars" />
-        <q-space />
-      <q-btn icon="stars" />
-      </div>
-    </q-footer>
+    <q-footer bordered class="bg-primary text-white">
+        <q-tabs no-caps active-color="primary" indicator-color="transparent" class="text-grey" v-model="tab">
+           <q-btn dense rounded  color="white" text-color="black" label="Standard" />
+           <q-btn dense rounded  color="white" text-color="black" label="Standard" />
+           <q-btn dense rounded  color="white" text-color="black" label="Standard" />
+           <q-btn dense rounded  color="white" text-color="black" label="Standard" />
+           <q-btn dense rounded  color="white" text-color="black" label="Standard" />
+        </q-tabs>
+      </q-footer>
 
     <q-page-container>
       <router-view />

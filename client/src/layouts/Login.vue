@@ -113,7 +113,7 @@ export default {
         })
         this.$api.post('login', this.form).then(res => {
           if (res) {
-            this.user = res.info
+            this.user = res.TUR_SESSION_INFO
             console.log('user', this.user)
             this.login(res)
             if (this.user.roles[0] === 1) {
