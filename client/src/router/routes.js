@@ -1,6 +1,7 @@
 
 const routes = [
-  { path: '/', component: () => import('layouts/Login.vue') },
+  { path: '/', component: () => import('pages/Splash.vue') },
+  { path: '/login', component: () => import('layouts/Login.vue') },
   {
     path: '/home',
     component: () => import('layouts/MainLayout.vue'),
@@ -10,7 +11,7 @@ const routes = [
     ]
   },
   { path: '/registro', component: () => import('pages/Registro.vue') },
-
+  { path: '/slider', component: () => import('pages/Slider.vue') },
   // Always leave this as last one,
   // but you can also remove it
   {
