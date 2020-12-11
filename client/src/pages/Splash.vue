@@ -5,10 +5,10 @@
         <div class="column justify-center items-center">
           <div class="text-h6 text-white text-bold">¡Bienvenidos!</div>
         </div>
-    </div>
-      <div class="column" style="right:0px; bottom:0px; position:absolute">
+        <div style="right:0px; bottom:0px; position:absolute">
         <q-btn flat color="primary" label="Siguiente" text-color="white" @click="$router.push('/slider')"/>
       </div>
+    </div>
   </div>
 </template>
 
