@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex flex-center">
-    <q-card class="absolute-center" style="width:80%; height:85% " >
-      <div class="row justify-center items-center bg-grey-3 ">
+    <q-card class="window-height" style="width:100%; height:100% " >
+      <div class="column justify-center items-center bg-grey-3 ">
        <div class="text-h6 text-grey-9 text-bold">Novedades</div>
          <q-carousel
             v-model="slide"
@@ -96,7 +96,7 @@
             padding
             arrows
             height="300px"
-            class="q-mb-xl bg-positive text-white shadow-1 rounded-borders"
+            class="bg-positive text-white shadow-1 rounded-borders"
           >
         <q-carousel-slide name="style3" class="column no-wrap flex-center">
           <q-icon name="style" size="56px" />

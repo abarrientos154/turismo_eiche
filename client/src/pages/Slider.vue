@@ -1,7 +1,7 @@
 <template>
     <div class="window-height bg-primary">
       <div class="fullscreen column justify-center items-center">
-        <div class="row justify-center items-center bg-primary ">
+        <div class="column justify-center items-center bg-primary ">
           <div class="text-h6 text-white text-bold">¡Bienvenidos!</div>
             <q-carousel
                 v-model="slide"
