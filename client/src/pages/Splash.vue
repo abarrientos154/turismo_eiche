@@ -1,7 +1,7 @@
 <template>
   <div class="window-height bg-primary">
     <div class="fullscreen column justify-center items-center">
-      <img src="~assets/quasar-logo-full.svg" alt="Logo HEvent" style="width: 50%;">
+      <img src="~assets/quasar-logo-full.svg" alt="Logo HEvent" style="width: 60%;">
         <div class="column justify-center items-center">
           <div class="text-h6 text-white text-bold">¡Bienvenidos!</div>
         </div>
