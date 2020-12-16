@@ -1,7 +1,8 @@
 <template>
-  <q-list bordered style="width: 550px" class="q-pa-md">
+  <q-page class="row q-pt-md q-mb-md">
+  <q-list bordered style="width: 100%" class="q-pa-md">
     <div class="row">
-       <q-card  v-for="(item, index) in playas" :key="index" clickable v-ripple class="bg-white" @click="$router.push(item.ruta)">
+       <q-card  v-for="(item, index) in playas" :key="index" clickable v-ripple class="bg-white" @click="$router.push(item.ruta)" style="width: 50%">
           <img :src="item.imagen">
             <q-card-section>
               <div class="text-h6">{{item.titulo}}</div>
@@ -12,6 +13,7 @@
        </q-card>
     </div>
   </q-list>
+  </q-page>
 </template>
 <script>
 export default {
