@@ -13,30 +13,39 @@
             navigation
             padding
             arrows
+            infinite
             height="300px"
             class="bg-primary text-white shadow-1 rounded-borders"
           >
-        <q-carousel-slide name="style" class="column no-wrap flex-center">
-          <q-icon name="style" size="56px" />
-            <div class="q-mt-md text-center">
+        <q-carousel-slide name="novedades" @click="$router.push('/listadoplaya')" img-src="https://i.pinimg.com/originals/b3/de/30/b3de3063fadc77bf3dab73b83ffa699d.jpg" class="column no-wrap flex-center">
+          <div class="absolute-bottom custom-caption">
+            <div class="text-h4">Playas</div>
+          </div>
+        <div class="q-mt-md text-center">
               {{ lorem }}
             </div>
         </q-carousel-slide>
-        <q-carousel-slide name="tv" class="column no-wrap flex-center">
-          <q-icon name="live_tv" size="56px" />
+        <q-carousel-slide name="rest" img-src="https://e00-expansion.uecdn.es/assets/multimedia/imagenes/2019/06/25/15614775255199.jpg" class="column no-wrap flex-center">
+          <div class="absolute-bottom custom-caption">
+            <div class="text-h4">Restaurantes</div>
+          </div>
           <div class="q-mt-md text-center">
             {{ lorem }}
           </div>
         </q-carousel-slide>
-        <q-carousel-slide name="layers" class="column no-wrap flex-center">
-          <q-icon name="layers" size="56px" />
-          <div class="q-mt-md text-center">
+        <q-carousel-slide name="hoteles" img-src="https://megaricos.com/wp-content/uploads/2019/07/shutterstock_184155629.jpg" class="column no-wrap flex-center">
+            <div class="absolute-bottom custom-caption">
+              <div class="text-h4">Hoteles</div>
+            </div>
+               <div class="q-mt-md text-center">
             {{ lorem }}
           </div>
         </q-carousel-slide>
-        <q-carousel-slide name="map" class="column no-wrap flex-center">
-          <q-icon name="terrain" size="56px" />
-          <div class="q-mt-md text-center">
+        <q-carousel-slide name="turismo" img-src="https://www.inoutviajes.com/fotos/20/12334_inoutviajes.com-tendencias-turismo-2020-_1_.jpg" class="column no-wrap flex-center">
+            <div class="absolute-bottom custom-caption">
+              <div class="text-h4">Turismo</div>
+            </div>
+             <div class="q-mt-md text-center">
             {{ lorem }}
           </div>
         </q-carousel-slide>
@@ -63,19 +72,19 @@
               {{ lorem }}
             </div>
         </q-carousel-slide>
-        <q-carousel-slide name="tv" class="column no-wrap flex-center">
+        <q-carousel-slide name="tv2" class="column no-wrap flex-center">
           <q-icon name="live_tv" size="56px" />
           <div class="q-mt-md text-center">
             {{ lorem }}
           </div>
         </q-carousel-slide>
-        <q-carousel-slide name="layers" class="column no-wrap flex-center">
+        <q-carousel-slide name="layers2" class="column no-wrap flex-center">
           <q-icon name="layers" size="56px" />
           <div class="q-mt-md text-center">
             {{ lorem }}
           </div>
         </q-carousel-slide>
-        <q-carousel-slide name="map" class="column no-wrap flex-center">
+        <q-carousel-slide name="map2" class="column no-wrap flex-center">
           <q-icon name="terrain" size="56px" />
           <div class="q-mt-md text-center">
             {{ lorem }}
@@ -104,19 +113,19 @@
               {{ lorem }}
             </div>
         </q-carousel-slide>
-        <q-carousel-slide name="tv" class="column no-wrap flex-center">
+        <q-carousel-slide name="tv3" class="column no-wrap flex-center">
           <q-icon name="live_tv" size="56px" />
           <div class="q-mt-md text-center">
             {{ lorem }}
           </div>
         </q-carousel-slide>
-        <q-carousel-slide name="layers" class="column no-wrap flex-center">
+        <q-carousel-slide name="layers3" class="column no-wrap flex-center">
           <q-icon name="layers" size="56px" />
           <div class="q-mt-md text-center">
             {{ lorem }}
           </div>
         </q-carousel-slide>
-        <q-carousel-slide name="map" class="column no-wrap flex-center">
+        <q-carousel-slide name="map3" class="column no-wrap flex-center">
           <q-icon name="terrain" size="56px" />
           <div class="q-mt-md text-center">
             {{ lorem }}
@@ -134,7 +143,7 @@ export default {
   name: 'PageIndex',
   data () {
     return {
-      slide: 'style',
+      slide: 'novedades',
       slide2: 'style2',
       slide3: 'style3',
       lorem: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque voluptatem totam, architecto cupiditate officia rerum, error dignissimos praesentium libero ab nemo.'
