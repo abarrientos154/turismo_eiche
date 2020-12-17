@@ -10,8 +10,10 @@
               {{ lorem }}
             </q-card-section>
        </q-card>
+       <q-btn size="md" color="primary" icon="arrow_back" label="Regresar" push @click="$router.go(-1)" />
     </div>
   </q-list>
+
 </template>
 <script>
 export default {
@@ -19,27 +21,27 @@ export default {
     return {
       playas: [
         {
-          titulo: 'playa 1',
+          titulo: 'Hotel 1',
           descripcion: '',
-          imagen: 'https://i.pinimg.com/originals/ce/42/6b/ce426b41c00e71b35ee34752235bd35f.jpg',
+          imagen: 'https://orsmexico.files.wordpress.com/2013/02/bellagio-las-vegas.jpg',
           ruta: ''
         },
         {
-          titulo: 'playa 2',
+          titulo: 'Hotel 2',
           descripcion: '',
-          imagen: 'https://i.pinimg.com/originals/93/76/26/93762621af81e5c1cef6d7a8687f09fd.jpg',
+          imagen: 'https://www.cronicaeconomica.com/imagenes/fotosdeldia/38663_nadal_y_lopetegui__una_sociedad_mercantil_desconocida_para_muchos.jpg',
           ruta: ''
         },
         {
-          titulo: 'playa 3',
+          titulo: 'Hotel 3',
           descripcion: '',
-          imagen: 'https://cuadrossplash.com/WebRoot/Store24/Shops/e4f1e2bd-2001-4b29-b1c7-2f79fbbb6256/5A5B/B169/918F/605A/2CF8/0A48/355B/E688/SPA1010_ml.jpeg',
+          imagen: 'https://media-cdn.tripadvisor.com/media/photo-s/11/5f/df/47/rgh-entrance-kensington.jpg',
           ruta: ''
         },
         {
-          titulo: 'playa 4',
+          titulo: 'Hotel 4',
           descripcion: '',
-          imagen: 'https://i.pinimg.com/564x/3a/e1/98/3ae19865d458dcebc4eb1dbcfbf256f7.jpg',
+          imagen: 'https://conozcasucanton.com/wp-content/uploads/sites/11/2016/07/springs-3.jpg',
           ruta: ''
         }
       ],

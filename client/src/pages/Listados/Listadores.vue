@@ -10,6 +10,7 @@
               {{ lorem }}
             </q-card-section>
        </q-card>
+      <q-btn size="md" color="primary" icon="arrow_back" label="Regresar" push @click="$router.go(-1)" />
     </div>
   </q-list>
 </template>
