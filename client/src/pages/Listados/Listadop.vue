@@ -23,25 +23,25 @@ export default {
           titulo: 'playa 1',
           descripcion: '',
           imagen: 'https://i.pinimg.com/originals/ce/42/6b/ce426b41c00e71b35ee34752235bd35f.jpg',
-          ruta: ''
+          ruta: '/detalle/playas'
         },
         {
           titulo: 'playa 2',
           descripcion: '',
           imagen: 'https://i.pinimg.com/originals/93/76/26/93762621af81e5c1cef6d7a8687f09fd.jpg',
-          ruta: ''
+          ruta: '/detalle/playas'
         },
         {
           titulo: 'playa 3',
           descripcion: '',
           imagen: 'https://cuadrossplash.com/WebRoot/Store24/Shops/e4f1e2bd-2001-4b29-b1c7-2f79fbbb6256/5A5B/B169/918F/605A/2CF8/0A48/355B/E688/SPA1010_ml.jpeg',
-          ruta: ''
+          ruta: '/detalle/playas'
         },
         {
           titulo: 'playa 4',
           descripcion: '',
           imagen: 'https://i.pinimg.com/564x/3a/e1/98/3ae19865d458dcebc4eb1dbcfbf256f7.jpg',
-          ruta: ''
+          ruta: '/detalle/playas'
         }
       ],
       lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'

@@ -24,25 +24,25 @@ export default {
           titulo: 'Hotel 1',
           descripcion: '',
           imagen: 'https://orsmexico.files.wordpress.com/2013/02/bellagio-las-vegas.jpg',
-          ruta: ''
+          ruta: '/detalle/hotel'
         },
         {
           titulo: 'Hotel 2',
           descripcion: '',
           imagen: 'https://www.cronicaeconomica.com/imagenes/fotosdeldia/38663_nadal_y_lopetegui__una_sociedad_mercantil_desconocida_para_muchos.jpg',
-          ruta: ''
+          ruta: '/detalle/hotel'
         },
         {
           titulo: 'Hotel 3',
           descripcion: '',
           imagen: 'https://media-cdn.tripadvisor.com/media/photo-s/11/5f/df/47/rgh-entrance-kensington.jpg',
-          ruta: ''
+          ruta: '/detalle/hotel'
         },
         {
           titulo: 'Hotel 4',
           descripcion: '',
           imagen: 'https://conozcasucanton.com/wp-content/uploads/sites/11/2016/07/springs-3.jpg',
-          ruta: ''
+          ruta: '/detalle/hotel'
         }
       ],
       lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
