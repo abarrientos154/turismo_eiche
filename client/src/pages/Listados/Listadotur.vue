@@ -20,27 +20,27 @@ export default {
     return {
       playas: [
         {
-          titulo: 'playa 1',
+          titulo: 'Turismo 1',
           descripcion: '',
-          imagen: 'https://i.pinimg.com/originals/ce/42/6b/ce426b41c00e71b35ee34752235bd35f.jpg',
+          imagen: 'https://altavistaclub.com/blog/wp-content/uploads/2019/01/Coliseo-Romano.jpeg',
           ruta: ''
         },
         {
-          titulo: 'playa 2',
+          titulo: 'Turismo 2',
           descripcion: '',
-          imagen: 'https://i.pinimg.com/originals/93/76/26/93762621af81e5c1cef6d7a8687f09fd.jpg',
+          imagen: 'https://media.iatiseguros.com/wp-content/uploads/2018/08/04005842/maravillas-del-mundo-7.jpg',
           ruta: ''
         },
         {
-          titulo: 'playa 3',
+          titulo: 'Turismo 3',
           descripcion: '',
-          imagen: 'https://cuadrossplash.com/WebRoot/Store24/Shops/e4f1e2bd-2001-4b29-b1c7-2f79fbbb6256/5A5B/B169/918F/605A/2CF8/0A48/355B/E688/SPA1010_ml.jpeg',
+          imagen: 'https://d36tnp772eyphs.cloudfront.net/blogs/2/2019/02/The-Taj-Mahal-940x623.jpg',
           ruta: ''
         },
         {
-          titulo: 'playa 4',
+          titulo: 'Turismo 4',
           descripcion: '',
-          imagen: 'https://i.pinimg.com/564x/3a/e1/98/3ae19865d458dcebc4eb1dbcfbf256f7.jpg',
+          imagen: 'https://cflvdg.avoz.es/default/2018/07/26/00121532606365478164256/Foto/4.jpg',
           ruta: ''
         }
       ],
