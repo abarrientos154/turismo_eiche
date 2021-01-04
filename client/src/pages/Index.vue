@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <q-card class="window-height" style="width:100%; height:100%" >
+    <q-card class="q-my-none" style="width:100%; height:100%" >
       <div class="column justify-center items-center bg-grey-3 ">
        <div class="text-h6 text-grey-9 text-bold">Novedades</div>
          <q-carousel
