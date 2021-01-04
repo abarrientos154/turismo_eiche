@@ -12,7 +12,9 @@ const routes = [
       { path: '/listadohotel', component: () => import('pages/Listados/Listadohot.vue') },
       { path: '/listadoturismo', component: () => import('pages/Listados/Listadotur.vue') },
       { path: '/detalle/:id', component: () => import('pages/Descripciones/Detalle.vue') },
-      { path: '/categoria/:id', component: () => import('pages/Categorias.vue') }
+      { path: '/categoria/:id', component: () => import('pages/Categorias.vue') },
+      { path: '/listado/:id', component: () => import('pages/Listados/Listado.vue') }
+
     ]
   },
   { path: '/registro', component: () => import('pages/Registro.vue') },
