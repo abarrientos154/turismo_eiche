@@ -49,88 +49,14 @@
           </div>
         </q-carousel-slide>
       </q-carousel>
-      <div class="column">
-       <div class="text-h6 text-grey-9 text-bold">Explora</div>
+
+      <q-card class="my-card">
+        <q-img src="https://cdn.quasar.dev/img/parallax2.jpg" basic>
+          <div class="absolute-bottom text-subtitle2 text-center">
+            Title
           </div>
-          <q-carousel
-            v-model="slide2"
-            transition-prev="scale"
-            transition-next="scale"
-            swipeable
-            animated
-            control-color="white"
-            navigation
-            padding
-            arrows
-            height="350px"
-            class="bg-secondary text-white shadow-1 rounded-borders" style="width:100%"
-          >
-        <q-carousel-slide name="style2" class="column no-wrap flex-center">
-          <q-icon name="style" size="56px" />
-            <div class="q-mt-md text-center">
-              {{ lorem }}
-            </div>
-        </q-carousel-slide>
-        <q-carousel-slide name="tv2" class="column no-wrap flex-center">
-          <q-icon name="live_tv" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
-        </q-carousel-slide>
-        <q-carousel-slide name="layers2" class="column no-wrap flex-center">
-          <q-icon name="layers" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
-        </q-carousel-slide>
-        <q-carousel-slide name="map2" class="column no-wrap flex-center">
-          <q-icon name="terrain" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
-        </q-carousel-slide>
-      </q-carousel>
-       <div class="column">
-       <div class="text-h6 text-grey-9 text-bold">Actividades</div>
-          </div>
-          <q-carousel
-            v-model="slide3"
-            transition-prev="scale"
-            transition-next="scale"
-            swipeable
-            animated
-            control-color="white"
-            navigation
-            padding
-            arrows
-            height="350px"
-            class="bg-positive text-white shadow-1 rounded-borders" style="width:100%"
-          >
-        <q-carousel-slide name="style3" class="column no-wrap flex-center">
-          <q-icon name="style" size="56px" />
-            <div class="q-mt-md text-center">
-              {{ lorem }}
-            </div>
-        </q-carousel-slide>
-        <q-carousel-slide name="tv3" class="column no-wrap flex-center">
-          <q-icon name="live_tv" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
-        </q-carousel-slide>
-        <q-carousel-slide name="layers3" class="column no-wrap flex-center">
-          <q-icon name="layers" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
-        </q-carousel-slide>
-        <q-carousel-slide name="map3" class="column no-wrap flex-center">
-          <q-icon name="terrain" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
-        </q-carousel-slide>
-      </q-carousel>
+        </q-img>
+    </q-card>
     </div>
     </q-card>
   </q-page>
@@ -139,7 +65,6 @@
 
 <script>
 export default {
-  name: 'PageIndex',
   data () {
     return {
       slide: 'novedades',
