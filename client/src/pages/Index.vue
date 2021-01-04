@@ -2,61 +2,52 @@
   <q-page class="flex flex-center">
     <q-card class="q-my-none" style="width:100%; height:100%" >
       <div class="column justify-center items-center bg-grey-3 ">
-       <div class="text-h6 text-grey-9 text-bold">Novedades</div>
-         <q-carousel
-            v-model="slide"
-            transition-prev="scale"
-            transition-next="scale"
-            swipeable
-            animated
-            control-color="white"
-            navigation
-            padding
-            arrows
-            infinite
-            height="350px"
-            class="bg-primary text-white shadow-1 rounded-borders" style="width:100%"
-          >
-        <q-carousel-slide name="novedades" @click="$router.push('/listadoplaya')" img-src="https://i.pinimg.com/originals/b3/de/30/b3de3063fadc77bf3dab73b83ffa699d.jpg" style="width:100%" height="50%"
- >
-          <div class="absolute-bottom custom-caption">
-            <div class="text-h4">Playas</div>
-          </div>
+       <div class="text-h6 text-grey-9 text-bold"> Explora destinos </div>
 
-        </q-carousel-slide>
-        <q-carousel-slide name="rest" @click="$router.push('/listadorestaurante')" img-src="https://e00-expansion.uecdn.es/assets/multimedia/imagenes/2019/06/25/15614775255199.jpg" class="column no-wrap flex-center">
-          <div class="absolute-bottom custom-caption">
-            <div class="text-h4">Restaurantes</div>
-          </div>
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
-        </q-carousel-slide>
-        <q-carousel-slide name="hoteles" @click="$router.push('/listadohotel')" img-src="https://megaricos.com/wp-content/uploads/2019/07/shutterstock_184155629.jpg" class="column no-wrap flex-center">
-            <div class="absolute-bottom custom-caption">
-              <div class="text-h4">Hoteles</div>
+        <q-card class="my-card" @click="$router.push('/listadoturismo')">
+          <q-img src="https://okdiario.com/img/2020/04/15/aprende-a-explorar-la-casa-con-los-ninos-durante-el-confinamiento.jpg" style="height:400px" >
+            <div class="absolute-bottom text-h6">
+               Explora destinos
             </div>
-               <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
-        </q-carousel-slide>
-        <q-carousel-slide name="turismo" @click="$router.push('/listadoturismo')" img-src="https://www.inoutviajes.com/fotos/20/12334_inoutviajes.com-tendencias-turismo-2020-_1_.jpg" class="column no-wrap flex-center">
-            <div class="absolute-bottom custom-caption">
-              <div class="text-h4">Turismo</div>
-            </div>
-             <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
-        </q-carousel-slide>
-      </q-carousel>
+          </q-img>
+        </q-card>
 
-      <q-card class="my-card">
-        <q-img src="https://cdn.quasar.dev/img/parallax2.jpg" basic>
-          <div class="absolute-bottom text-subtitle2 text-center">
-            Title
-          </div>
-        </q-img>
-    </q-card>
+        <div class="text-h6 text-grey-9 text-bold">Restaurantes y Pubs</div>
+<q-card class="my-card" @click="$router.push('/listadoturismo')">
+          <q-img src="https://traveler.marriott.com/es/wp-content/uploads/sites/2/2018/11/SpiceMarket_cDanielAlvarez.jpg" style="height:400px" >
+            <div class="absolute-bottom text-h6">
+               Restaurantes y Pubs
+            </div>
+          </q-img>
+        </q-card>
+
+ <div class="text-h6 text-grey-9 text-bold">Hospedaje</div>
+
+        <q-card class="my-card" @click="$router.push('/listadoturismo')">
+          <q-img src="https://i0.wp.com/escapesporelmundo.com/wp-content/uploads/2019/01/hotel-post-e1551840906962.png?fit=920%2C518&ssl=1" style="height:400px" >
+            <div class="absolute-bottom text-h6">
+               Hospedaje
+            </div>
+          </q-img>
+        </q-card>
+
+        <div class="text-h6 text-grey-9 text-bold">Servicios de transporte</div>
+<q-card class="my-card" @click="$router.push('/listadoturismo')">
+          <q-img src="https://media.informabtl.com/wp-content/uploads/2019/12/4f38f069-servicio-de-transporte-privado.jpg" style="height:400px" >
+            <div class="absolute-bottom text-h6">
+               Servicios de transporte
+            </div>
+          </q-img>
+        </q-card>
+
+<div class="text-h6 text-grey-9 text-bold">Actividades</div>
+<q-card class="my-card" @click="$router.push('/listadoturismo')">
+          <q-img src="https://cucunver.com/blog/wp-content/uploads/2018/11/actividades_asociaciones.jpg" style="height:400px" >
+            <div class="absolute-bottom text-h6">
+               Actividades
+            </div>
+          </q-img>
+        </q-card>
     </div>
     </q-card>
   </q-page>
@@ -76,6 +67,10 @@ export default {
 }
 </script>
 <style>
-.clearfix {
-  overflow: auto;
-}</style>
+.clearfix { overflow: auto; }
+</style>
+<style lang="sass" scoped>
+.my-card
+  width: 100%
+  height:50%
+</style>
