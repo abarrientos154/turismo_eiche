@@ -7,10 +7,6 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue') },
-      { path: '/listadoplaya', component: () => import('pages/Listados/Listadop.vue') },
-      { path: '/listadorestaurante', component: () => import('pages/Listados/Listadores.vue') },
-      { path: '/listadohotel', component: () => import('pages/Listados/Listadohot.vue') },
-      { path: '/listadoturismo', component: () => import('pages/Listados/Listadotur.vue') },
       { path: '/detalle/:id', component: () => import('pages/Descripciones/Detalle.vue') },
       { path: '/categoria/:id', component: () => import('pages/Categorias.vue') },
       { path: '/listado/:id', component: () => import('pages/Listados/Listado.vue') }
