@@ -57,17 +57,15 @@ export default {
   },
   methods: {
     obtener_categorias () {
-      console.log('csm')
       this.$api.get('categoria').then(res => {
         if (res) {
           console.log(res, 'csm')
         }
       })
-    },
-    mounted () {
-      console.log('csm')
-      this.obtener_categorias()
     }
+  },
+  mounted () {
+    this.obtener_categorias()
   }
 }
 
