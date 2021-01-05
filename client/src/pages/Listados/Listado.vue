@@ -5,7 +5,7 @@
        <q-card  v-for="(item, index) in opciones" :key="index" clickable v-ripple class="bg-white" @click="$router.push(item.ruta)" style="width: 45%">
           <img :src="item.img" style="height:300px">
             <q-card-section>
-              <div class="text-h6">{{item.titulo}}</div>
+              <div class="text-h6">{{item.nombre}}</div>
             </q-card-section>
             <q-card-section class="q-pt-none">
               {{ item.descripcion }}
@@ -28,21 +28,21 @@ export default {
   },
   mounted () {
     console.log(this.id, 'este es el id')
-    this.obtener_subcategorias()
-    this.verificarId()
+    this.obtener_turismos()
+    this.turismoId()
   },
   methods: {
-    verificarId () {
-      this.$api.get('idsub/' + this.id).then(res => {
+    turismoId () {
+      this.$api.get('turis/' + this.id).then(res => {
         if (res) {
           this.opciones = res
         }
       })
     },
-    obtener_subcategorias () {
-      this.$api.get('sub').then(res => {
+    obtener_turismos () {
+      this.$api.get('turismo').then(res => {
         if (res) {
-          console.log(res, 'subcategorias')
+          console.log(res, 'turismos')
           this.opciones = res
         }
       })

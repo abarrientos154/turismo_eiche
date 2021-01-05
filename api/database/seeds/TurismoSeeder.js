@@ -24,7 +24,9 @@ const data = [
     ubicacion: {
       lat:39.06381859766945,
       lng:-101.56402439607774
+     }
     },
+    {
     id: 2,
     subCategoria_id: 1,
     nombre: 'Ruinas de Chile',
@@ -34,7 +36,9 @@ const data = [
     ubicacion: {
       lat:39.06381859766945,
       lng:-101.56402439607774
-    },
+    }
+  },
+  {
     id: 3,
     subCategoria_id: 1,
     nombre: 'Playa de Chile',
@@ -44,7 +48,9 @@ const data = [
     ubicacion: {
       lat:39.06381859766945,
       lng:-101.56402439607774
-    },
+    }
+  },
+   {
     id: 4,
     subCategoria_id: 2,
     nombre: 'Restaurante de Chile',
@@ -58,7 +64,9 @@ const data = [
     ubicacion: {
       lat:39.06381859766945,
       lng:-101.56402439607774
-    },
+    }
+  },
+  {
     id: 5,
     subCategoria_id: 3,
     nombre: 'Hotel de Chile',
@@ -72,7 +80,9 @@ const data = [
     ubicacion: {
       lat:39.06381859766945,
       lng:-101.56402439607774
-    },
+    }
+  },
+  {
     id: 6,
     subCategoria_id: 3,
     nombre: 'Residencia de Chile',
@@ -86,7 +96,9 @@ const data = [
     ubicacion: {
       lat:39.06381859766945,
       lng:-101.56402439607774
+     }
     },
+    {
     id: 7,
     subCategoria_id: 4,
     nombre: 'Taxi de Chile',
@@ -100,7 +112,9 @@ const data = [
     ubicacion: {
       lat:39.06381859766945,
       lng:-101.56402439607774
+     }
     },
+    {
     id: 8,
     subCategoria_id: 4,
     nombre: 'Bus de Chile',
@@ -114,7 +128,9 @@ const data = [
     ubicacion: {
       lat:39.06381859766945,
       lng:-101.56402439607774
+     }
     },
+    {
     id: 9,
     subCategoria_id: 5,
     nombre: 'Paseos de Chile',
@@ -128,7 +144,9 @@ const data = [
     ubicacion: {
       lat:39.06381859766945,
       lng:-101.56402439607774
+     }
     },
+    {
     id: 10,
     subCategoria_id: 5,
     nombre: 'Artesania de Chile',
@@ -142,7 +160,9 @@ const data = [
     ubicacion: {
       lat:39.06381859766955,
       lng:-101.56502439607774
+     }
     },
+    {
     id: 11,
     subCategoria_id: 5,
     nombre: 'Trekking de Chile',
@@ -156,7 +176,9 @@ const data = [
     ubicacion: {
       lat:39.06381859766945,
       lng:-101.56402439607774
+     }
     },
+    {
     id: 12,
     subCategoria_id: 5,
     nombre: 'Buceo de Chile',
@@ -170,7 +192,9 @@ const data = [
     ubicacion: {
       lat:39.06381859766945,
       lng:-101.56402439607774
+     }
     },
+    {
     id: 13,
     subCategoria_id: 5,
     nombre: 'Bodyboard y Surf de Chile',
@@ -184,8 +208,8 @@ const data = [
     ubicacion: {
       lat:39.06381859766945,
       lng:-101.56402439607774
-    },
-  }
+     }
+    }
 ]
 
 class TurismoSeeder {
@@ -201,6 +225,10 @@ class TurismoSeeder {
         turismo.puntuacion = data[i].puntuacion
         turismo.descripcion = data[i].descripcion
         turismo.ubicacion = data[i].ubicacion
+        turismo.numerocontact = data[i].numerocontact
+        turismo.direccion = data[i].direccion
+        turismo.correocontact = data[i].correocontact
+        turismo.pagina = data[i].pagina
         await turismo.save()
       }
     }
