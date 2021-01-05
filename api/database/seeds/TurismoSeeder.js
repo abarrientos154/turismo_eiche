@@ -18,7 +18,7 @@ const data = [
     id: 1,
     subCategoria_id: 1,
     nombre: 'Ciudad de Chile',
-    img: 'Aqui va la url de la imagen que va a mostrar en el front',
+    img: 'https://www.vuelaviajes.com/wp-content/2017/01/Santiago-de-Chile-destacada.jpg',
     puntuacion: 2,
     descripcion: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil at soluta possimus ipsa.',
     ubicacion: {
@@ -30,7 +30,7 @@ const data = [
     id: 2,
     subCategoria_id: 2,
     nombre: 'Ruinas de Chile',
-    img: 'Aqui va la url de la imagen que va a mostrar en el front',
+    img: 'https://radiochilena.cl/wp-content/uploads/2017/11/Palacio-de-la-Moneda-chile.jpg',
     puntuacion: 2,
     descripcion: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil at soluta possimus ipsa.',
     ubicacion: {
@@ -42,7 +42,7 @@ const data = [
     id: 3,
     subCategoria_id: 3,
     nombre: 'Playa de Chile',
-    img: 'Aqui va la url de la imagen que va a mostrar en el front',
+    img: 'https://enviajes.cl/wp-content/uploads/2014/11/Mejores-playas-de-Chile-Playa-Cavancha.jpg',
     puntuacion: 2,
     descripcion: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil at soluta possimus ipsa.',
     ubicacion: {
@@ -58,7 +58,7 @@ const data = [
     direccion: '',
     correocontact: '',
     pagina: '',
-    img: 'Aqui va la url de la imagen que va a mostrar en el front',
+    img: 'https://traveler.marriott.com/es/wp-content/uploads/sites/2/2018/11/SpiceMarket_cDanielAlvarez.jpg',
     puntuacion: 2,
     descripcion: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil at soluta possimus ipsa.',
     ubicacion: {
@@ -74,7 +74,7 @@ const data = [
     direccion: '',
     correocontact: '',
     pagina: '',
-    img: 'Aqui va la url de la imagen que va a mostrar en el front',
+    img: 'https://www.elinformadorchile.cl/wp-content/uploads/2020/09/253337782.jpg',
     puntuacion: 2,
     descripcion: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil at soluta possimus ipsa.',
     ubicacion: {
@@ -90,7 +90,7 @@ const data = [
     direccion: '',
     correocontact: '',
     pagina: '',
-    img: 'Aqui va la url de la imagen que va a mostrar en el front',
+    img: 'https://q-xx.bstatic.com/xdata/images/hotel/max500/175180529.jpg?k=b28fe8177867bda800b5466f960ddd9b80c5c6282f52d18834232dfe6aa6fcf6&o=',
     puntuacion: 2,
     descripcion: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil at soluta possimus ipsa.',
     ubicacion: {
@@ -106,7 +106,7 @@ const data = [
     direccion: '',
     correocontact: '',
     pagina: '',
-    img: 'Aqui va la url de la imagen que va a mostrar en el front',
+    img: 'https://ohmygeek.net/wp-content/uploads/2020/06/taxis-en-santiago-910x512.jpg',
     puntuacion: 2,
     descripcion: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil at soluta possimus ipsa.',
     ubicacion: {
@@ -122,7 +122,7 @@ const data = [
     direccion: '',
     correocontact: '',
     pagina: '',
-    img: 'Aqui va la url de la imagen que va a mostrar en el front',
+    img: 'https://www.volvobuses.com.ar/content/dam/volvo/volvo-buses/markets/argentina/news/2020/1860x1050_Chile_C.jpg/_jcr_content/renditions/1860x1050_Chile_C-newsintro.jpg',
     puntuacion: 2,
     descripcion: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil at soluta possimus ipsa.',
     ubicacion: {
@@ -138,7 +138,7 @@ const data = [
     direccion: '',
     correocontact: '',
     pagina: '',
-    img: 'Aqui va la url de la imagen que va a mostrar en el front',
+    img: 'https://blog.doggiedoor.com.mx/wp-content/uploads/2014/11/dsc_6644-945x628.jpg',
     puntuacion: 2,
     descripcion: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil at soluta possimus ipsa.',
     ubicacion: {
@@ -154,7 +154,7 @@ const data = [
     direccion: '',
     correocontact: '',
     pagina: '',
-    img: 'Aqui va la url de la imagen que va a mostrar en el front',
+    img: 'https://www.nacion.com/resizer/YJSdTHKW80zMxdhCUTls6Ql38Zc=/600x0/center/middle/filters:quality(100)/arc-anglerfish-arc2-prod-gruponacion.s3.amazonaws.com/public/NMAHXC7FE5FP7PPGG2YPO4WKMA.jpg',
     puntuacion: 2,
     descripcion: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil at soluta possimus ipsa.',
     ubicacion: {
@@ -170,7 +170,7 @@ const data = [
     direccion: '',
     correocontact: '',
     pagina: '',
-    img: 'Aqui va la url de la imagen que va a mostrar en el front',
+    img: 'https://www.trekkingchile.com/es/wp-content/uploads/sites/4/2018/11/caminatas-de-chile.jpg',
     puntuacion: 2,
     descripcion: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil at soluta possimus ipsa.',
     ubicacion: {
@@ -186,7 +186,7 @@ const data = [
     direccion: '',
     correocontact: '',
     pagina: '',
-    img: 'Aqui va la url de la imagen que va a mostrar en el front',
+    img: 'https://www.revistaenfoque.cl/wp-content/uploads/2017/05/descubre-el-buceo-1.jpg',
     puntuacion: 2,
     descripcion: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil at soluta possimus ipsa.',
     ubicacion: {
@@ -202,7 +202,7 @@ const data = [
     direccion: '',
     correocontact: '',
     pagina: '',
-    img: 'Aqui va la url de la imagen que va a mostrar en el front',
+    img: 'https://tiendadesurf.cl/wp-content/uploads/2015/01/vitrine-prosutos2.jpg',
     puntuacion: 2,
     descripcion: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil at soluta possimus ipsa.',
     ubicacion: {

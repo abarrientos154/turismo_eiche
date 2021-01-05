@@ -44,6 +44,8 @@ addPrefixToGroup(
     Route.get("idsub/:id", "SubCategoriaController.show")
     Route.get("turismo", "TurismoController.index")
     Route.get("turis/:id", "TurismoController.show")
+    Route.get("detalle/:id", "DetalleController.show")
+
 
 
   })
