@@ -74,6 +74,11 @@
                 <div class="row justify-center">
                   <q-btn label="registrate aqui" color="primary" @click="$router.push('/registro')" />
                 </div>
+
+                <div class="colunm justify-center q-pa-md">
+                <p align="center" style="cursor:pointer"><a class="text-bold text-primary" @click="$router.push('/home')">Omitir</a></p>
+                                </div>
+
               </q-card-section>
               <div class="row absolute-bottom justify-center q-py-sm">
                   <div class="q-px-sm text-subtitle2 text-grey">Términos y condiciones de uso</div>
