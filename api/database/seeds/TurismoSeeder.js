@@ -28,7 +28,7 @@ const data = [
     },
     {
     id: 2,
-    subCategoria_id: 1,
+    subCategoria_id: 2,
     nombre: 'Ruinas de Chile',
     img: 'Aqui va la url de la imagen que va a mostrar en el front',
     puntuacion: 2,
@@ -40,7 +40,7 @@ const data = [
   },
   {
     id: 3,
-    subCategoria_id: 1,
+    subCategoria_id: 3,
     nombre: 'Playa de Chile',
     img: 'Aqui va la url de la imagen que va a mostrar en el front',
     puntuacion: 2,
@@ -52,7 +52,7 @@ const data = [
   },
    {
     id: 4,
-    subCategoria_id: 2,
+    subCategoria_id: 4,
     nombre: 'Restaurante de Chile',
     numerocontact: '',
     direccion: '',
@@ -68,7 +68,7 @@ const data = [
   },
   {
     id: 5,
-    subCategoria_id: 3,
+    subCategoria_id: 5,
     nombre: 'Hotel de Chile',
     numerocontact: '',
     direccion: '',
@@ -84,7 +84,7 @@ const data = [
   },
   {
     id: 6,
-    subCategoria_id: 3,
+    subCategoria_id: 6,
     nombre: 'Residencia de Chile',
     numerocontact: '',
     direccion: '',
@@ -100,7 +100,7 @@ const data = [
     },
     {
     id: 7,
-    subCategoria_id: 4,
+    subCategoria_id: 7,
     nombre: 'Taxi de Chile',
     numerocontact: '',
     direccion: '',
@@ -116,7 +116,7 @@ const data = [
     },
     {
     id: 8,
-    subCategoria_id: 4,
+    subCategoria_id: 8,
     nombre: 'Bus de Chile',
     numerocontact: '',
     direccion: '',
@@ -132,7 +132,7 @@ const data = [
     },
     {
     id: 9,
-    subCategoria_id: 5,
+    subCategoria_id: 9,
     nombre: 'Paseos de Chile',
     numerocontact: '',
     direccion: '',
@@ -148,7 +148,7 @@ const data = [
     },
     {
     id: 10,
-    subCategoria_id: 5,
+    subCategoria_id: 10,
     nombre: 'Artesania de Chile',
     numerocontact: '',
     direccion: '',
@@ -164,7 +164,7 @@ const data = [
     },
     {
     id: 11,
-    subCategoria_id: 5,
+    subCategoria_id: 11,
     nombre: 'Trekking de Chile',
     numerocontact: '',
     direccion: '',
@@ -180,7 +180,7 @@ const data = [
     },
     {
     id: 12,
-    subCategoria_id: 5,
+    subCategoria_id: 12,
     nombre: 'Buceo de Chile',
     numerocontact: '',
     direccion: '',
@@ -196,7 +196,7 @@ const data = [
     },
     {
     id: 13,
-    subCategoria_id: 5,
+    subCategoria_id: 13,
     nombre: 'Bodyboard y Surf de Chile',
     numerocontact: '',
     direccion: '',

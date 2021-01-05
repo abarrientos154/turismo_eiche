@@ -58,7 +58,7 @@ class TurismoController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
-    let turismo = (await Turismo.query().where({categoria_id: parseInt(params.id)}).fetch()).toJSON()
+    let turismo = (await Turismo.query().where({subCategoria_id: parseInt(params.id)}).fetch()).toJSON()
     response.send(turismo)
   }
   /**

@@ -28,21 +28,12 @@ export default {
   },
   mounted () {
     console.log(this.id, 'este es el id')
-    this.obtener_turismos()
     this.turismoId()
   },
   methods: {
     turismoId () {
       this.$api.get('turis/' + this.id).then(res => {
         if (res) {
-          this.opciones = res
-        }
-      })
-    },
-    obtener_turismos () {
-      this.$api.get('turismo').then(res => {
-        if (res) {
-          console.log(res, 'turismos')
           this.opciones = res
         }
       })
