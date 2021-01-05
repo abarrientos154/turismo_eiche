@@ -58,7 +58,7 @@ class SubCategoriaController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
-    let subcategoria = (await Sub.query().where({categoria_id: params.id}).fetch()).toJSON()
+    let subcategoria = (await Sub.query().where({categoria_id: parseInt(params.id)}).fetch()).toJSON()
     console.log(params.id, 'mrk')
     response.send(subcategoria)
   }
