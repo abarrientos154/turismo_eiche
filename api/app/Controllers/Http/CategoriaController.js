@@ -7,6 +7,7 @@
 /**
  * Resourceful controller for interacting with categorias
  */
+const Categoria = use("App/Models/Categoria")
 class CategoriaController {
   /**
    * Show a list of all categorias.
@@ -18,6 +19,9 @@ class CategoriaController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
+    let todo = (await Categoria.all()).toJSON()
+    console.log(todo , 'pendiente perro caliente')
+    response.send(todo)
   }
 
   /**

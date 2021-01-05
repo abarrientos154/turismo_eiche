@@ -52,13 +52,25 @@
 export default {
   data () {
     return {
-      slide: 'novedades',
-      slide2: 'style2',
-      slide3: 'style3',
       lorem: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque voluptatem totam, architecto cupiditate officia rerum, error dignissimos praesentium libero ab nemo.'
+    }
+  },
+  methods: {
+    obtener_categorias () {
+      console.log('csm')
+      this.$api.get('categoria').then(res => {
+        if (res) {
+          console.log(res, 'csm')
+        }
+      })
+    },
+    mounted () {
+      console.log('csm')
+      this.obtener_categorias()
     }
   }
 }
+
 </script>
 <style>
 .clearfix { overflow: auto; }
