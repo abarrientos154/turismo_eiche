@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="q-pa-md row items-start q-gutter-md">
     <q-card class="my-card">
       <q-img :src="rutaimagen"></q-img>
@@ -18,6 +19,7 @@
       </q-card-section>
     </q-card>
       <q-btn size="md" color="primary" icon="arrow_back" label="Regresar" push @click="$router.go(-1)" />
+   </div>
   </div>
 </template>
 <script>

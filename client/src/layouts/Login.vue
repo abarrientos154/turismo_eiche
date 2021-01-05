@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="fullscreen row justify-center items-center bg-grey-3">
     <q-card style="width: 450px;border-radius:12px" class="q-ma-sm q-pa-lg shadow-3">
     <q-card-section align="center">
@@ -84,6 +85,7 @@
                   <div class="q-px-sm text-subtitle2 text-grey">Términos y condiciones de uso</div>
                 </div>
             </q-card>
+   </div>
   </div>
 </template>
 
@@ -138,9 +140,3 @@ export default {
   }
 }
 </script>
-<style>
-  .fondo {
-  background-image: url("../../public/images.jpg");
-  background-size: cover;
-}
-</style>

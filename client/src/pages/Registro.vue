@@ -1,5 +1,6 @@
 <template>
-  <q-layout class="fondo">
+<div>
+  <q-layout>
     <q-page-container>
       <q-page class="row justify-center">
          <div class="col column items-center justify-center">
@@ -85,6 +86,7 @@
       </q-page>
     </q-page-container>
   </q-layout>
+</div>
 </template>
 
 <script>
@@ -137,8 +139,4 @@ export default {
 .clar {
   background-color: rgba(253, 249, 249, 0.808);
   }
-  .fondo {
-  background-image: url("../../public/images.jpg");
-  background-size: cover;
-}
 </style>

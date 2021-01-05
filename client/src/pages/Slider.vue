@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="window-height bg-primary">
       <div class="fullscreen column justify-center items-center">
         <div class="column justify-center items-center bg-primary ">
@@ -41,6 +42,7 @@
         </div>
       </div>
     </div>
+</div>
 </template>
 
 <script>

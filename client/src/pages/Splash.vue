@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="window-height bg-primary">
     <div class="fullscreen column justify-center items-center">
       <img src="~assets/quasar-logo-full.svg" alt="Logo HEvent" style="width: 30%;">
@@ -10,6 +11,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
