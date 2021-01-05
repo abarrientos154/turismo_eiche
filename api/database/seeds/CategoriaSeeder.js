@@ -24,7 +24,7 @@ const data = [
     id: 2,
     name: 'restaurantes',
     titulo: 'Restaurantes y Pubs',
-    img: 'Aqui va la url de la imagen'
+    img: 'https://traveler.marriott.com/es/wp-content/uploads/sites/2/2018/11/SpiceMarket_cDanielAlvarez.jpg'
   },
   {
     id: 3,

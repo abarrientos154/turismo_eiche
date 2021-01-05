@@ -46,7 +46,7 @@ const data = [
     name: 'restaurantes',
     categoria_id: 2,
     titulo: 'Restaurantes y Pubs',
-    img: 'Aqui va la url de la imagen que va a mostrar en el front',
+    img: 'https://traveler.marriott.com/es/wp-content/uploads/sites/2/2018/11/SpiceMarket_cDanielAlvarez.jpg',
     descripcion:'Lorem ipsum dolor sit amet'
 
   },

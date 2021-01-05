@@ -7,7 +7,7 @@
 /**
  * Resourceful controller for interacting with subcategorias
  */
-const sub = use("App/Models/SubCategoria")
+const Sub = use("App/Models/SubCategoria")
 
 class SubCategoriaController {
   /**
@@ -20,6 +20,9 @@ class SubCategoriaController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
+    let todo = (await Sub.all()).toJSON()
+    console.log(todo , 'pendiente perro caliente x2')
+    response.send(todo)
   }
 
   /**
@@ -55,8 +58,9 @@ class SubCategoriaController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
-    const sub = await SubCategoria.find(params.id)
-    response.send(sub)
+    let subcategoria = (await Sub.query().where({categoria_id: params.id}).fetch()).toJSON()
+    console.log(params.id, 'mrk')
+    response.send(subcategoria)
   }
 
   /**
