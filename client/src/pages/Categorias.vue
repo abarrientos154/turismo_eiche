@@ -12,7 +12,7 @@
             </q-card-section>
        </q-card>
     </div>
-    <div class="column justify-center items-center bg-grey-3 ">
+    <div class="column justify-center items-center">
       <q-btn size="md" color="primary" icon="arrow_back" label="Regresar" push @click="$router.go(-1)" />
       </div>
   </q-list>

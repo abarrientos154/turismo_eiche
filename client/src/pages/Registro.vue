@@ -116,15 +116,13 @@ export default {
   },
   methods: {
     registrarse () {
-      console.log(this.form, 'form')
       this.$v.$touch()
       if (!this.$v.form.$error && !this.$v.password.$error && !this.$v.password2.$error) {
         this.form.password = this.password
-        console.log(this.form, 'form con clave')
         this.$api.post('register', this.form).then(res => {
-          if (res) { // si el registro fue correcto entro
-            this.$router.go(-1) // y lo regreso para el login, esta funcion es para volver atras entonces obvio si estoy en el registro atras esta el login
-            this.$q.notify({ // esto es para mostrar un mensaje flotante
+          if (res) {
+            this.$router.go(-1)
+            this.$q.notify({
               message: 'Ya formas parte del Proyecto, Bienvenido',
               color: 'positive'
             })

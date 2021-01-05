@@ -196,7 +196,7 @@ class TurismoSeeder {
         await Turismo.create(data[i])
       } else {
         turismo.subCategoria_id = data[i].subCategoria_id
-        turismo.titulo = data[i].titulo
+        turismo.nombre = data[i].nombre
         turismo.img = data[i].img
         turismo.puntuacion = data[i].puntuacion
         turismo.descripcion = data[i].descripcion

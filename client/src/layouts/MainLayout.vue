@@ -75,15 +75,6 @@ export default {
       data: {}
     }
   },
-  methods: {
-    cargar_datos () {
-      this.data = JSON.parse(localStorage.getItem('PRUEBAS_NAEL_INFO'))
-      console.log(this.data, 'mostrando data')
-    }
-  },
-  mounted () {
-    this.cargar_datos()
-  }
 }
 </script>
 
