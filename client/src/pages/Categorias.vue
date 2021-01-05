@@ -27,15 +27,13 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$route.params.id, 'eddddddddd')
-    console.log(this.id, 'chicha')
+    console.log(this.id, 'este es el id')
     this.obtener_subcategorias()
     this.verificarId()
   },
   methods: {
-    verificarId (id) {
-      console.log(this.id, 'chicha2')
-      this.$api.get('idsub/' + id).then(res => {
+    verificarId () {
+      this.$api.get('idsub/' + this.id).then(res => {
         if (res) {
           this.opciones = res
         }
@@ -44,7 +42,7 @@ export default {
     obtener_subcategorias () {
       this.$api.get('sub').then(res => {
         if (res) {
-          console.log(res, 'ahi ta pe')
+          console.log(res, 'subcategorias')
           this.opciones = res
         }
       })

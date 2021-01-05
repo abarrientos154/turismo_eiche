@@ -28,7 +28,7 @@ export default {
     obtener_categorias () {
       this.$api.get('categoria').then(res => {
         if (res) {
-          console.log(res, 'ahi ta')
+          console.log(res, 'categorias')
           this.categorias = res
         }
       })

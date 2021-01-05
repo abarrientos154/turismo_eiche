@@ -21,7 +21,7 @@ class SubCategoriaController {
    */
   async index ({ request, response, view }) {
     let todo = (await Sub.all()).toJSON()
-    console.log(todo , 'pendiente perro caliente x2')
+    console.log(todo , 'subcategorias')
     response.send(todo)
   }
 
@@ -59,7 +59,6 @@ class SubCategoriaController {
    */
   async show ({ params, request, response, view }) {
     let subcategoria = (await Sub.query().where({categoria_id: parseInt(params.id)}).fetch()).toJSON()
-    console.log(params.id, 'mrk')
     response.send(subcategoria)
   }
 

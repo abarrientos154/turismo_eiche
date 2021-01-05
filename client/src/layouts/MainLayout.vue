@@ -75,15 +75,14 @@ export default {
       data: {}
     }
   },
-  methods: { // aqui dentro como ya te habia dicho van todas las funciones que puedes llamar desde un boton o etc
+  methods: {
     cargar_datos () {
-      this.data = JSON.parse(localStorage.getItem('PRUEBAS_NAEL_INFO')) // esto es para obtener los datos que se han guardado en el localstorage osea localmente cuando se inicio sesion, cuand se iinicia sesion los datos del usuario se guardan en PRUEBAS_NAEL_INFO
-      console.log(this.data, 'mostrando data') // en la consola puedes ver que otros datos guardo localmente
+      this.data = JSON.parse(localStorage.getItem('PRUEBAS_NAEL_INFO'))
+      console.log(this.data, 'mostrando data')
     }
   },
-  mounted () { // esto se coloca cuando quieres que cuando esta pagina abra se ejecuten ciertas funciones
-    this.cargar_datos() // aqui estoy llamando a cargar datos para que cuando se abra esta pagina obviamente cargue los datos ejecuntado la funcion que cree alli arriba en los METHODS
-    console.log(this.$route.meta.titulo, 'RUTAAAAAAAAAAAAAAAAAAAAAAAAA')
+  mounted () {
+    this.cargar_datos()
   }
 }
 </script>

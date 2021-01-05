@@ -20,7 +20,7 @@ class CategoriaController {
    */
   async index ({ request, response, view }) {
     let todo = (await Categoria.all()).toJSON()
-    console.log(todo , 'pendiente perro caliente')
+    console.log(todo , 'categorias')
     response.send(todo)
   }
 
