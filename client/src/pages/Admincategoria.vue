@@ -9,36 +9,44 @@
     >
       <q-step
         :name="1"
-        title="Select campaign settings"
-        icon="settings"
+        title="Selecciona una SubCategoria"
+        icon="create_new_folder"
         :done="step > 1"
       >
-        For each ad campaign that you create, you can control how much you're willing to
-        spend on clicks and conversions, which networks and geographical locations you want
-        your ads to show on, and more.
+       <q-select rounded filled v-model="SubCategoria" :options="options" label="Selecciona" />
       </q-step>
 
       <q-step
         :name="2"
-        title="Create an ad group"
-        caption="Optional"
+        title="Selecciona una SubCategoria"
         icon="create_new_folder"
         :done="step > 2"
       >
-        An ad group contains one or more ads which target a shared set of keywords.
+        <div class="column justify-center items-center">
+          <div class="q-pa-md">
+    <q-card style="width: 450px;border-radius:12px" class="q-ma-sm q-pa-lg shadow-3">
+                      <div class="text-h6 text-grey-9 text-bold">Ingresa los Datos Correspondientes</div>
+              <form @submit.prevent.stop="onSubmit" @reset.prevent.stop="onReset" class="q-gutter-md">
+              <q-input ref="titulo" v-model="form.titulo" label="Introduce el titulo *"  />
+              <q-input ref="descripcion" v-model="form.descripcion" label="Introduce una descripcion *" />
+              <q-file
+                  style="max-width: 300px"
+                  v-model="filesMaxNumber"
+                  label="Maximo de imagenes permitidas (10)"
+                  multiple
+                  max-files="10"
+                  accept=".jpg,.png, image/*"
+                  @rejected="onRejected"
+                />
+            </form>
+             </q-card>
+          </div>
+        </div>
+        <q-btn label="Limpiar Campos" push color="white" text-color="primary" @click="reset" class="q-mb-md" />
       </q-step>
 
       <q-step
-        :name="3"
-        title="Ad template"
-        icon="assignment"
-        disable
-      >
-        This step won't show up because it is disabled.
-      </q-step>
-
-      <q-step
-        :name="4"
+        :name="2"
         title="Create an ad"
         icon="add_comment"
       >
@@ -49,7 +57,7 @@
 
       <template v-slot:navigation>
         <q-stepper-navigation>
-          <q-btn @click="$refs.stepper.next()" color="primary" :label="step === 4 ? 'Finish' : 'Continue'" />
+          <q-btn @click="$refs.stepper.next()" color="primary" :label="step === 2 ? 'Finish' : 'Continue'" />
           <q-btn v-if="step > 1" flat color="primary" @click="$refs.stepper.previous()" label="Back" class="q-ml-sm" />
         </q-stepper-navigation>
       </template>
@@ -61,7 +69,28 @@
 export default {
   data () {
     return {
-      step: 1
+      step: 1,
+      filesMaxNumber: null,
+      SubCategoria: null,
+      options: [
+        'Ciudades', 'Ruinas y Lugares históricos', 'Playas'
+      ],
+      form: {}
+    }
+  },
+  methods: {
+    onRejected (rejectedEntries) {
+      // Notify plugin needs to be installed
+      // https://quasar.dev/quasar-plugins/notify#Installation
+      this.$q.notify({
+        type: 'negative',
+        message: 'No puedes subir mas de 10 imagenes'
+      })
+    },
+    reset () {
+      this.form.titulo = ''
+      this.form.descripcion = ''
+      this.filesMaxNumber = ''
     }
   }
 }

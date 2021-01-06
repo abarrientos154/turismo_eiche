@@ -5,24 +5,13 @@
         <q-btn flat dense round icon="menu" color="white" aria-label="Menu" @click="leftDrawerOpen = !leftDrawerOpen" />
       </q-toolbar>
     </q-header>
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-1"
-    >
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered content-class="bg-grey-1">
       <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Menu de Navegacion
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+        <q-item v-for="(item, index) in menu" :key="index" clickable v-ripple class="bg-white q-pa-md" @click="$router.push(item.url)">
+            <q-item-section> <q-icon :name="item.icono" size='lg' /></q-item-section>
+            <q-item-section> {{ item.titulo }}</q-item-section>
+            <q-item-section> {{ item.descripcion }}</q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 
@@ -33,33 +22,31 @@
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink.vue'
-
-const linksData = [
-  {
-    title: 'Explora Destinos',
-    icon: 'explore',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Usuarios',
-    icon: 'account_circle',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Cerrar Sesión',
-    icon: 'settings_power',
-    link: 'https://chat.quasar.dev'
-  }
-]
-
 export default {
-  name: 'MainLayout',
-  components: { EssentialLink },
   data () {
     return {
-      leftDrawerOpen: false,
-      essentialLinks: linksData
+      menu: [
+        {
+          titulo: 'Explora Destinos',
+          descripcion: '',
+          icono: 'explore',
+          url: '/Acategoria'
+        },
+        {
+          titulo: 'Usuarios',
+          descripcion: '',
+          icono: 'account_circle',
+          url: ''
+        },
+        {
+          titulo: 'Cerrar Sesión',
+          descripcion: '',
+          icono: 'settings_power',
+          url: ''
+        }
+
+      ],
+      leftDrawerOpen: false
     }
   }
 }
