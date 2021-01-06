@@ -38,14 +38,6 @@ export default {
           this.opciones = res
         }
       })
-    },
-    obtener_subcategorias () {
-      this.$api.get('sub').then(res => {
-        if (res) {
-          console.log(res, 'subcategorias')
-          this.opciones = res
-        }
-      })
     }
   }
 }
