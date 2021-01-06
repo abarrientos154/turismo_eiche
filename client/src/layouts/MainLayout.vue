@@ -74,7 +74,8 @@ export default {
   data () {
     return {
       text: '',
-      data: {}
+      data: {},
+      tab: ''
     }
   }
 }
