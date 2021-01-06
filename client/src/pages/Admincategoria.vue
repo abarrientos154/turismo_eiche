@@ -27,27 +27,30 @@
     <q-card style="width: 450px;border-radius:12px" class="q-ma-sm q-pa-lg shadow-3">
                       <div class="text-h6 text-grey-9 text-bold">Ingresa los Datos Correspondientes</div>
               <form @submit.prevent.stop="onSubmit" @reset.prevent.stop="onReset" class="q-gutter-md">
-              <q-input ref="titulo" v-model="form.titulo" label="Introduce el titulo *"  />
-              <q-input ref="descripcion" v-model="form.descripcion" label="Introduce una descripcion *" />
+              <q-input outlined v-model="form.titulo" label="Introduce el Nombre del Lugar" />
+              <q-input outlined v-model="form.descripcion" label="Introduce una Descripcion" />
               <q-file
                   style="max-width: 300px"
                   v-model="filesMaxNumber"
-                  label="Maximo de imagenes permitidas (10)"
+                  outlined
+                  label="Imagenes permitidas (10)"
                   multiple
                   max-files="10"
                   accept=".jpg,.png, image/*"
-                  @rejected="onRejected"
-                />
+                  @rejected="onRejected" >
+                  <template v-slot:prepend>
+          <q-icon name="attach_file" />
+        </template>
+                </q-file>
             </form>
              </q-card>
           </div>
         </div>
-        <q-btn label="Limpiar Campos" push color="white" text-color="primary" @click="reset" class="q-mb-md" />
       </q-step>
 
       <q-step
-        :name="2"
-        title="Create an ad"
+        :name="3"
+        title="Finalizar y guardar"
         icon="add_comment"
       >
         Try out different ad text to see what brings in the most customers, and learn how to
@@ -57,8 +60,9 @@
 
       <template v-slot:navigation>
         <q-stepper-navigation>
-          <q-btn @click="$refs.stepper.next()" color="primary" :label="step === 2 ? 'Finish' : 'Continue'" />
-          <q-btn v-if="step > 1" flat color="primary" @click="$refs.stepper.previous()" label="Back" class="q-ml-sm" />
+          <q-btn @click="$refs.stepper.next()" color="primary" :label="step === 3 ? 'Finalizar' : 'Continuar'" />
+          <q-btn v-if="step > 1" color="primary" @click="$refs.stepper.previous()" label="Regresar" class="q-ml-sm" />
+            <q-btn label="Limpiar Campos" push color="primary" text-color="white" @click="reset" class="q-ml-sm" />
         </q-stepper-navigation>
       </template>
     </q-stepper>
@@ -91,6 +95,7 @@ export default {
       this.form.titulo = ''
       this.form.descripcion = ''
       this.filesMaxNumber = ''
+      this.SubCategoria = ''
     }
   }
 }
