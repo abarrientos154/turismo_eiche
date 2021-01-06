@@ -28,7 +28,6 @@ export default {
   },
   mounted () {
     console.log(this.id, 'este es el id')
-    this.obtener_subcategorias()
     this.verificarId()
   },
   methods: {
