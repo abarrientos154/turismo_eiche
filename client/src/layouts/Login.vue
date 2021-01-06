@@ -124,7 +124,7 @@ export default {
             console.log('user', this.user)
             this.login(res)
             if (this.user.roles[0] === 1) {
-              this.$router.push('inicio_admin')
+              this.$router.push('admindhome')
             } else if (this.user.roles[0] === 2) {
               this.$router.push('home')
             }

@@ -13,6 +13,13 @@ const routes = [
 
     ]
   },
+  {
+    path: '/admindhome',
+    component: () => import('layouts/Adminlayout.vue'),
+    children: [
+      { path: 'Acategoria', component: () => import('pages/Admincategoria.vue') }
+    ]
+  },
   { path: '/registro', component: () => import('pages/Registro.vue') },
   { path: '/slider', component: () => import('pages/Slider.vue') },
   // Always leave this as last one,

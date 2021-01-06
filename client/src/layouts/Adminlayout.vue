@@ -1,74 +1,66 @@
 <template>
-  <div>
   <q-layout view="lHh Lpr lFf">
-    <div class="bg-primary row justify-center">
-      <div style="left:0px; position:absolute">
-        <q-btn flat @click="drawerLeft = !drawerLeft" round dense icon="menu" />
-      </div>
-      <div>
-        <q-input dark dense standout v-model="text" input-class="text-right" class="q-ml-md">
-          <template v-slot:append>
-            <q-icon v-if="text === ''" name="search" />
-            <q-icon v-else name="clear" class="cursor-pointer" @click="text = ''" />
-          </template>
-        </q-input>
-      </div>
-      <div style="right:0px; position:absolute">
-        <q-btn icon="settings" flat round />
-      </div>
-    </div>
-    <q-drawer v-model="drawerLeft" :width="300" :breakpoint="700" bordered content-class="bg-grey-7" >
-      <q-list class="q-ma-sm">
-        <q-item v-for="(item, index) in menu" :key="index"  clickable v-ripple class="bg-white" @click="$router.push(item.ruta)" style="border-radius:12px">
-          <q-item-section>
-            <q-item-label class="text-bold">{{item.titulo}}</q-item-label>
-            <q-item-label class="text-bold" caption>{{item.descripcion}}</q-item-label>
-          </q-item-section>
-        </q-item>
+    <q-header elevated>
+      <q-toolbar>
+        <q-btn flat dense round icon="menu" color="white" aria-label="Menu" @click="leftDrawerOpen = !leftDrawerOpen" />
+      </q-toolbar>
+    </q-header>
+    <q-drawer
+      v-model="leftDrawerOpen"
+      show-if-above
+      bordered
+      content-class="bg-grey-1"
+    >
+      <q-list>
+        <q-item-label
+          header
+          class="text-grey-8"
+        >
+          Menu de Navegacion
+        </q-item-label>
+        <EssentialLink
+          v-for="link in essentialLinks"
+          :key="link.title"
+          v-bind="link"
+        />
       </q-list>
     </q-drawer>
+
     <q-page-container>
       <router-view />
     </q-page-container>
   </q-layout>
-  </div>
 </template>
 
 <script>
+import EssentialLink from 'components/EssentialLink.vue'
+
+const linksData = [
+  {
+    title: 'Explora Destinos',
+    icon: 'explore',
+    link: 'https://quasar.dev'
+  },
+  {
+    title: 'Usuarios',
+    icon: 'account_circle',
+    link: 'https://github.com/quasarframework'
+  },
+  {
+    title: 'Cerrar Sesión',
+    icon: 'settings_power',
+    link: 'https://chat.quasar.dev'
+  }
+]
+
 export default {
+  name: 'MainLayout',
+  components: { EssentialLink },
   data () {
     return {
-      text: '',
-      data: {},
-      tab: '',
-      drawerLeft: false,
-      menu: [
-        {
-          titulo: 'Crear Tareas',
-          descripcion: 'nael es mrk 1',
-          ruta: '/crud'
-        },
-        {
-          titulo: 'Crear Productos',
-          descripcion: 'nael es mrk 2',
-          ruta: '/listado'
-        },
-        {
-          titulo: 'Crear Negocios',
-          descripcion: 'nael es mrk 3',
-          ruta: '/negocio'
-        },
-        {
-          titulo: 'Crear Ventas',
-          descripcion: 'nael es mrk 4',
-          ruta: '/ventas'
-        }
-      ]
+      leftDrawerOpen: false,
+      essentialLinks: linksData
     }
   }
 }
 </script>
-
-<style>
-
-</style>
