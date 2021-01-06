@@ -61,6 +61,12 @@ class TurismoController {
     let turismo = (await Turismo.query().where({subCategoria_id: parseInt(params.id)}).fetch()).toJSON()
     response.send(turismo)
   }
+
+  async busquedabyid ({ params, request, response, view }) {
+    let detalle = await Turismo.find(params.id)
+    response.send(detalle)
+  }
+
   /**
    * Render a form to update an existing turismo.
    * GET turismos/:id/edit

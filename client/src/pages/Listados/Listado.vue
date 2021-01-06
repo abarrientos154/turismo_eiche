@@ -2,7 +2,7 @@
 <div>
   <q-list bordered style="width: 100%" class="q-pa-md">
     <div class= "row q-gutter-sm justify-around" >
-       <q-card  v-for="(item, index) in opciones" :key="index" clickable v-ripple class="bg-white" @click="$router.push('/detalle/'+item.id)" style="width: 45%">
+       <q-card  v-for="(item, index) in opciones" :key="index" clickable v-ripple class="bg-white" @click="$router.push('/detalle/'+item._id)" style="width: 45%">
           <img :src="item.img" style="height:300px">
             <q-card-section>
               <div class="text-h6">{{item.nombre}}</div>
