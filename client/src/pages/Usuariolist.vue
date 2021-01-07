@@ -23,8 +23,22 @@
 
         <q-space />
         <q-card-actions vertical class="justify-around q-px-md">
+          <q-btn v-if="item.estatus === 1" label="Bloquear" color="red-10" @click="small = true" />
+
+          <q-dialog v-model="small" >
+            <q-card style="width: 300px">
+              <q-card-section>
+                <div class="text-h6">¿Estas seguro de bloquear a este usuario?</div>
+              </q-card-section>
+
+              <q-card-section class="q-pa-md row justify-center items-center">
+          <q-btn label="Bloquear" color="red-10" @click="bloquear(item._id)" push v-close-popup />
+             <q-btn label="Cerrar" color="primary" v-close-popup />
+              </q-card-section>
+            </q-card>
+          </q-dialog>
+
           <q-btn v-if="item.estatus === 0" label="Desbloquear" color="primary" @click="desbloquear(item._id)" push />
-          <q-btn v-if="item.estatus === 1" label="Bloquear" color="red-10" @click="bloquear(item._id)" push />
         </q-card-actions>
       </q-item>
     </q-card>
@@ -40,6 +54,7 @@ export default {
   data () {
     return {
       form: {},
+      small: false,
       lista: [],
       id: this.$route.params.id
     }
@@ -53,6 +68,7 @@ export default {
       })
     },
     desbloquear (id) {
+      console.log(id, 'este es el id de bloqueo')
       this.$api.get('desbloquear/' + id).then(res => {
         if (res) {
           this.form = res

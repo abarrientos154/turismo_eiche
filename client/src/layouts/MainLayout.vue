@@ -53,11 +53,11 @@
           v-model="tab"
           align="justify"
           class="bg-primary text-white shadow-2"      >
-          <q-tab name="mails" icon="explore" @click="$router.push('/categoria/'+ 1)" />
-          <q-tab name="mails" icon="mail" @click="$router.push('/categoria/'+ 2)" />
-          <q-tab name="mails" icon="mail" @click="$router.push('/categoria/'+ 3)" />
-          <q-tab name="alarms" icon="alarm" @click="$router.push('/categoria/'+ 4)" />
-          <q-tab name="alarms" icon="alarm" @click="$router.push('/categoria/'+ 5)" />
+          <q-tab icon="explore" @click="ircategoria(1)" />
+          <q-tab icon="local_dining" @click="ircategoria(2)" />
+          <q-tab icon="hotel" @click="ircategoria(3)" />
+          <q-tab icon="commute" @click="ircategoria(4)" />
+          <q-tab icon="streetview" @click="ircategoria(5)" />
         </q-tabs>
       </div>
     </q-footer>
@@ -76,6 +76,13 @@ export default {
       text: '',
       data: {},
       tab: ''
+    }
+  },
+  methods: {
+    ircategoria (numerocategoria) {
+      this.$router.push('/categoria/' + numerocategoria)
+      location.href = 'http://localhost:8080/#/categoria/' + numerocategoria
+      location.reload()
     }
   }
 }

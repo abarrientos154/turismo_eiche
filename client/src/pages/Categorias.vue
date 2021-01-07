@@ -13,7 +13,7 @@
        </q-card>
     </div>
     <div class="column justify-center items-center">
-      <q-btn size="md" color="primary" icon="arrow_back" label="Regresar" push @click="$router.go(-1)" />
+      <q-btn class="q-ma-sm" size="md" color="primary" icon="arrow_back" label="Regresar" push @click="$router.push('/home')" />
       </div>
   </q-list>
   </div>
