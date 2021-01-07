@@ -18,6 +18,7 @@
       class="q-ma-sm"
       :center="center"
       :zoom="zoom"
+      @input="changedMarker"
       style="height: 300px;"
       ref="myMap"
       :options="{ disableDefaultUi: false, streetViewControl: false }">
@@ -44,61 +45,65 @@ export default {
     }
   },
   async mounted () {
-    console.log('withoutDirection', this.withoutDirection)
-    var vm = this
-    // instanciar mapa
-    await this.$refs.myMap.$mapPromise.then((map) => {
-      // agregar librerias automplete de google maps a un input
-      var autocomplete = new this.google.maps.places.Autocomplete(this.$refs.autocomp.$refs.input)
-      vm.mapGlobal = map
-      this.getPolygon()
-      // marcador objetivo
-      vm.marker = new this.google.maps.Marker({
-        draggable: true,
-        animation: this.google.maps.Animation.DROP,
-        position: vm.center,
-        map: map
-      })
-      // obtener direccion del marcador a traves de coordenadas
-      var geocoder = new this.google.maps.Geocoder()
-      geocoder.geocode({ location: this.marker.getPosition() }, function (results, status) {
-        if (status === 'OK') {
-          if (results[0]) {
-            vm.place = results[0].formatted_address
-          }
-        } else {
-          alert('Geocode was not successful for the following reason: ' + status)
-        }
-      })
-      // boton de geolocalizacion de ubicacion actual
-      if (vm.type !== 1) {
-        var myLocation = document.getElementById('btnLocation')
-        myLocation.index = 1
-        map.controls[this.google.maps.ControlPosition.RIGHT_BOTTOM].push(myLocation)
-        myLocation.addEventListener('click', function () {
-          navigator.geolocation.getCurrentPosition(function (position) {
-            map.setCenter({ lat: position.coords.latitude, lng: position.coords.longitude })
-            vm.marker.setPosition({ lat: position.coords.latitude, lng: position.coords.longitude })
-          })
-        })
-      }
-      vm.marker.addListener('click', vm.toggleBounce)
-      vm.marker.addListener('dragend', vm.changedMarker)
-      // seleccionar nueva ubicacion cambia el centro del mapa
-      autocomplete.addListener('place_changed', function () {
-        const placeAutocomplete = autocomplete.getPlace()
-        const latLng = { lat: placeAutocomplete.geometry.location.lat(), lng: placeAutocomplete.geometry.location.lng() }
-        vm.map.setCenter(latLng)
-        vm.marker.setPosition(latLng)
-        vm.place = placeAutocomplete.formatted_address
-
-        vm.map.setZoom(10)
-      })
-    })
-    // mostrar la ruta de origen a destino
-    // if (this.type === 1) this.showDirections()
+    this.ejecutar()
   },
   methods: {
+    async ejecutar () {
+      console.log('withoutDirection', this.withoutDirection)
+      var vm = this
+      // instanciar mapa
+      await this.$refs.myMap.$mapPromise.then((map) => {
+        // agregar librerias automplete de google maps a un input
+        var autocomplete = new this.google.maps.places.Autocomplete(this.$refs.autocomp.$refs.input)
+        vm.mapGlobal = map
+        this.getPolygon()
+        // marcador objetivo
+        vm.marker = new this.google.maps.Marker({
+          draggable: true,
+          animation: this.google.maps.Animation.DROP,
+          position: vm.center,
+          map: map
+        })
+        console.log(vm.center, 'centerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr')
+        // obtener direccion del marcador a traves de coordenadas
+        var geocoder = new this.google.maps.Geocoder()
+        geocoder.geocode({ location: this.marker.getPosition() }, function (results, status) {
+          if (status === 'OK') {
+            if (results[0]) {
+              vm.place = results[0].formatted_address
+            }
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status)
+          }
+        })
+        // boton de geolocalizacion de ubicacion actual
+        if (vm.type !== 1) {
+          var myLocation = document.getElementById('btnLocation')
+          myLocation.index = 1
+          map.controls[this.google.maps.ControlPosition.RIGHT_BOTTOM].push(myLocation)
+          myLocation.addEventListener('click', function () {
+            navigator.geolocation.getCurrentPosition(function (position) {
+              map.setCenter({ lat: position.coords.latitude, lng: position.coords.longitude })
+              vm.marker.setPosition({ lat: position.coords.latitude, lng: position.coords.longitude })
+            })
+          })
+        }
+        vm.marker.addListener('click', vm.toggleBounce)
+        vm.marker.addListener('dragend', vm.changedMarker)
+        // seleccionar nueva ubicacion cambia el centro del mapa
+        autocomplete.addListener('place_changed', function () {
+          const placeAutocomplete = autocomplete.getPlace()
+          const latLng = { lat: placeAutocomplete.geometry.location.lat(), lng: placeAutocomplete.geometry.location.lng() }
+          vm.map.setCenter(latLng)
+          vm.marker.setPosition(latLng)
+          vm.place = placeAutocomplete.formatted_address
+
+          vm.map.setZoom(10)
+        })
+      })
+      // mostrar la ruta de origen a destino
+      // if (this.type === 1) this.showDirections()
+    },
     // Crear un poligono rectangular alrededor del marcador
     getPolygon () {
       var circle = new this.google.maps.Circle()

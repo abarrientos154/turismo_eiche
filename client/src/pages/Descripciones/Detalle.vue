@@ -9,7 +9,9 @@
       {{ form.descripcion }}
     </q-card-section>
     <q-rating v-model="form.puntuacion" max="5" size="3.5em" color="yellow" disable icon="star_border" icon-selected="star" icon-half="star_half" no-dimming />
-    <mapa :form="form" />
+    <div class="full-width">
+      <google-map :type="type" :center="center" :zoom="10" @getBounds="getBounds" @newPlace="handleNewPlace" :withoutDirection="true" />
+    </div>
   </q-card>
    <div class="column justify-center items-center">
       <q-btn size="md" color="primary" icon="arrow_back" label="Regresar" push @click="$router.go(-1)" />
@@ -17,28 +19,44 @@
   </div>
 </template>
 <script>
-import Mapa from '../../components/Mapa'
+import GoogleMap from '../../components/GoogleMap'
 export default {
   components: {
-    Mapa
+    GoogleMap
   },
   data () {
     return {
       form: {},
-      id: this.$route.params.id
+      id: this.$route.params.id,
+      markers: [],
+      center: { lat: 10, lng: 10 }
     }
   },
-  mounted () {
+  async mounted () {
     this.turismoId()
   },
   methods: {
-    turismoId () {
-      this.$api.get('detalle/' + this.id).then(res => {
+    async turismoId () {
+      await this.$api.get('detalle/' + this.id).then(res => {
         if (res) {
           this.form = res
           console.log(this.form, 'formmmm')
+          this.center = this.form.ubicacion
+          this.markers.push({
+            title: this.form.nombre, // this.form.nombre,
+            description: this.description,
+            date_build: '',
+            position: this.form.ubicacion
+          })
         }
       })
+    },
+    getBounds (bounds, center) {
+      console.log(center, 'center')
+    },
+    handleNewPlace (place, coordinates) {
+      console.log('handleNewPlace', coordinates)
+      this.form.ubicacion = coordinates
     }
   }
 }

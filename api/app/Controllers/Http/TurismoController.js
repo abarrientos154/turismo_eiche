@@ -3,7 +3,11 @@
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
-
+const Helpers = use('Helpers')
+const mkdirp = use('mkdirp')
+const fs = require('fs')
+const { validate } = use("Validator")
+var randomize = require('randomatic');
 /**
  * Resourceful controller for interacting with turismos
  */
@@ -45,7 +49,43 @@ class TurismoController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response }) {
+  async store ({ request, response, auth }) {
+    let recibir = request.all()
+    var dat = request.only(['dat'])
+    dat = JSON.parse(dat.dat)
+    console.log(dat, 'datt2')
+    const validation = await validate(dat, Turismo.fieldValidationRules())
+    if (validation.fails()) {
+      response.unprocessableEntity(validation.messages())
+    } else {
+      let images = []
+      if (dat.cantidadArchivos && dat.cantidadArchivos > 0) {
+        for (let i = 0; i < dat.cantidadArchivos; i++) {
+          let codeFile = randomize('Aa0', 30)
+          const profilePic = request.file('turismoFiles_' + i, {
+            types: ['image']
+          })
+          if (Helpers.appRoot('storage/uploads/turismo')) {
+            await profilePic.move(Helpers.appRoot('storage/uploads/turismo'), {
+              name: codeFile,
+              overwrite: true
+            })
+          } else {
+            mkdirp.sync(`${__dirname}/storage/Excel`)
+          }
+          images.push(profilePic.fileName)
+        }
+        console.log(images, 'images')
+        dat.images = images
+
+      }
+      let body = dat
+      delete body.cantidadArchivos
+      body.ownerId = ((await auth.getUser()).toJSON())._id
+      body.puntuacion = 0
+      let guardar = await Turismo.create(body)
+      response.send(guardar)
+    }
   }
 
   /**

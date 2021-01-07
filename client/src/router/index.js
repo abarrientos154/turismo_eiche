@@ -7,10 +7,10 @@ Vue.use(VueRouter)
 
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyD3xEgIXEmCVpA6awQVarypwhYGNumxyBM',
-    libraries: 'places' // This is required if you use the Autocomplete plugin
+    key: 'AIzaSyCfXNBEMzko1vS4Fz9cbWdpaCZqUH7q5r0',
+    // libraries: 'places' // This is required if you use the Autocomplete plugin
     // OR: libraries: 'places,drawing'
-    // OR: libraries: 'places,drawing,visualization'
+    libraries: 'places,drawing,visualization'
     // (as you require)
 
     // If you want to set the version, you can do so:
