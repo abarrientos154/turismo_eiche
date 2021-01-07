@@ -26,6 +26,19 @@ class UserController {
     response.send(data)
   }
 
+  async bloquearusuario ({ params, request, response, view }) {
+    let body = {}
+    body.estatus = 0
+    let modificar = await User.query().where({_id: params.id}).update(body)
+    response.send(modificar)
+  }
+  async desbloquearusuario ({ params, request, response, view }) {
+    let body = {}
+    body.estatus = 1
+    let modificar = await User.query().where({_id: params.id}).update(body)
+    response.send(modificar)
+  }
+
   /**
    * Create/save a new user.
    * POST users

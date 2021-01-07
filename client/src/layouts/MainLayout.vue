@@ -53,11 +53,11 @@
           v-model="tab"
           align="justify"
           class="bg-primary text-white shadow-2"      >
-          <q-tab name="mails" icon="mail" />
-          <q-tab name="mails" icon="mail" />
-          <q-tab name="mails" icon="mail" />
-          <q-tab name="alarms" icon="alarm" />
-          <q-tab name="alarms" icon="alarm" />
+          <q-tab name="mails" icon="explore" @click="$router.push('/categoria/'+ 1)" />
+          <q-tab name="mails" icon="mail" @click="$router.push('/categoria/'+ 2)" />
+          <q-tab name="mails" icon="mail" @click="$router.push('/categoria/'+ 3)" />
+          <q-tab name="alarms" icon="alarm" @click="$router.push('/categoria/'+ 4)" />
+          <q-tab name="alarms" icon="alarm" @click="$router.push('/categoria/'+ 5)" />
         </q-tabs>
       </div>
     </q-footer>

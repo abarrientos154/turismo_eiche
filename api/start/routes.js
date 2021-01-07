@@ -54,6 +54,10 @@ addPrefixToGroup(
   Route.group(() => {
     // Insertar rutas con protección de autenticación aquí
     Route.get("usuarios", "UserController.index")
+    Route.get("desbloquear/:id", "UserController.desbloquearusuario")
+    Route.get("bloquear/:id", "UserController.bloquearusuario")
+
+
 
 
   }).middleware("auth")

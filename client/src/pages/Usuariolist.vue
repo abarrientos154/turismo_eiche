@@ -23,8 +23,8 @@
 
         <q-space />
         <q-card-actions vertical class="justify-around q-px-md">
-          <q-btn label="Desbloquear" color="primary" />
-          <q-btn label="Bloquear" color="red-10"/>
+          <q-btn v-if="item.estatus === 0" label="Desbloquear" color="primary" @click="desbloquear(item._id)" push />
+          <q-btn v-if="item.estatus === 1" label="Bloquear" color="red-10" @click="bloquear(item._id)" push />
         </q-card-actions>
       </q-item>
     </q-card>
@@ -41,7 +41,7 @@ export default {
     return {
       form: {},
       lista: [],
-      showModalEditar: false
+      id: this.$route.params.id
     }
   },
   methods: {
@@ -51,6 +51,24 @@ export default {
           this.lista = res
         }
       })
+    },
+    desbloquear (id) {
+      this.$api.get('desbloquear/' + id).then(res => {
+        if (res) {
+          this.form = res
+          console.log(this.form, 'datos')
+        }
+      })
+      this.obtener_usuarios()
+    },
+    bloquear (id) {
+      this.$api.get('bloquear/' + id).then(res => {
+        if (res) {
+          this.form = res
+          console.log(this.form, 'datos2')
+        }
+      })
+      this.obtener_usuarios()
     }
   },
   mounted () {
