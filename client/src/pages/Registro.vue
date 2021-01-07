@@ -75,8 +75,8 @@
             </div>
             <div class="animated-body" v-show="show">
               <div class="text-center q-ma-sm">
-                <q-btn size="md" color="primary" icon="arrow_back" label="Regresar" push @click="$router.go(-1)" />
-                <q-btn size="md"  color="primary" icon="east" label="Registrarse" @click="registrarse()" push />
+                <q-btn class="q-ma-sm" size="md" color="primary"  label="Regresar" push @click="$router.go(-1)" />
+                <q-btn class="q-ma-sm" size="md"  color="primary" label="Registrarse" @click="registrarse()" push />
               </div>
             </div>
           </q-form>
