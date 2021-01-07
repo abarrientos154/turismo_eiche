@@ -36,7 +36,7 @@ export default {
           titulo: 'Usuarios',
           descripcion: '',
           icono: 'account_circle',
-          url: ''
+          url: '/Userlist'
         },
         {
           titulo: 'Cerrar Sesión',

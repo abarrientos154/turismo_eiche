@@ -17,7 +17,9 @@ const routes = [
     path: '/admindhome',
     component: () => import('layouts/Adminlayout.vue'),
     children: [
-      { path: '/Acategoria', component: () => import('pages/Admincategoria.vue') }
+      { path: '/Acategoria', component: () => import('pages/Admincategoria.vue') },
+      { path: '/Userlist', component: () => import('pages/Usuariolist.vue') }
+
     ]
   },
   { path: '/registro', component: () => import('pages/Registro.vue') },

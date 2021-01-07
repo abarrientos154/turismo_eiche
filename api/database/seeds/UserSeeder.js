@@ -29,14 +29,17 @@ const userData = [
     email: 'cliente@turismo.com',
     password: 'turismo2020',
     full_name: 'Usuario Cliente de Ejemplo',
-    roles: [2]
+    roles: [2],
+    estatus: 1
   },
   {
     _id: '5e90d6e6f75366526a680093',
     email: 'proveedor@turismo.com',
     password: 'turismo2020',
     full_name: 'Usuario Proveedror de Ejemplo',
-    roles: [3]
+    roles: [3],
+    estatus: 1
+
   }
 ]
 

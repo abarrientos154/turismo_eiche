@@ -47,13 +47,13 @@ addPrefixToGroup(
     Route.get("detalle/:id", "TurismoController.busquedabyid")
 
 
-
   })
 );
 
 addPrefixToGroup(
   Route.group(() => {
     // Insertar rutas con protección de autenticación aquí
+    Route.get("usuarios", "UserController.index")
 
 
   }).middleware("auth")
