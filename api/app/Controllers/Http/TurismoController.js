@@ -108,8 +108,10 @@ class TurismoController {
   }
 
   async listadoadmind ({ params, request, response, view }) {
-    let detalle = (await Turismo.all()).toJSON()
-    response.send(detalle)
+    let lista = (await Turismo.where({
+      $or: [{ subCategoria_id: 1 }, { subCategoria_id: 2 }, { subCategoria_id: 3 }],
+    }).fetch()).toJSON()
+    response.send(lista)
   }
 
   /**
