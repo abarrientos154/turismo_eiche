@@ -30,7 +30,7 @@ export default {
           titulo: 'Explora Destinos',
           descripcion: '',
           icono: 'explore',
-          url: '/Acategoria'
+          url: '/adminlist'
         },
         {
           titulo: 'Usuarios',

@@ -56,6 +56,8 @@ addPrefixToGroup(
     Route.get("usuarios", "UserController.index")
     Route.get("desbloquear/:id", "UserController.desbloquearusuario")
     Route.get("bloquear/:id", "UserController.bloquearusuario")
+    Route.get("categorialist", "TurismoController.listadoadmind")
+
 
     Route.post("explora_destino", "TurismoController.store")
   }).middleware("auth")

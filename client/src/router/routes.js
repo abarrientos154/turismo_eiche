@@ -18,8 +18,8 @@ const routes = [
     component: () => import('layouts/Adminlayout.vue'),
     children: [
       { path: '/Acategoria', component: () => import('pages/Admincategoria.vue') },
-      { path: '/Userlist', component: () => import('pages/Usuariolist.vue') }
-
+      { path: '/Userlist', component: () => import('pages/Usuariolist.vue') },
+      { path: '/adminlist', component: () => import('pages/Listados/Listadoadmin.vue') }
     ]
   },
   { path: '/registro', component: () => import('pages/Registro.vue') },
