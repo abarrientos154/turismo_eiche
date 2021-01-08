@@ -2,7 +2,7 @@
 <div>
   <q-list bordered style="width: 100%" class="q-pa-md">
     <div class="row q-gutter-sm justify-around" >
-       <q-card  v-for="(item, index) in opciones" :key="index" clickable v-ripple class="bg-white" style="width: 45%">
+       <q-card  v-for="(item, index) in opciones" :key="index" clickable v-ripple class="bg-white" style="width: 45%" @click="$router.push('/detalleadmin/'+item._id)">
         <q-card-section>
           <div class="text-h6">{{item.nombre}}</div>
         </q-card-section>

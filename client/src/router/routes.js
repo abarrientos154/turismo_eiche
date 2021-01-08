@@ -19,7 +19,9 @@ const routes = [
     children: [
       { path: '/Acategoria', component: () => import('pages/Admincategoria.vue') },
       { path: '/Userlist', component: () => import('pages/Usuariolist.vue') },
-      { path: '/adminlist', component: () => import('pages/Listados/Listadoadmin.vue') }
+      { path: '/adminlist', component: () => import('pages/Listados/Listadoadmin.vue') },
+      { path: '/detalleadmin/:id', component: () => import('pages/Descripciones/Detalleadmin.vue') }
+
     ]
   },
   { path: '/registro', component: () => import('pages/Registro.vue') },
