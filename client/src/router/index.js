@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import env from '../env'
+const apiKey = env.apiKey
 
 import routes from './routes'
 import * as VueGoogleMaps from 'vue2-google-maps'
@@ -7,10 +9,10 @@ Vue.use(VueRouter)
 
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyD3xEgIXEmCVpA6awQVarypwhYGNumxyBM',
-    libraries: 'places' // This is required if you use the Autocomplete plugin
+    key: apiKey,
+    // libraries: 'places' // This is required if you use the Autocomplete plugin
     // OR: libraries: 'places,drawing'
-    // OR: libraries: 'places,drawing,visualization'
+    libraries: 'places,drawing,visualization'
     // (as you require)
 
     // If you want to set the version, you can do so:

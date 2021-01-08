@@ -57,8 +57,6 @@ addPrefixToGroup(
     Route.get("desbloquear/:id", "UserController.desbloquearusuario")
     Route.get("bloquear/:id", "UserController.bloquearusuario")
 
-
-
-
+    Route.post("explora_destino", "TurismoController.store")
   }).middleware("auth")
 );
