@@ -42,7 +42,7 @@ export default {
           titulo: 'Cerrar Sesión',
           descripcion: '',
           icono: 'settings_power',
-          url: ''
+          url: '/login'
         }
 
       ],
