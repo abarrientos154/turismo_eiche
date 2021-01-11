@@ -11,6 +11,42 @@
     <div class="full-width">
       <q-input outlined v-model="form.descripcion" label="Introduce una Descripcion" />
     </div>
+
+    <div class="full-width">
+        <q-checkbox v-model="checkbox" label="Habilitar Horario" />
+          <q-card v-if="checkbox === true">
+              <q-card-section>
+                <q-select class="q-pa-md" filled v-model="diastrabajo" multiple :options="dias" use-chips stack-label label="Dias de trabajo" />
+                  <q-input class="q-pa-md" label="Hora de apertura" filled v-model="time" mask="time" :rules="['time']">
+                    <template v-slot:append>
+                      <q-icon name="access_time" class="cursor-pointer">
+                        <q-popup-proxy transition-show="scale" transition-hide="scale">
+                          <q-time v-model="time">
+                            <div class="row items-center justify-end">
+                              <q-btn v-close-popup label="Close" color="primary" flat />
+                            </div>
+                          </q-time>
+                        </q-popup-proxy>
+                      </q-icon>
+                    </template>
+                </q-input>
+                <q-input class="q-pa-md" label="Hora de cierre" filled v-model="time2" mask="time" :rules="['time']">
+                    <template v-slot:append>
+                      <q-icon name="access_time" class="cursor-pointer">
+                        <q-popup-proxy transition-show="scale" transition-hide="scale">
+                          <q-time v-model="time2">
+                            <div class="row items-center justify-end">
+                              <q-btn v-close-popup label="Close" color="primary" flat />
+                            </div>
+                          </q-time>
+                        </q-popup-proxy>
+                      </q-icon>
+                    </template>
+                </q-input>
+              </q-card-section>
+          </q-card>
+      </div>
+
     <div class="column full-width">
       <div class="full-width">
         <q-file v-if="files.length < 10" style="max-width: 300px" v-model="file" outlined label="Imagenes permitidas (10)"  accept=".jpg,.png, image/*" @input="insertarImagen()" >
@@ -45,6 +81,10 @@ export default {
   data () {
     return {
       baseu: '',
+      checkbox: false,
+      diastrabajo: null,
+      time: '',
+      time2: '',
       files: [],
       filesT: [],
       center: { lat: -33.4504117, lng: -70.6707553 },
@@ -65,6 +105,9 @@ export default {
           label: 'Playas',
           value: 3
         }
+      ],
+      dias: [
+        'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'
       ],
       form: {}
     }
