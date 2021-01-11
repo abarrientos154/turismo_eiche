@@ -13,15 +13,15 @@
     </div>
 
     <div class="full-width">
-        <q-checkbox v-model="checkbox" label="Habilitar Horario" />
-          <q-card v-if="checkbox === true">
+        <q-checkbox v-model="form.habilitarH" label="Habilitar Horario" />
+          <q-card v-if="form.habilitarH">
               <q-card-section>
-                <q-select class="q-pa-md" filled v-model="diastrabajo" multiple :options="dias" use-chips stack-label label="Dias de trabajo" />
-                  <q-input class="q-pa-md" label="Hora de apertura" filled v-model="time" mask="time" :rules="['time']">
+                <q-select class="q-pa-md" v-model="form.diastrabajo" multiple :options="dias" use-chips stack-label label="Dias de trabajo" />
+                  <q-input class="q-pa-md" label="Hora de apertura" v-model="form.tiempoinicio" mask="time" :rules="['time']">
                     <template v-slot:append>
                       <q-icon name="access_time" class="cursor-pointer">
                         <q-popup-proxy transition-show="scale" transition-hide="scale">
-                          <q-time v-model="time">
+                          <q-time v-model="form.tiempoinicio">
                             <div class="row items-center justify-end">
                               <q-btn v-close-popup label="Close" color="primary" flat />
                             </div>
@@ -30,11 +30,11 @@
                       </q-icon>
                     </template>
                 </q-input>
-                <q-input class="q-pa-md" label="Hora de cierre" filled v-model="time2" mask="time" :rules="['time']">
+                <q-input class="q-pa-md" label="Hora de cierre" v-model="form.tiempofinal" mask="time" :rules="['time']">
                     <template v-slot:append>
                       <q-icon name="access_time" class="cursor-pointer">
                         <q-popup-proxy transition-show="scale" transition-hide="scale">
-                          <q-time v-model="time2">
+                          <q-time v-model="form.tiempofinal">
                             <div class="row items-center justify-end">
                               <q-btn v-close-popup label="Close" color="primary" flat />
                             </div>
@@ -67,7 +67,7 @@
       <google-map :type="type" :center="center" :zoom="10" @getBounds="getBounds" @newPlace="handleNewPlace" :withoutDirection="true" />
     </div>
     <q-card-actions>
-      <q-btn label="Guardar" @click="guardar" color="primary" />
+      <q-btn class="q-mt-sm" label="Guardar" @click="guardar" color="primary" />
     </q-card-actions>
   </q-card>
 </div>
@@ -83,8 +83,8 @@ export default {
       baseu: '',
       checkbox: false,
       diastrabajo: null,
-      time: '',
-      time2: '',
+      tiempoinicio: '',
+      tiempofinal: '',
       files: [],
       filesT: [],
       center: { lat: -33.4504117, lng: -70.6707553 },
@@ -109,7 +109,9 @@ export default {
       dias: [
         'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'
       ],
-      form: {}
+      form: {
+        habilitarH: false
+      }
     }
   },
   mounted () {
@@ -122,6 +124,7 @@ export default {
       this.file = null
       console.log(this.files.length, this.filesT.length, 'aaaaaaa')
     },
+
     getBounds (bounds, center) {
       console.log(center, 'center')
     },

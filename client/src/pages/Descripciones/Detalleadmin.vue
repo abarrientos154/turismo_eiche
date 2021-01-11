@@ -1,22 +1,24 @@
 <template>
-<div class="">
-  <q-card class="bg-white full-width q-pa-xl q-ma-md shadow-3">
-    <img :src="form.img" style="height:300px">
-    <q-card-section>
-      <div class="text-h6">{{form.nombre}}</div>
-    </q-card-section>
-    <q-card-section class="q-pt-none">
-      {{ form.descripcion }}
-    </q-card-section>
-    <q-rating v-model="form.puntuacion" max="5" size="3.5em" color="yellow" disable icon="star_border" icon-selected="star" icon-half="star_half" no-dimming />
-    <div class="full-width">
-      <google-map :type="type" :center="center" :zoom="10" @getBounds="getBounds" @newPlace="handleNewPlace" :withoutDirection="true" />
-    </div>
-  </q-card>
-   <div class="column justify-center items-center">
-      <q-btn size="md" color="primary" icon="arrow_back" label="Regresar" push @click="$router.go(-1)" />
-    </div>
-  </div>
+<div class="q-pa-md">
+    <q-card class="bg-white full-width q-pa-xl q-ma-md shadow-3">
+      <img :src="form.img" style="height:300px">
+        <q-card-section>
+          <div class="text-h6">{{form.nombre}}</div>
+        </q-card-section>
+          <div class="q-pa-md text-h7 text-grey-9 text-bold">Descripcion del lugar:</div>
+            <q-card-section class="q-pt-none">
+              {{ form.descripcion }}
+            </q-card-section>
+          <div class="q-pa-md text-h7 text-grey-9 text-bold">Popularidad del lugar:</div>
+        <q-rating class="q-pa-sm" v-model="form.puntuacion" max="5" size="3.5em" color="yellow" disable icon="star_border" icon-selected="star" icon-half="star_half" no-dimming />
+      <div class="full-width">
+        <google-map :type="type" :center="center" :zoom="10" @getBounds="getBounds" @newPlace="handleNewPlace" :withoutDirection="true" />
+      </div>
+    </q-card>
+      <div class="column justify-center items-center">
+          <q-btn size="md" color="primary" icon="arrow_back" label="Regresar" push @click="$router.go(-1)" />
+      </div>
+</div>
 </template>
 <script>
 import GoogleMap from '../../components/GoogleMap'
