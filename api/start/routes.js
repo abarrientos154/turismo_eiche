@@ -46,6 +46,8 @@ addPrefixToGroup(
     Route.get("turis/:id", "TurismoController.show")
     Route.get("detalle/:id", "TurismoController.busquedabyid")
     Route.get("opiniones", "OpinionController.index")
+    Route.post("opinion", "OpinionController.store")
+
 
 
 

@@ -46,6 +46,9 @@ class SubCategoriaController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+    let body = request.only(Negocio.fillable)
+      const nego = await  Negocio.create(body)
+      response.send(nego)
   }
 
   /**

@@ -45,6 +45,9 @@ class OpinioneController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+    let body = request.only(Opiniones.fillable)
+      const opi = await Opiniones.create(body)
+      response.send(opi)
   }
 
   /**

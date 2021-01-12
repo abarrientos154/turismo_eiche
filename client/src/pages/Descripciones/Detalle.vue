@@ -9,59 +9,79 @@
             <q-card-section class="q-pt-none">
               {{ form.descripcion }}
             </q-card-section>
-            <q-card v-if="form.habilitarH === true" class="q-pa-none" >
-                <div class="q-pa-md text-h7 text-grey-9 text-bold">Abierto:</div>
-                <q-card-section class="row q-pa-none">
-                <div v-for="(item, index) in form.diastrabajo" :key="index" class="q-ml-md text-h7">{{item}}</div>
-              </q-card-section>
-                <q-card-section >
-                <div class="q-pa-none text-h7 text-grey-9 text-bold">Horario del lugar:</div>
-                  <div class="text-h7">{{form.tiempoinicio}}-{{form.tiempofinal}}</div>
-                </q-card-section>
-            </q-card>
+              <q-card v-if="form.habilitarH === true" class="q-pa-none" >
+                  <div class="q-pa-md text-h7 text-grey-9 text-bold">Abierto:</div>
+                  <q-card-section class="row q-pa-none">
+                  <div v-for="(item, index) in form.diastrabajo" :key="index" class="q-ml-md text-h7">{{item}}</div>
+                  </q-card-section>
+                  <q-card-section >
+                  <div class="q-pa-none text-h7 text-grey-9 text-bold">Horario del lugar:</div>
+                    <div class="text-h7">{{form.tiempoinicio}}-{{form.tiempofinal}}</div>
+                  </q-card-section>
+              </q-card>
               <div class="q-ml-md text-h7 text-grey-9 text-bold">Popularidad del lugar:</div>
-            <q-rating class="q-pa-sm" v-model="form.puntuacion" max="5" size="3.5em" color="yellow" disable icon="star_border" icon-selected="star" icon-half="star_half" no-dimming />
-        <div class="full-width">
-          <google-map :type="type" :center="center" :zoom="10" @getBounds="getBounds" @newPlace="handleNewPlace" :withoutDirection="true" />
-        </div>
+                <q-rating class="q-pa-sm" v-model="form.puntuacion" max="5" size="3.5em" color="yellow" disable icon="star_border" icon-selected="star" icon-half="star_half" no-dimming />
+                <q-card-section >
+                <q-btn flat class="q-mt-none" label="Dar mi opinión" color="primary" @click="opinion = true" />
+                </q-card-section>
+                  <div class="full-width">
+                    <google-map :type="type" :center="center" :zoom="10" @getBounds="getBounds" @newPlace="handleNewPlace" :withoutDirection="true" />
+                  </div>
 
               <q-card class="bg-white full-width q-pa-xl q-ma-md shadow-3">
-         <div class="q-mb-md q-mt-md" v-if="data.length > 0">
-    <q-list class="q-mt-sm q-mb-lg">
-      <div v-for="(item, index) in data" :key="index">
-        <q-item class="q-mt-md">
-          <q-item-section top avatar>
-            <q-avatar >
-              <q-img :src="item.img" />
-            </q-avatar>
-          </q-item-section>
-
-          <q-item-section>
-            <q-item-label>{{item.usuario.full_name}}</q-item-label>
-            <q-item-label caption lines="5">{{item.comentario}}</q-item-label>
-          </q-item-section>
-
-          <q-item-section side top>
-            <div class="column">
-              <q-item-label caption>{{item.created_at}}</q-item-label>
-              <div class="row justify-end q-mt-md items-center">
-                <div class="text-subtitle1 text-bold"> {{item.puntuacion}} </div>
-                <q-icon name="star" color="orange" class="q-ml-sm" size="30px" />
-              </div>
-            </div>
-          </q-item-section>
-        </q-item>
-      </div>
-    </q-list>
-  </div>
-  <div v-else>
-    <div class="absolute-center text-subtitle1">
-      Actualmente sin opiniones...
-    </div>
-  </div>
-    </q-card>
-      <div class="column justify-center items-center">
-          <q-btn size="md" color="primary" icon="arrow_back" label="Regresar" push @click="$router.go(-1)" />
+                  <div class="q-mb-md q-mt-md" v-if="data.length > 0">
+                    <q-list class="q-mt-sm q-mb-lg">
+                      <div v-for="(item, index) in data" :key="index">
+                        <q-item class="q-mt-md">
+                          <q-item-section top avatar>
+                            <q-avatar >
+                              <q-img :src="item.img" />
+                            </q-avatar>
+                          </q-item-section>
+                          <q-item-section>
+                            <q-item-label>{{item.usuario.full_name}}</q-item-label>
+                            <q-item-label caption lines="5">{{item.comentario}}</q-item-label>
+                          </q-item-section>
+                          <q-item-section side top>
+                            <div class="column">
+                              <q-item-label caption>{{item.created_at}}</q-item-label>
+                              <div class="row justify-end q-mt-md items-center">
+                                <div class="text-subtitle1 text-bold"> {{item.puntuacion}} </div>
+                                <q-icon name="star" color="orange" class="q-ml-sm" size="30px" />
+                              </div>
+                            </div>
+                          </q-item-section>
+                        </q-item>
+                      </div>
+                    </q-list>
+                  </div>
+                  <div v-else>
+                    <div class="absolute-center text-subtitle1">
+                      Actualmente sin opiniones...
+                    </div>
+                  </div>
+                </q-card>
+          <q-dialog v-model="opinion">
+          <q-card style="width: 100%;border-radius:12px" class="q-ma-sm q-pa-lg shadow-3 bg-grey-3">
+              <div class="q-pa-none text-h6 text-grey-9 text-bold">Añadir comentario</div>
+                <q-card-section>
+                <div class="q-pa-sm" style="width: 100%">
+                <q-input outlined  bottom-slots v-model="form2.comentario" label="Ingresa tu comentario" type=textarea>
+              <template v-slot:before>
+                <q-avatar>
+                  <img src="https://www.adl-logistica.org/wp-content/uploads/2019/07/imagen-perfil-sin-foto.png">
+                </q-avatar>
+              </template>
+              <template v-slot:after>
+                <q-btn round dense flat icon="send" @click="comentar()"  />
+              </template>
+            </q-input>
+                  </div>
+                </q-card-section>
+              </q-card>
+          </q-dialog>
+        <div class="row justify-center items-center">
+          <q-btn class="q-mt-sm" color="primary" icon="arrow_back" label="Regresar" push @click="$router.go(-1)" />
         </div>
     </q-card>
 </div>
@@ -75,6 +95,8 @@ export default {
   data () {
     return {
       form: {},
+      opinion: false,
+      form2: {},
       data: [],
       id: this.$route.params.id,
       markers: [],
@@ -100,6 +122,11 @@ export default {
           })
         }
       })
+    },
+    comentar () {
+      this.$api.post('opinion', this.form2).then(res => {
+      })
+      this.consultar()
     },
     consultar () {
       this.$api.get('opiniones').then(res => {
