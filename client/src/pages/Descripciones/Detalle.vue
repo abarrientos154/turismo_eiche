@@ -24,10 +24,46 @@
         <div class="full-width">
           <google-map :type="type" :center="center" :zoom="10" @getBounds="getBounds" @newPlace="handleNewPlace" :withoutDirection="true" />
         </div>
+
+              <q-card class="bg-white full-width q-pa-xl q-ma-md shadow-3">
+         <div class="q-mb-md q-mt-md" v-if="data.length > 0">
+    <q-list class="q-mt-sm q-mb-lg">
+      <div v-for="(item, index) in data" :key="index">
+        <q-item class="q-mt-md">
+          <q-item-section top avatar>
+            <q-avatar >
+              <q-img :src="item.img" />
+            </q-avatar>
+          </q-item-section>
+
+          <q-item-section>
+            <q-item-label>{{item.usuario.full_name}}</q-item-label>
+            <q-item-label caption lines="5">{{item.comentario}}</q-item-label>
+          </q-item-section>
+
+          <q-item-section side top>
+            <div class="column">
+              <q-item-label caption>{{item.created_at}}</q-item-label>
+              <div class="row justify-end q-mt-md items-center">
+                <div class="text-subtitle1 text-bold"> {{item.puntuacion}} </div>
+                <q-icon name="star" color="orange" class="q-ml-sm" size="30px" />
+              </div>
+            </div>
+          </q-item-section>
+        </q-item>
+      </div>
+    </q-list>
+  </div>
+  <div v-else>
+    <div class="absolute-center text-subtitle1">
+      Actualmente sin opiniones...
+    </div>
+  </div>
     </q-card>
       <div class="column justify-center items-center">
           <q-btn size="md" color="primary" icon="arrow_back" label="Regresar" push @click="$router.go(-1)" />
         </div>
+    </q-card>
 </div>
 </template>
 <script>
@@ -39,6 +75,7 @@ export default {
   data () {
     return {
       form: {},
+      data: [],
       id: this.$route.params.id,
       markers: [],
       center: { lat: 10, lng: 10 }
@@ -46,6 +83,7 @@ export default {
   },
   async mounted () {
     this.turismoId()
+    this.consultar()
   },
   methods: {
     async turismoId () {
@@ -61,6 +99,17 @@ export default {
             position: this.form.ubicacion
           })
         }
+      })
+    },
+    consultar () {
+      this.$api.get('opiniones').then(res => {
+        this.data = res
+        this.data = res.map(v => {
+          return {
+            ...v,
+            img: 'noimg.png'
+          }
+        })
       })
     },
     getBounds (bounds, center) {
