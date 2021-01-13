@@ -29,6 +29,7 @@
                   </div>
 
               <q-card class="bg-white full-width q-pa-xl q-ma-md shadow-3">
+                <div class="q-ml-md text-h6 text-grey-9 text-bold">Comentarios</div>
                   <div class="q-mb-md q-mt-md" v-if="data.length > 0">
                     <q-list class="q-mt-sm q-mb-lg">
                       <div v-for="(item, index) in data" :key="index">
@@ -39,7 +40,6 @@
                             </q-avatar>
                           </q-item-section>
                           <q-item-section>
-                            <q-item-label>{{item.usuario.full_name}}</q-item-label>
                             <q-item-label caption lines="5">{{item.comentario}}</q-item-label>
                           </q-item-section>
                           <q-item-section side top>
@@ -72,12 +72,16 @@
                   <img src="https://www.adl-logistica.org/wp-content/uploads/2019/07/imagen-perfil-sin-foto.png">
                 </q-avatar>
               </template>
-              <template v-slot:after>
-                <q-btn round dense flat icon="send" @click="comentar()"  />
-              </template>
             </q-input>
                   </div>
                 </q-card-section>
+                <q-card-section>
+                <div class="q-pa-none text-h6 text-grey-9 text-bold">Añade una Puntuacion al lugar</div>
+                <q-rating v-model="form2.puntuacion" color="amber-13" size="3em" icon="star" />
+                </q-card-section>
+                 <div style="right:0px; bottom:0px; position:absolute">
+                  <q-btn class="q-mt-md bg-blue-grey-2" label="Enviar" icon="send" @click="comentar(_id)"  />
+                 </div>
               </q-card>
           </q-dialog>
         <div class="row justify-center items-center">
@@ -97,6 +101,7 @@ export default {
       form: {},
       opinion: false,
       form2: {},
+      puntuacion: 0,
       data: [],
       id: this.$route.params.id,
       markers: [],
@@ -123,10 +128,18 @@ export default {
         }
       })
     },
-    comentar () {
+    comentar (_id) {
+      console.log(this.form2, 'comentario manao')
       this.$api.post('opinion', this.form2).then(res => {
+        if (res) {
+          this.$q.notify({
+            message: 'Opinion enviada con Exito',
+            color: 'positive'
+          })
+          this.consultar()
+          this.opinion = false
+        }
       })
-      this.consultar()
     },
     consultar () {
       this.$api.get('opiniones').then(res => {
