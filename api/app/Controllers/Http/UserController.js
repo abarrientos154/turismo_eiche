@@ -82,6 +82,27 @@ class UserController {
     response.send(user)
   }
 
+  async validarLogueoEstatus ({ response, auth }) {
+    const user = (await auth.getUser()).toJSON()
+    if (user) { // si esta logueado
+      if (user.estatus === 0) { // si esta bloqueado
+        response.send({
+          errorBloqueado: true,
+          message: 'Lo siento no puedes comentar, Usuario Bloqueado. Pongase en contacto con el administrador',
+          color: 'negative'
+        })
+      } else { // de lo contrario entonces esta logueado y no esta bloquado
+        response.send({
+          error: false
+        })
+      }
+    } else { // de lo contrario entonces no esta logueado
+      response.send({
+        errorlogueado: true
+      })
+    }
+  }
+
   async destroy({ params, request, response }) {
     const { id } = params;
     const user = await User.find(id);
@@ -110,6 +131,7 @@ class UserController {
 
     console.log(permissions, 'permissions')
     token.email = user.email
+    token.estatus = user.estatus
     let data = {}
     data.TUR_SESSION_INFO = token
     return data

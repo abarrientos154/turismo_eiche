@@ -122,11 +122,18 @@ export default {
           if (res) {
             this.user = res.TUR_SESSION_INFO
             console.log('user', this.user)
-            this.login(res)
-            if (this.user.roles[0] === 1) {
-              this.$router.push('/Userlist')
-            } else if (this.user.roles[0] === 2) {
-              this.$router.push('home')
+            if (this.user.estatus === 1 || this.user.roles[0] === 1) { // si el estatus es 1 o el rol es admin puede iniciar sesion
+              this.login(res)
+              if (this.user.roles[0] === 1) {
+                this.$router.push('/Userlist')
+              } else if (this.user.roles[0] === 2) {
+                this.$router.push('home')
+              }
+            } else {
+              this.$q.notify({
+                message: 'Usuario Bloqueado ponganse en contacto con algun administrador',
+                color: 'negative'
+              })
             }
           } else {
             console.log('error de ususario')
@@ -134,6 +141,7 @@ export default {
             this.$q.loading.hide()
           }
           this.$q.loading.hide()
+          this.loading = false
         })
       }
     }

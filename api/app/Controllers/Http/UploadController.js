@@ -3,6 +3,7 @@
 const Helpers = use('Helpers')
 const mkdirp = use('mkdirp')
 const User = use('App/Models/User')
+const Turismo = use('App/Models/Turismo')
 const fs = require('fs')
 var randomize = require('randomatic');
 
@@ -15,6 +16,12 @@ var randomize = require('randomatic');
  * Resourceful controller for interacting with uploads
  */
 class UploadController {
+
+  async obtenerImagen ({params, response}) {
+    const dir = params.file
+    response.download(Helpers.appRoot('storage/uploads/turismo') + `/${dir}`)
+  }
+
   async upload({
     request
   }) {

@@ -8,6 +8,7 @@
  * Resourceful controller for interacting with opiniones
  */
 const Opiniones = use("App/Models/Opinion")
+const moment = require("moment")
 class OpinioneController {
   /**
    * Show a list of all opiniones.
@@ -18,10 +19,16 @@ class OpinioneController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ request, response, view }) {
-    let opiniones = (await Opiniones.all()).toJSON()
-    console.log(opiniones, 'opiniones')
-    response.send(opiniones)
+  async index ({ request, response, params }) {
+    console.log(params.id_turismo, 'paramssss')
+    let opiniones = (await Opiniones.query().where('turismo_id', params.id_turismo).with('user_info').fetch()).toJSON()
+    let formatearFecha = opiniones.map(v => {
+      return {
+        ...v,
+        created_at: moment(v.created_at).locale('es').calendar()
+      }
+    })
+    response.send(formatearFecha)
   }
 
   /**
@@ -44,10 +51,15 @@ class OpinioneController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response }) {
-    let body = request.only(Opiniones.fillable)
+  async store ({ request, response, params, auth }) {
+    const user = (await auth.getUser()).toJSON() // esto es para obtener la info del usuario logueado
+    if (user) { // pregunto si el usuario esta logueado ya que no se puede comentar o dar opiniones a menos que este logueado
+      let body = request.only(Opiniones.fillable)
+      body.turismo_id = params.id_turismo
+      body.user_id = user._id
       const opi = await Opiniones.create(body)
       response.send(opi)
+    }
   }
 
   /**

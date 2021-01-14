@@ -45,12 +45,10 @@ addPrefixToGroup(
     Route.get("turismo", "TurismoController.index")
     Route.get("turis/:id", "TurismoController.show")
     Route.get("detalle/:id", "TurismoController.busquedabyid")
-    Route.get("opiniones", "OpinionController.index")
-    Route.post("opinion", "OpinionController.store")
-
-
-
-
+    Route.get("opiniones/:id_turismo", "OpinionController.index")
+    Route.post("opinion/:id_turismo", "OpinionController.store")
+    Route.get("validar_estatus_logueo", "UserController.validarLogueoEstatus") // valida si esta logueado y si el estatus
+    Route.get("obtener_imagen/:file", "UploadController.obtenerImagen") // trae la primera imagen de las subcategorias
   })
 );
 
@@ -62,9 +60,6 @@ addPrefixToGroup(
     Route.get("bloquear/:id", "UserController.bloquearusuario")
     Route.get("categorialist", "TurismoController.listadoadmind")
     Route.get("detalleadmin/:id", "TurismoController.busquedabyid")
-
-
-
     Route.post("explora_destino", "TurismoController.store")
   }).middleware("auth")
 );

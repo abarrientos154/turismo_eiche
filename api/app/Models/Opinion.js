@@ -14,6 +14,9 @@ class Opinione extends Model {
     }
     return rules
   }
+  user_info () {
+    return this.hasOne('App/Models/User', 'user_id', '_id')
+  }
 }
 
 module.exports = Opinione
