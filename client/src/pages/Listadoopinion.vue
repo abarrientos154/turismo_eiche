@@ -1,49 +1,67 @@
 <template>
-  <div>
-    <div class="row justify-center items-center bg-grey-3">
-    <q-card style="width: 450px;border-radius:12px" class="q-ma-sm q-pa-lg shadow-3">
+  <div class="column items-center">
+    <q-card style="width: 800px;border-radius:12px" class="q-ma-sm q-pa-lg shadow-3">
       <q-card-section align="center">
       <div class="q-px-sm text-subtitle1 text-grey">Busqueda de Opiniones</div>
-        <q-select outlined  v-model="model" :options="datacategoria" option-label="titulo" option-value="_id" label="Categorias" map-option emit-value/>
-        <q-select outlined  v-model="model2" :options="datasubcategoria" option-label="titulo" option-value="_id" label="Subcategorias" map-option emit-value/>
-        <q-select outlined  v-model="model3" :options="dataturismo" option-label="nombre" option-value="_id" label="Turismo" map-option emit-value/>
+        <div class="column q-gutter-sm">
+          <q-select outlined  v-model="categoria" :options="datacategoria" option-label="titulo" option-value="id" label="Categorias" map-options emit-value @input="anularTurSub()" />
+          <q-select outlined  v-model="subcategoria" :options="filtrarSub" option-label="titulo" option-value="id" label="Subcategorias" map-options emit-value @input="anularTur()" />
+          <q-select outlined  v-model="turismo" :options="filtrarTur" option-label="nombre" option-value="_id" label="Turismo" map-options emit-value @input="seleccionarTurismo()" />
+        </div>
 
       </q-card-section>
-        <q-card-section align="center">
-          <q-btn class="q-ma-sm" size="md" color="primary" icon="search" label="Buscar" push @click="$router.push('/detalle/'+item._id)" />
+        <q-card-section v-if="formTurismo._id">
+          <detalle-turismo :form="formTurismo" v-if="formTurismo" />
         </q-card-section>
-
-       <q-card-section align="center">
-          <q-list bordered style="width: 100%" class="q-pa-md">
-            <div class="row q-gutter-sm justify-around" >
-              <q-card  v-for="(item, index) in data" :key="index" clickable v-ripple class="bg-white" @click="$router.push('/detalle/'+item._id)" style="width: 20%">
-                  <img :src="item.img ? item.img : baseu + item.images[0]" style="height:300px">
-                    <q-card-section>
-                      <div class="text-h6">{{item.nombre}}</div>
-                    </q-card-section>
-              </q-card>
-            </div>
-          </q-list>
-      </q-card-section>
     </q-card>
-   </div>
   </div>
 </template>
 <script>
+import DetalleTurismo from '../components/DetalleTurismo'
 export default {
+  components: {
+    DetalleTurismo
+  },
   data () {
     return {
       datacategoria: [],
       datasubcategoria: [],
       dataturismo: [],
-
       data: [],
-      model: null,
-      model2: null,
-      model3: null
+      categoria: null,
+      subcategoria: null,
+      turismo: null,
+      formTurismo: {}
+    }
+  },
+  computed: {
+    filtrarSub () {
+      if (this.categoria) {
+        console.log(this.datasubcategoria.filter(v => v.categoria_id === this.categoria), 'filtrado', this.categoria, 'categoria')
+        return this.datasubcategoria.filter(v => v.categoria_id === this.categoria)
+      } else {
+        return []
+      }
+    },
+    filtrarTur () {
+      if (this.subcategoria) {
+        console.log(this.dataturismo.filter(v => v.subCategoria_id === this.subcategoria), 'subcategoria_id')
+        return this.dataturismo.filter(v => v.subCategoria_id === this.subcategoria)
+      } else {
+        return []
+      }
     }
   },
   methods: {
+    anularTurSub () {
+      this.subcategoria = null
+      this.turismo = null
+      this.formTurismo = {}
+    },
+    anularTur () {
+      this.turismo = null
+      this.formTurismo = {}
+    },
     obtener_categorias () {
       this.$api.get('categoria').then(res => {
         if (res) {
@@ -67,6 +85,11 @@ export default {
           this.dataturismo = res
         }
       })
+    },
+    seleccionarTurismo () {
+      console.log(this.turismo, 'turismo id')
+      this.formTurismo = this.dataturismo.find(v => v._id === this.turismo)
+      console.log(this.formTurismo, 'form turismo')
     }
   },
   mounted () {
