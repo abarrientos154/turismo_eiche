@@ -20,8 +20,8 @@ const routes = [
       { path: '/Acategoria', component: () => import('pages/Admincategoria.vue') },
       { path: '/Userlist', component: () => import('pages/Usuariolist.vue') },
       { path: '/adminlist', component: () => import('pages/Listados/Listadoadmin.vue') },
-      { path: '/detalleadmin/:id', component: () => import('pages/Descripciones/Detalleadmin.vue') }
-
+      { path: '/detalleadmin/:id', component: () => import('pages/Descripciones/Detalleadmin.vue') },
+      { path: '/Opiniones', component: () => import('pages/Listadoopinion.vue') }
     ]
   },
   { path: '/registro', component: () => import('pages/Registro.vue') },
