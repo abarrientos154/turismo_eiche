@@ -61,5 +61,8 @@ addPrefixToGroup(
     Route.get("categorialist", "TurismoController.listadoadmind")
     Route.get("detalleadmin/:id", "TurismoController.busquedabyid")
     Route.post("explora_destino", "TurismoController.store")
+    Route.delete("turismo/:id", "TurismoController.destroy")
+    Route.delete("opi/:id", "OpinionController.destroy")
+
   }).middleware("auth")
 );

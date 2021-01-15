@@ -165,6 +165,8 @@ export default {
           })
           this.consultar()
           this.opinion = false
+          this.form2.comentario = ''
+          this.form2.puntuacion = ''
         }
       })
     },

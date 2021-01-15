@@ -27,18 +27,6 @@ const data = [
      }
     },
     {
-      id: 14,
-      subCategoria_id: 1,
-      nombre: 'Ciudad de Caracas',
-      img: 'https://www.vuelaviajes.com/wp-content/2017/01/Santiago-de-Chile-destacada.jpg',
-      puntuacion: 2,
-      descripcion: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil at soluta possimus ipsa.',
-      ubicacion: {
-        lat:39.06381859766945,
-        lng:-101.56402439607774
-       }
-      },
-    {
     id: 2,
     subCategoria_id: 2,
     nombre: 'Ruinas de Chile',

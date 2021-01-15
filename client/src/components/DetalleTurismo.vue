@@ -48,13 +48,16 @@
                                 <q-icon name="star" color="orange" class="q-ml-sm" size="30px" />
                               </div>
                             </div>
+                            <div class="row">
+                              <q-btn color="black" icon="delete" flat dense @click="alert = true , id = item._id"  />
+                              </div>
                           </q-item-section>
                         </q-item>
                       </div>
                     </q-list>
                   </div>
-                  <div v-else>
-                    <div class="absolute-center text-subtitle1">
+                  <div class="q-pa-md column q-ma-md items-center q-gutter-md absolute-center" v-else>
+                    <div class="absolute-botomn text-subtitle1">
                       Actualmente sin opiniones...
                     </div>
                   </div>
@@ -63,6 +66,18 @@
           <q-btn class="q-mt-sm" color="primary" icon="arrow_back" label="Regresar" push @click="$router.go(-1)" />
         </div>
     </q-card>
+    <q-dialog v-model="alert">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6">¿Estas seguro de borrar este comentario?</div>
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn label="Eliminar" color="red" icon="delete" flat dense @click="eliminar()" push v-close-popup />
+          <q-btn flat label="Cerrar" color="primary" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
 </div>
 </template>
 <script>
@@ -77,6 +92,8 @@ export default {
     return {
       type: null,
       puntuacion: 0,
+      alert: false,
+      id: '',
       data: [],
       markers: [],
       center: { lat: 10, lng: 10 },
@@ -98,6 +115,17 @@ export default {
             img: 'noimg.png'
           }
         })
+      })
+    },
+    eliminar () {
+      this.$api.delete('opi/' + this.id).then(res => {
+        if (res) {
+          this.$q.notify({
+            message: 'comentario Eliminado con Exito',
+            color: 'positive'
+          })
+          this.consultar()
+        }
       })
     },
     getBounds (bounds, center) {

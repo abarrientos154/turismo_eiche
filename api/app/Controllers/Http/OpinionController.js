@@ -106,6 +106,8 @@ class OpinioneController {
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
+    let opinion = (await Opiniones.find(params.id)).delete()
+    response.send(opinion)
   }
 }
 

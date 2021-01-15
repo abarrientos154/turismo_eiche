@@ -146,6 +146,8 @@ class TurismoController {
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
+    let turismo = (await Turismo.find(params.id)).delete()
+    response.send(turismo)
   }
 }
 
