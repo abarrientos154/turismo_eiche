@@ -5,7 +5,7 @@
     <q-card-section align="center">
                 <div class="row justify-center">
                   <q-img
-                    style="width:250px"
+                    style="width:50%"
                 src="~assets/quasar-logo-full.svg"
                   ></q-img>
                 </div>

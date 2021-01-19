@@ -15,29 +15,9 @@
             <q-btn round dense icon="settings" size="20px" color="primary" >
               <q-menu>
                 <q-list style="min-width: 100px">
-                  <q-item clickable v-close-popup>
-                    <q-item-section>New tab</q-item-section>
-                  </q-item>
-                  <q-item clickable v-close-popup>
-                    <q-item-section>New incognito tab</q-item-section>
-                  </q-item>
-                  <q-separator />
-                  <q-item clickable v-close-popup>
-                    <q-item-section>Recent tabs</q-item-section>
-                  </q-item>
-                  <q-item clickable v-close-popup>
-                    <q-item-section>History</q-item-section>
-                  </q-item>
-                  <q-item clickable v-close-popup>
-                    <q-item-section>Downloads</q-item-section>
-                  </q-item>
-                  <q-separator />
-                  <q-item clickable v-close-popup>
-                    <q-item-section>Settings</q-item-section>
-                  </q-item>
-                  <q-separator />
-                  <q-item clickable v-close-popup>
-                    <q-item-section>Help &amp; Feedback</q-item-section>
+                  <q-item clickable v-ripple class="bg-blue-grey-1 q-pa-md" @click="cerrarsesion()">
+                    <q-item-section> <q-icon name="exit_to_app" size='xl' /></q-item-section>
+                    <q-item-section>Cerrar sesion</q-item-section>
                   </q-item>
                 </q-list>
               </q-menu>
@@ -83,6 +63,14 @@ export default {
       this.$router.push('/categoria/' + numerocategoria)
       location.href = 'http://localhost:8080/#/categoria/' + numerocategoria
       location.reload()
+    },
+    cerrarsesion () {
+      localStorage.removeItem('TUR_SESSION_INFO')
+      this.$q.notify({
+        message: 'Sesion cerrada con exito',
+        color: 'positive'
+      })
+      this.$router.push('/login')
     }
   }
 }

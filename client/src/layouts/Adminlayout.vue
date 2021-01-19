@@ -18,6 +18,12 @@
             <q-item-section> {{ item.titulo }}</q-item-section>
             <q-item-section> {{ item.descripcion }}</q-item-section>
         </q-item>
+        <div class="row">
+        <q-item clickable v-ripple class="bg-blue-grey-1 q-pa-md" @click="cerrarsesion()">
+           <q-item-section> <q-icon name="settings_power" size='xl' /></q-item-section>
+            <q-item-section class="q-pl-md"> {{ "Cerrar Sesión" }}</q-item-section>
+        </q-item>
+        </div>
       </q-list>
     </q-drawer>
 
@@ -49,16 +55,20 @@ export default {
           descripcion: '',
           icono: 'account_circle',
           url: '/Userlist'
-        },
-        {
-          titulo: 'Cerrar Sesión',
-          descripcion: '',
-          icono: 'settings_power',
-          url: '/login'
         }
 
       ],
       leftDrawerOpen: false
+    }
+  },
+  methods: {
+    cerrarsesion () {
+      localStorage.removeItem('TUR_SESSION_INFO')
+      this.$q.notify({
+        message: 'Sesion cerrada con exito',
+        color: 'positive'
+      })
+      this.$router.push('/login')
     }
   }
 }

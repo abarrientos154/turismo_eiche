@@ -1,74 +1,76 @@
 <template>
 <div>
-  <q-card class="q-pa-md column q-ma-md items-center q-gutter-md absolute-center" style="width:500px">
-    <div class="text-h6 text-grey-9 text-bold">Ingresa los Datos Correspondientes</div>
-    <div class="full-width">
-      <q-select outlined v-model="form.subCategoria_id" :options="options" label="Selecciona" emit-value map-options />
-    </div>
-    <div class="full-width">
-      <q-input outlined v-model="form.nombre" label="Introduce el Nombre del Lugar" />
-    </div>
-    <div class="full-width">
-      <q-input outlined v-model="form.descripcion" label="Introduce una Descripcion" />
-    </div>
+  <q-card class="column q-ma-md">
+    <q-card class="q-pa-md column justify-center items-center" bordered>
+      <div class="text-h6 text-grey-9 text-bold">Ingresa los Datos Correspondientes</div>
+      <div class="q-pa-sm full-width">
+        <q-select outlined v-model="form.subCategoria_id" :options="options" label="Selecciona" emit-value map-options />
+      </div>
+      <div class="q-pa-sm full-width">
+        <q-input outlined v-model="form.nombre" label="Introduce el Nombre del Lugar" />
+      </div>
+      <div class="q-pa-sm full-width">
+        <q-input outlined v-model="form.descripcion" label="Introduce una Descripcion" />
+      </div>
 
-    <div class="full-width">
-        <q-checkbox v-model="form.habilitarH" label="Habilitar Horario" />
-          <q-card v-if="form.habilitarH">
-              <q-card-section>
-                <q-select class="q-pa-md" v-model="form.diastrabajo" multiple :options="dias" use-chips stack-label label="Dias de trabajo" />
-                  <q-input class="q-pa-md" label="Hora de apertura" v-model="form.tiempoinicio" mask="time" :rules="['time']">
-                    <template v-slot:append>
-                      <q-icon name="access_time" class="cursor-pointer">
-                        <q-popup-proxy transition-show="scale" transition-hide="scale">
-                          <q-time v-model="form.tiempoinicio">
-                            <div class="row items-center justify-end">
-                              <q-btn v-close-popup label="Close" color="primary" flat />
-                            </div>
-                          </q-time>
-                        </q-popup-proxy>
-                      </q-icon>
-                    </template>
-                </q-input>
-                <q-input class="q-pa-md" label="Hora de cierre" v-model="form.tiempofinal" mask="time" :rules="['time']">
-                    <template v-slot:append>
-                      <q-icon name="access_time" class="cursor-pointer">
-                        <q-popup-proxy transition-show="scale" transition-hide="scale">
-                          <q-time v-model="form.tiempofinal">
-                            <div class="row items-center justify-end">
-                              <q-btn v-close-popup label="Close" color="primary" flat />
-                            </div>
-                          </q-time>
-                        </q-popup-proxy>
-                      </q-icon>
-                    </template>
-                </q-input>
-              </q-card-section>
+      <div class="q-pa-sm full-width">
+          <q-checkbox v-model="form.habilitarH" label="Habilitar Horario" />
+            <q-card v-if="form.habilitarH">
+                <q-card-section>
+                  <q-select outlined class="q-pa-md" v-model="form.diastrabajo" multiple :options="dias" use-chips stack-label label="Dias de trabajo" />
+                    <q-input outlined class="q-pa-md" label="Hora de apertura" v-model="form.tiempoinicio" mask="time" :rules="['time']">
+                      <template v-slot:append>
+                        <q-icon name="access_time" class="cursor-pointer">
+                          <q-popup-proxy transition-show="scale" transition-hide="scale">
+                            <q-time v-model="form.tiempoinicio">
+                              <div class="row items-center justify-end">
+                                <q-btn v-close-popup label="Close" color="primary" flat />
+                              </div>
+                            </q-time>
+                          </q-popup-proxy>
+                        </q-icon>
+                      </template>
+                  </q-input>
+                  <q-input outlined class="q-pa-md" label="Hora de cierre" v-model="form.tiempofinal" mask="time" :rules="['time']">
+                      <template v-slot:append>
+                        <q-icon name="access_time" class="cursor-pointer">
+                          <q-popup-proxy transition-show="scale" transition-hide="scale">
+                            <q-time v-model="form.tiempofinal">
+                              <div class="row items-center justify-end">
+                                <q-btn v-close-popup label="Close" color="primary" flat />
+                              </div>
+                            </q-time>
+                          </q-popup-proxy>
+                        </q-icon>
+                      </template>
+                  </q-input>
+                </q-card-section>
+            </q-card>
+        </div>
+
+      <div class="column full-width">
+        <div class="q-mt-sm full-width">
+          <q-file v-if="files.length < 10" style="max-width: 300px" v-model="file" outlined label="Imagenes permitidas (10)"  accept=".jpg,.png, image/*" @input="insertarImagen()" >
+            <template v-slot:prepend>
+              <q-icon name="attach_file" />
+            </template>
+          </q-file>
+        </div>
+        <div class="row q-mt-sm items-start q-gutter-sm">
+          <q-card v-for="(img, index) in filesT" :key="index">
+            <q-img :src="img" style="width:120px;height:120px">
+              <q-btn icon="delete" style="position:absolute;top:0px;left:0px" flat round color="negative" @click="filesT.splice(index, 1), files.splice(index, 1)" />
+            </q-img>
           </q-card>
+        </div>
       </div>
-
-    <div class="column full-width">
       <div class="full-width">
-        <q-file v-if="files.length < 10" style="max-width: 300px" v-model="file" outlined label="Imagenes permitidas (10)"  accept=".jpg,.png, image/*" @input="insertarImagen()" >
-          <template v-slot:prepend>
-            <q-icon name="attach_file" />
-          </template>
-        </q-file>
+        <google-map :type="type" :center="center" :zoom="10" @getBounds="getBounds" @newPlace="handleNewPlace" :withoutDirection="true" />
       </div>
-      <div class="row q-mt-sm items-start q-gutter-sm">
-        <q-card v-for="(img, index) in filesT" :key="index">
-          <q-img :src="img" style="width:120px;height:120px">
-            <q-btn icon="delete" style="position:absolute;top:0px;left:0px" flat round color="negative" @click="filesT.splice(index, 1), files.splice(index, 1)" />
-          </q-img>
-        </q-card>
-      </div>
-    </div>
-    <div class="full-width">
-      <google-map :type="type" :center="center" :zoom="10" @getBounds="getBounds" @newPlace="handleNewPlace" :withoutDirection="true" />
-    </div>
-    <q-card-actions>
-      <q-btn class="q-mt-sm" label="Guardar" @click="guardar" color="primary" />
-    </q-card-actions>
+      <q-card-actions>
+        <q-btn class="q-mt-sm" label="Guardar" @click="guardar" color="primary" />
+      </q-card-actions>
+    </q-card>
   </q-card>
 </div>
 </template>

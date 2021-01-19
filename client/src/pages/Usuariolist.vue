@@ -5,7 +5,8 @@
       <q-card-section class="q-pa-sm q-mt-sm">
         <q-card class="shadow-3 q-pa-md bg-grey-3" style="border-radius:13px">
           <div class="text-h6">Lista de Usuarios</div>
-          <q-card v-for="(item, index) in lista" :key="index" class="bg-grey-3" style="width: 100%">
+          <div class="row">
+          <q-card v-for="(item, index) in lista" :key="index" class="bg-grey-3" style="width: 50%">
            <q-separator />
             <q-item>
 
@@ -27,6 +28,7 @@
                 </q-card-actions>
             </q-item>
           </q-card>
+          </div>
 
         </q-card>
       </q-card-section>
