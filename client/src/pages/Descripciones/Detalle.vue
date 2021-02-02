@@ -24,7 +24,7 @@
                 <q-card-section >
                 <q-btn flat class="q-mt-none" label="Dar mi opinión" color="primary" @click="abrirOpinion()" />
                 </q-card-section>
-                  <div class="full-width">
+                  <div class="full-width" v-if="form.ubicacion">
                     <google-map :type="type" :center="center" :zoom="10" @getBounds="getBounds" @newPlace="handleNewPlace" :withoutDirection="true" />
                   </div>
 
@@ -146,13 +146,15 @@ export default {
         if (res) {
           this.form = res
           console.log(this.form, 'formmmm')
-          this.center = this.form.ubicacion
-          this.markers.push({
-            title: this.form.nombre, // this.form.nombre,
-            description: this.description,
-            date_build: '',
-            position: this.form.ubicacion
-          })
+          if (this.form.ubicacion) {
+            this.center = this.form.ubicacion
+            this.markers.push({
+              title: this.form.nombre, // this.form.nombre,
+              description: this.description,
+              date_build: '',
+              position: this.form.ubicacion
+            })
+          }
         }
       })
     },

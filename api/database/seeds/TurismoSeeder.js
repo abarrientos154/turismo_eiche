@@ -16,6 +16,188 @@ const Turismo = use("App/Models/Turismo")
 const data = [
   {
     id: 1,
+    subCategoria_id: 3,
+    nombre: 'PUNTA CUARTEL',
+    img: 'playas/PUNTA CUARTEL.png',
+    puntuacion: 0,
+    descripcion: 'Ubicada a 8 km de la comuna, Punta rieles cuenta con hermosas playas. Escondida bajo el sector de Punta Angamos. Se caracteriza por poseer blancas arenas y aguas cristalinas'
+  },
+  {
+    id: 2,
+    subCategoria_id: 3,
+    nombre: 'PLAYA LA RINCONADA',
+    img: 'playas/PLAYA LA RINCONADA.png',
+    puntuacion: 0,
+    descripcion: 'Localizada a 3,5 Km al oeste de Mejillones y situada en las faldas del cerro San Luciano. Playa de arenas Blancas y de tranquilas aguas'
+  },
+  {
+    id: 3,
+    subCategoria_id: 3,
+    nombre: 'BALNEARIOS / CAP. DE PUERTO / GUANAYE',
+    img: 'playas/PLAYA BALNEARIO.png',
+    puntuacion: 0,
+    descripcion: 'Playas populares centro de la bahía de Mejillones cercanas a muelle pesquero y Plaza de los eventos playas que cuentan con todo servicio a su disposición.'
+  },
+  {
+    id: 4,
+    subCategoria_id: 3,
+    nombre: 'CHACAYA',
+    img: 'playas/CHACAYA.png',
+    puntuacion: 0,
+    descripcion: 'Localizada a 30 Km al norte de Mejillones a través de la ruta B-262. Posee un hermoso paisaje y es perfecta para realizar deportes náuticos y pesca deportiva.'
+  },
+  {
+    id: 5,
+    subCategoria_id: 3,
+    nombre: 'PLAYA GRANDE',
+    img: 'playas/PLAYA GRANDE.png',
+    puntuacion: 0,
+    descripcion: 'Localizada a 25 Km al norte de Mejillones. Playas de Gran extensión con fina arena'
+  },
+  {
+    id: 6,
+    subCategoria_id: 3,
+    nombre: 'PUNTA ITATA',
+    img: 'playas/PUNTA ITATA.png',
+    puntuacion: 0,
+    descripcion: 'se emplaza a 32 km al norte de Mejillones. Pequeño balneario de aguas cálidas.'
+  },
+  {
+    id: 7,
+    subCategoria_id: 3,
+    nombre: 'HORNITOS',
+    img: 'playas/HORNITOS.png',
+    puntuacion: 0,
+    descripcion: 'Situada a 36 Km al norte de Mejillones es uno de los mejores balnearios turísticos de la región.'
+  },
+  {
+    id: 8,
+    subCategoria_id: 2,
+    nombre: 'CEMENTERIO  MUNICIPAL ',
+    img: 'ruinasylugaresh/CEMENTERIO MUNICIPAL.png',
+    puntuacion: 0,
+    descripcion: `
+    *  AÑO DE CONSTRUCCIÓN: 1913
+    Con fecha 28 de Julio de 1913, se aceptó por parte del Ministerio de la Industria y Obras Públicas con el Decreto Nº 1440, la propuesta del contratista LISANDRO ALVAREZ para llevar a cabo los trabajos de construcción de la portada y cierre del Cementerio de Mejillones por la suma de $ 77.000 y con un plazo de siete meses para terminar las obras.
+    El diseño de la portada le correspondió al  Arquitecto  Don LEONELLO BOTACCI.
+    Las obras se concluyeron recién durante el mes de Julio de 1916.
+    *  DESCRIPCIÓN ARQUITECTÓNICA
+    Principalmente la descripción corresponde a la construcción de la portada del Cementerio, realizada enteramente en concreto. Su diseño arquitectónico determina una simetría rígida con dos dependencias laterales separadas por una cúpula esférica que le da al diseño una especial característica de estilo neoclásico con influencias europeas.
+    Los muros circundantes se confeccionaron enteramente en concreto y se encuentran en excelentes condiciones, sin que hayan mayores modificaciones al diseño original.
+    `
+  },
+  {
+    id: 9,
+    subCategoria_id: 2,
+    nombre: 'HITO PARALELO 23',
+    img: 'ruinasylugaresh/HITO PARALELO 23.png',
+    puntuacion: 0,
+    descripcion: `
+    Hubo un tiempo en que Chile llegaba hasta Mejillones. Aún se mantiene altivo el hito construido para decir “hasta acá llega Chile”. Tal hito es un verdadero monumento histórico que yace oculto y olvidado en el desierto norte de nuestra comuna. Y el tiempo en que Mejillones fue la frontera norte de Chile fueron años decisivos en la historia de nuestro país. Décadas que desembocaron en una guerra por la posesión del Desierto de Atacama. A fines de la década de 1830 se descubre guano blanco en
+    la Península de Mejillones. El empresario francés Domingo Latrille comienza su explotación, planteándose por primera vez el tema de los límites. Hasta el momento era “tierra de nadie”. Chile alegaba la pertenencia del “despoblado de Atacama” mientras que Bolivia reclamaba que su jurisdicción se prolongaba hasta Coquimbo. Sólo cinco años después –en 1862- nacería Mejillones. En esa fecha el empresario chileno Juan López descubre un cuantioso yacimiento de guano rojo en el Morro de Mejillones. Esto obliga al nacimiento de un pueblo.
+    `
+  },
+  {
+    id: 10,
+    subCategoria_id: 2,
+    nombre: 'IGLESIA CORAZÓN DE MARIA ',
+    img: 'ruinasylugaresh/IGLESIA CORAZÓN DE MARIA.png',
+    puntuacion: 0,
+    descripcion: `
+    AÑO DE CONSTRUCCIÓN: 1907
+    En abril de 1907 la Dirección de Obras Públicas, procedió a formar los proyectos de edificios públicos de Mejillones, entre ellos los del Templo Católico de acuerdo a lo dispuesto en la Ley 1829 del 7 de Febrero de 1906.
+    trabajo del Arquitecto ONOFRE MONTANE U.
+    DESCRIPCIÓN ARQUITECTÓNICA
+    Construcción enteramente de madera de pino oregón. Construcción alzada en un piso y emplazada al vértice noreste del sitio. Adosado al cuerpo principal, se ubican las oficinas parroquiales y Casa del Párroco que complementan la fachada.
+    `
+  },
+  {
+    id: 11,
+    subCategoria_id: 2,
+    nombre: 'DELEGACION MUNICIPAL',
+    img: 'ruinasylugaresh/DELEGACION MUNICIPAL.png',
+    puntuacion: 0,
+    descripcion: `
+    AÑO DE CONSTRUCCIÓN 1909
+    Mejillones, quedó como Subdelegación dependiente de la Comuna de Antofagasta y por ello,  el 4 de Enero de 1957 y se instalara la Primera Municipalidad el 4 de Marzo de ese mismo año.
+
+    `
+  },
+  {
+    id: 12,
+    subCategoria_id: 2,
+    nombre: 'CAPITANIA DE PUERTO',
+    img: 'ruinasylugaresh/CAPITANIA DE PUERTO.png',
+    puntuacion: 0,
+    descripcion: `
+    Su construcción data de 1910 y se enmarca dentro del plano de la nueva ciudad de Mejillones. Los planos del edificio se atribuyen al Arquitecto Leonello Bottacci. Considerado para labores de control marítimo,   Está ubicada en el borde costero.  Su construcción se alza en dos pisos y su frontis  apunta directamente al Pacífico.
+    `
+  },
+  {
+    id: 13,
+    subCategoria_id: 2,
+    nombre: 'PLAZA DEL FERROVIARIO',
+    img: 'ruinasylugaresh/PLAZA DEL FERROVIARIO.png',
+    puntuacion: 0,
+    descripcion: `
+    la Locomotora a vapor Nº 22 de FCAB fue trasladada en 1971, posteriormente en 1976 se  inauguro el Monumento el Trabajador Ferroviario.
+    `
+  },
+  {
+    id: 14,
+    subCategoria_id: 2,
+    nombre: 'CASONA SUB DELEGACION',
+    img: 'ruinasylugaresh/CASONA SUB DELEGACION.png',
+    puntuacion: 0,
+    descripcion: `
+    *  AÑO DE CONSTRUCCIÓN: 1909
+    Mejillones, no siendo una localidad políticamente definida quedó como Subdelegación dependiente de la Comuna de Antofagasta  una de las autoridades más importantes fue el Juez de Subdelegación.
+    *  DESCRIPCIÓN ARQUITECTÓNICA
+    De estilo típico neoclásico inglés, construcción  mixta estructurada con vigas y pilares de madera de pino oregón y muros de paneles prefabricados de concreto. Su construcción está alzada en dos pisos, sus ornamentos (adornos de fachada) se destacan pro las aplicaciones en las cornisas y frontones superiores que se muestran hacia los exteriores, reafirmando así el estilo de la influencia europea. Su diseño esta basado en dos bloques que identifican el primer piso del segundo, los cuales hacían diferenciar las oficinas del Juzgado con las dependencias destinadas a la casa del Juez.
+    `
+  },
+  {
+    id: 15,
+    subCategoria_id: 2,
+    nombre: 'MUSEO HISTORICO MEJILLONES',
+    img: 'ruinasylugaresh/MUSEO HISTORICO MEJILLONES.png',
+    puntuacion: 0,
+    descripcion: `
+    El Museo Municipal de Mejillones se encuentra emplazado en un edificio de Conservación Histórica, construido originalmente como servicio de Aduana en el año 1909. Construcción en su totalidad de pino Oregón. En 1997 se habilita como Museo albergando en su interior la Historia de Mejillones.
+    `
+  },
+  {
+    id: 16,
+    subCategoria_id: 2,
+    nombre: 'MUNICIPALIDAD DE MEJILLONES',
+    img: 'ruinasylugaresh/MUNICIPALIDAD DE MEJILLONES.png',
+    puntuacion: 0,
+    descripcion: `
+    Fue destinada como   casa del Teniente de Aduana.
+    Construido en 1909
+    Diseño del arquitecto Luis Jacob, proyectada por el Ingeniero Emilio de Vidts y  ejecutada en 1906
+    `
+  },
+  {
+    id: 17,
+    subCategoria_id: 2,
+    nombre: 'ESTACION DE FERROCARRIL',
+    img: 'ruinasylugaresh/ESTACION DE FERROCARRIL.png',
+    puntuacion: 0,
+    descripcion: `
+        AÑO DE CONSTRUCCIÓN: 1906
+    La instalación de la empresa de ferrocarril constituye el hito histórico mas relevante que tenga relación con la fundación del pueblo y Puerto de Mejillones.
+
+    El 11 de Octubre de 1904 con el Decreto Nº 2102 se concedió la construcción y el 7 de Febrero de 1906 se promulgó la Ley 1829 que declaró la utilidad pública los terrenos para el ferrocarril y los del pueblo. La estación ferroviaria fue quizás el primer edificio levantado para el tal efecto.
+
+    DESCRIPCIÓN ARQUITECTÓNICA
+    Modelo casi estandarizado por le empresa del Ferrocarril para sus estaciones de pasajeros construidas en toda la línea de la pampa Antofagastina a principios del siglo XX y a su vez de estilo típico para las construcciones industriales de la época salitrera.
+    Construcción enteramente en madera de pino oregón.
+    `
+  }
+
+  /* {
+    id: 1,
     subCategoria_id: 1,
     nombre: 'Ciudad de Chile',
     img: 'https://www.vuelaviajes.com/wp-content/2017/01/Santiago-de-Chile-destacada.jpg',
@@ -209,7 +391,7 @@ const data = [
       lat:39.06381859766945,
       lng:-101.56402439607774
      }
-    }
+    } */
 ]
 
 class TurismoSeeder {
@@ -219,17 +401,7 @@ class TurismoSeeder {
       if (!turismo) {
         await Turismo.create(data[i])
       } else {
-        turismo.subCategoria_id = data[i].subCategoria_id
-        turismo.nombre = data[i].nombre
-        turismo.img = data[i].img
-        turismo.puntuacion = data[i].puntuacion
-        turismo.descripcion = data[i].descripcion
-        turismo.ubicacion = data[i].ubicacion
-        turismo.numerocontact = data[i].numerocontact
-        turismo.direccion = data[i].direccion
-        turismo.correocontact = data[i].correocontact
-        turismo.pagina = data[i].pagina
-        await turismo.save()
+        await Turismo.query().where('id', data[i].id).update(data[i])
       }
     }
     console.log('Finished SubCategoria')
