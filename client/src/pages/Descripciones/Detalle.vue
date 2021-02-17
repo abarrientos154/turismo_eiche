@@ -1,8 +1,19 @@
 <template>
-<div class="q-pa-md">
-    <q-card class="bg-white full-width q-pa-xl q-ma-md shadow-3">
-      <img :src="form.img ? form.img : baseu + form.images[0]" style="height:300px">
-        <q-card-section>
+<q-page class="q-pa-md">
+    <q-card class="bg-white full-width q-ma-md shadow-3">
+
+    <q-card class="bg-primary shadow-up-3" style="border-top-left-radius:25px;border-top-right-radius:25px;height:200px">
+          <div style="width: 100%;height:100%">
+            <q-card class="bg-white" style="border-radius:12px;width: 100%;height: 100%">
+              <q-img v-if="form.img" :src="form.img" style="height: 100%; width: 100%" />
+              <q-carousel v-else animated v-model="slide" arrows navigation infinite class="full-width full-height" >
+                <q-carousel-slide class="full-width full-height" v-for="(item, index) in form.images" :key="index" :name="index" :img-src="baseu + item" />
+              </q-carousel>
+            </q-card>
+          </div>
+      </q-card>
+
+       <q-card-section>
           <div class="text-h6">{{form.nombre}}</div>
         </q-card-section>
           <div class="q-pa-md text-h7 text-grey-9 text-bold">Descripcion del lugar:</div>
@@ -28,8 +39,9 @@
                     <google-map :type="type" :center="center" :zoom="10" @getBounds="getBounds" @newPlace="handleNewPlace" :withoutDirection="true" />
                   </div>
 
-              <q-card class="bg-white full-width q-pa-xl q-ma-md shadow-3">
-                <div class="q-ml-md text-h6 text-grey-9 text-bold">Comentarios</div>
+            <q-card-section >
+              <q-card class="bg-white full-width q-ma-md shadow-3">
+                <div class="q-ml-md text-h6 text-grey-9 text-bold">Comentarios:</div>
                   <div class="q-mb-md q-mt-md" v-if="data.length > 0">
                     <q-list class="q-mt-sm q-mb-lg">
                       <div v-for="(item, index) in data" :key="index">
@@ -56,40 +68,43 @@
                       </div>
                     </q-list>
                   </div>
-                  <div v-else>
+                  <div v-else style="height: 150px">
                     <div class="absolute-center text-subtitle1">
-                      Actualmente sin opiniones...
+                      Actualmente sin Comentarios...
                     </div>
                   </div>
                 </q-card>
-          <q-dialog v-model="opinion">
-              <q-card style="width: 100%;border-radius:12px" class="q-ma-sm q-pa-lg shadow-3 bg-grey-3">
-                <div class="q-pa-none text-h6 text-grey-9 text-bold">Añadir comentario</div>
-                <q-card-section>
-                  <div class="q-pa-sm" style="width: 100%">
-                    <q-input outlined  bottom-slots v-model="form2.comentario" label="Ingresa tu comentario" type=textarea>
-                      <template v-slot:before>
-                        <q-avatar>
-                          <img src="https://www.adl-logistica.org/wp-content/uploads/2019/07/imagen-perfil-sin-foto.png">
-                        </q-avatar>
-                      </template>
-                    </q-input>
-                  </div>
-                </q-card-section>
-                <q-card-section>
-                  <div class="q-pa-none text-h6 text-grey-9 text-bold">Añade una Puntuacion al lugar</div>
-                  <q-rating v-model="form2.puntuacion" color="amber-13" size="3em" icon="star" />
-                </q-card-section>
-                <div style="right:0px; bottom:0px; position:absolute">
-                  <q-btn class="q-mt-md bg-blue-grey-2" label="Enviar" icon="send" @click="comentar()"  />
-                </div>
-              </q-card>
-          </q-dialog>
-        <div class="row justify-center items-center">
-          <q-btn class="q-mt-sm" color="primary" icon="arrow_back" label="Regresar" push @click="$router.go(-1)" />
+              </q-card-section>
+
+                <div class="row justify-center items-center">
+          <q-btn class="q-mt-sm" color="primary" label="volver" push @click="$router.go(-1)" />
         </div>
+        <q-dialog v-model="opinion">
+            <q-card style="width: 100%;border-radius:12px" class="q-ma-sm q-pa-lg shadow-3 bg-grey-3">
+              <div class="q-pa-none text-h6 text-grey-9 text-bold">Añadir comentario</div>
+              <q-card-section>
+                <div class="q-pa-sm" style="width: 100%">
+                  <q-input outlined  bottom-slots v-model="form2.comentario" label="Ingresa tu comentario" type=textarea>
+                    <template v-slot:before>
+                      <q-avatar>
+                        <img src="https://www.adl-logistica.org/wp-content/uploads/2019/07/imagen-perfil-sin-foto.png">
+                      </q-avatar>
+                    </template>
+                  </q-input>
+                </div>
+              </q-card-section>
+              <q-card-section>
+                <div class="q-pa-none text-h6 text-grey-9 text-bold">Añade una Puntuacion al lugar</div>
+                <q-rating v-model="form2.puntuacion" color="amber-13" size="3em" icon="star" />
+              </q-card-section>
+              <div style="right:0px; bottom:0px; position:absolute">
+                <q-btn class="q-mt-md bg-blue-grey-2" label="Enviar" icon="send" @click="comentar()"  />
+              </div>
+            </q-card>
+        </q-dialog>
     </q-card>
-</div>
+
+</q-page>
 </template>
 <script>
 import env from '../../env'
@@ -105,6 +120,8 @@ export default {
       opinion: false,
       form2: {},
       puntuacion: 0,
+      slide: 0,
+      lorem: 'Lorem',
       data: [],
       id: this.$route.params.id,
       markers: [],

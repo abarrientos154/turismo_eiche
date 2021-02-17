@@ -13,6 +13,9 @@ class Turismo extends Model {
     }
     return rules
   }
+  categoria () {
+    return this.hasOne('App/Models/SubCategoria', 'subCategoria_id', 'id')
+  }
 }
 
 module.exports = Turismo

@@ -9,8 +9,8 @@ const routes = [
       { path: '', component: () => import('pages/Index.vue') },
       { path: '/detalle/:id', component: () => import('pages/Descripciones/Detalle.vue') },
       { path: '/categoria/:id', component: () => import('pages/Categorias.vue') },
-      { path: '/listado/:id', component: () => import('pages/Listados/Listado.vue') }
-
+      { path: '/listado/:id', component: () => import('pages/Listados/Listado.vue') },
+      { path: '/explora', component: () => import('pages/Explora.vue') }
     ]
   },
   {

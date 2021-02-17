@@ -24,7 +24,7 @@ class TurismoController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-    let turismo = (await Turismo.all()).toJSON()
+    let turismo = (await Turismo.query().where({}).with('categoria').fetch()).toJSON()
     console.log(turismo , 'turismo')
     response.send(turismo)
   }

@@ -1,67 +1,37 @@
 <template>
 <div>
-  <div class="fullscreen row justify-center items-center bg-grey-3">
-    <q-card style="width: 450px;border-radius:12px" class="q-ma-sm q-pa-lg shadow-3">
-    <q-card-section align="center">
+  <div class="row justify-center">
+    <q-card class="bg-white q-pa-lg q-ma-md shadow-3">
+            <div class="row justify-center items-center">
+              <div class="column">
                 <div class="row justify-center">
-                  <q-img
-                    style="width:50%"
-                src="~assets/quasar-logo-full.svg"
-                  ></q-img>
-                </div>
-                <div class="text-h6 text-grey-9 text-bold">¡Bienvenido!</div>
-                <div class="row justify-center q-py-xs">
-                <q-input
-                  style="margin: auto;
-                  width: calc(50% - 90px);
-                  min-width: 200px;
-                  max-width: 300px;"
-                  type="email"
-                  v-model="form.email"
-                  placeholder="Ingrese su email"
-                  autofocus
-                  outlined
-                  :error="$v.form.email.$error"
-                  error-message="Este campo es requerido"
-                  @blur="$v.form.email.$touch()"
-                >
-                  <template v-slot:append>
-                    <q-icon name="mail" color= "primary"></q-icon>
-                  </template>
-                </q-input>
+                    <div class="fondo" style="width:200px;height:200px;"></div>
+                    <div class="text-h6 text-grey-9 text-bold">¡Bienvenido!</div>
                 </div>
 
-                <div class="row justify-center">
-                <q-input
-                  style="margin: auto;
-                  width: calc(50% - 90px);
-                  min-width: 200px;
-                  max-width: 300px;"
-                  :type="isPwd ? 'password' : 'text'"
-                  v-model="form.password"
-                  placeholder="Ingrese su contraseña"
-                  outlined
-                  :error="$v.form.password.$error"
-                  error-message="Este campo es requerido"
-                  @blur="$v.form.password.$touch()"
-                >
-                <template v-slot:append>
-                  <q-icon
-                    :name="isPwd ? 'visibility_off' : 'visibility'"
-                    class="cursor-pointer"
-                    color= "primary"
-                    @click="isPwd = !isPwd"
-                  />
-                </template>
-                </q-input>
+                <div class="col-xs-12 col-sm-6 q-ma-sm col-md-6 col-lg-6">
+                  <q-input type="email" v-model="form.email" placeholder="Ingrese su email" autofocus outlined :error="$v.form.email.$error" error-message="Este campo es requerido" @blur="$v.form.email.$touch()" >
+                    <template v-slot:append>
+                      <q-icon name="mail" color= "primary"></q-icon>
+                    </template>
+                  </q-input>
+                    <q-input :type="isPwd ? 'password' : 'text'" v-model="form.password" placeholder="Ingrese su contraseña" outlined :error="$v.form.password.$error" error-message="Este campo es requerido" @blur="$v.form.password.$touch()" >
+                      <template v-slot:append>
+                        <q-icon
+                          :name="isPwd ? 'visibility_off' : 'visibility'"
+                          class="cursor-pointer"
+                          color= "primary"
+                          @click="isPwd = !isPwd"
+                        />
+                      </template>
+                    </q-input>
                 </div>
                 <div class="row justify-center">
-                <div class="text-h9 text-grey-9 text-bold">¿Olvidaste la contraseña?</div>
+                  <div class="text-h9 text-grey-9 text-bold">¿Olvidaste la contraseña?</div>
                 </div>
-                <div class="row justify-center q-pa-md">
-
+                <div class="col-xs-12 col-sm-6 q-ma-sm col-md-6 col-lg-6">
                   <q-btn
-                    icon-right="arrow_right"
+                    class="full-width"
                     color="primary"
                     :loading="loading"
                     @click="onSubmit()"
@@ -72,19 +42,18 @@
                     </template>
                   </q-btn>
                 </div>
-                <div class="row justify-center">
-                  <q-btn label="registrate aqui" color="primary" @click="$router.push('/registro')" />
+                <div class="col-xs-12 col-sm-6 q-ma-sm col-md-6 col-lg-6">
+                  <q-btn label="registrate aqui" class="full-width" color="primary" @click="$router.push('/registro')" />
                 </div>
-
                 <div class="colunm justify-center q-pa-md">
-                <p align="center" style="cursor:pointer"><a class="text-bold text-primary" @click="$router.push('/home')">Omitir</a></p>
-                                </div>
-
-              </q-card-section>
+                 <p align="center" style="cursor:pointer"><a class="text-bold text-primary" @click="$router.push('/home')">Omitir</a></p>
+                </div>
+              </div>
+            </div>
               <div class="row absolute-bottom justify-center q-py-sm">
                   <div class="q-px-sm text-subtitle2 text-grey">Términos y condiciones de uso</div>
-                </div>
-            </q-card>
+              </div>
+    </q-card>
    </div>
   </div>
 </template>
@@ -148,3 +117,9 @@ export default {
   }
 }
 </script>
+<style>
+.fondo {
+  background-image: url('../../../client/public/turismo original sin sombra-01.png');
+  background-size: 100% 100%;
+}
+</style>
