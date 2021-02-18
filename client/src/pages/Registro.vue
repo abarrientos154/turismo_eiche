@@ -4,21 +4,31 @@
     <q-page-container>
       <q-page class="row justify-center">
          <div class="col column items-center justify-center">
-          <q-card class="shadow-3 q-pa-md clar" style="border-radius:13px ">
+          <q-card class="bg-white q-pa-sm q-ma-md shadow-3" style="border-radius:13px ">
 
             <q-card-section>
              <div class="animated-body row justify-center" v-show="show">
-              <img
-                src="~assets/quasar-logo-full.svg"
-                alt="Logo HEvent"
-                style="width: 80%;"
-              >
+              <div class="fondo" style="width:200px;height:200px;"></div>
             </div>
           <q-form
             @submit="registrarse()"
             class="q-gutter-md q-ma-md"
           >
           <div class="animated-body" v-show="show">
+              <div class="q-ma-sm gray">
+            <q-file bottom-slots accept=".jpg, image/*" v-model="perfilFile" hint="Introduce una Foto de Perfil" outlined label="" @input="test"
+              error-message="Debes subir una foto de perfil"
+              :error="$v.perfilFile.$error" @blur="$v.perfilFile.$touch()">
+              <template v-slot:prepend>
+                <q-avatar>
+                  <img  :src="imgPerfil ? imgPerfil : 'noimg.png'">
+                </q-avatar>
+              </template>
+              <template v-slot:append>
+                <q-icon name="close" color="negative" @click.stop="perfilFile = null" class="cursor-pointer" />
+              </template>
+            </q-file>
+          </div>
               <q-input outlined class="q-ma-sm gray" v-model="form.full_name" label="Introduce tu Nombre">
                 <template v-slot:prepend>
                   <q-icon name="account_circle" color="primary"></q-icon>
@@ -75,8 +85,8 @@
             </div>
             <div class="animated-body" v-show="show">
               <div class="text-center q-ma-sm">
-                <q-btn class="q-ma-sm" size="md" color="primary"  label="Regresar" push @click="$router.go(-1)" />
-                <q-btn class="q-ma-sm" size="md"  color="primary" label="Registrarse" @click="registrarse()" push />
+                <q-btn class="q-ma-sm full-width" size="md" color="primary"  label="Regresar" push @click="$router.go(-1)" />
+                <q-btn class="q-ma-sm full-width" size="md"  color="primary" label="Registrarse" @click="registrarse()" push />
               </div>
             </div>
           </q-form>
@@ -91,11 +101,14 @@
 
 <script>
 import { required, sameAs } from 'vuelidate/lib/validators'
-
+import env from '../env'
 export default {
   data () {
     return {
       form: {},
+      perfilFile: null,
+      imgPerfil: '',
+      baseu: '',
       isPwd: true,
       isPwd2: true,
       loading: false,
@@ -109,12 +122,14 @@ export default {
     password2: {
       sameAsPassword: sameAs('password')
     },
+    perfilFile: { required },
     form: {
       email: { required }
     }
   },
   mounted () {
     this.show = true
+    this.baseu = env.apiUrl
   },
   methods: {
     registrarse () {
@@ -131,12 +146,16 @@ export default {
           }
         })
       }
+    },
+    test () {
+      if (this.perfilFile) { this.imgPerfil = URL.createObjectURL(this.perfilFile) }
     }
   }
 }
 </script>
 <style>
-.clar {
-  background-color: rgba(253, 249, 249, 0.808);
-  }
+.fondo {
+  background-image: url('../../../client/public/turismo original sin sombra-01.png');
+  background-size: 100% 100%;
+}
 </style>

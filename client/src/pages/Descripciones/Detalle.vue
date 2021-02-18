@@ -15,6 +15,11 @@
 
        <q-card-section>
           <div class="text-h6">{{form.nombre}}</div>
+           <q-breadcrumbs>
+          <q-breadcrumbs-el label="Home" icon="home" />
+          <q-breadcrumbs-el label="Detalle" icon="widgets" />
+          <q-breadcrumbs-el label="Turismo" />
+        </q-breadcrumbs>
         </q-card-section>
           <div class="q-pa-md text-h7 text-grey-9 text-bold">Descripcion del lugar:</div>
             <q-card-section class="q-pt-none">

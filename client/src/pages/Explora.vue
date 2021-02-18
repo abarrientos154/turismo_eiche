@@ -18,13 +18,10 @@
           <div class="q-mt-md text-center text-h5 text-bold">
             {{ item.name }}
           </div>
+          <div class="absolute-bottom-right q-mb-sm" style="z-index:1">
+            <q-btn push dense color="primary" @click="$router.push('/categoria/' + 1)" label="Ver" style="width:70px"/>
+          </div>
         </q-carousel-slide>
-        <template v-slot:control>
-            <q-carousel-control position="bottom-right" :offset="[18, 18]" >
-              <q-btn push dense color="primary" @click="elwebo = true" label="Ver" style="width:60px"
-              />
-            </q-carousel-control>
-        </template>
       </q-carousel>
       </div>
       </div>

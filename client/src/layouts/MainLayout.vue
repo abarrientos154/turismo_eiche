@@ -7,7 +7,7 @@
           <div style="left:0px; position:absolute">
           <q-btn round>
             <q-avatar size="40px">
-              <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
+              <img :src="imgPerfil ? imgPerfil : 'noimg.png'">
             </q-avatar>
             </q-btn>
           </div>
