@@ -5,9 +5,9 @@
       <div class="bg-primary row justify-center">
         <q-toolbar class="bg-primary text-white rounded-borders">
           <div style="left:0px; position:absolute">
-          <q-btn round>
+          <q-btn round @click="perfilD = true" v-if="logueado">
             <q-avatar size="40px">
-              <img :src="imgPerfil ? imgPerfil : 'noimg.png'">
+              <img :src="usuario_logueado.perfil ? baseu : 'noimg.png'">
             </q-avatar>
             </q-btn>
           </div>
@@ -42,6 +42,10 @@
       </div>
     </q-footer>
 
+    <q-dialog v-model="perfilD">
+      <foto-perfil :logueado="logueado" />
+    </q-dialog>
+
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -50,13 +54,26 @@
 </template>
 
 <script>
+import FotoPerfil from '../components/FotoPerfil'
+import env from '../env'
 export default {
+  components: {
+    FotoPerfil
+  },
   data () {
     return {
+      imgPerfil: null,
+      logueado: false,
+      perfilD: false,
       text: '',
       data: {},
-      tab: ''
+      tab: '',
+      usuario_logueado: {},
+      baseu: ''
     }
+  },
+  mounted () {
+    this.estaLogueado()
   },
   methods: {
     ircategoria (numerocategoria) {
@@ -71,6 +88,24 @@ export default {
         color: 'positive'
       })
       this.$router.push('/login')
+    },
+    estaLogueado () {
+      const logueo = JSON.parse(localStorage.getItem('TUR_SESSION_INFO'))
+      if (logueo) {
+        this.logueado = true
+        this.getInfo()
+      } else {
+        this.logueado = false
+      }
+    },
+    async getInfo () {
+      this.$q.loading.show()
+      await this.$api.get('user_info').then(res => {
+        this.usuario_logueado = res
+        this.baseu = env.apiUrl + '/perfil_img/' + this.usuario_logueado._id
+        this.$q.loading.hide()
+      })
+      this.$q.loading.hide()
     }
   }
 }

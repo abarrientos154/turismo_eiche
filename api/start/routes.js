@@ -49,6 +49,7 @@ addPrefixToGroup(
     Route.post("opinion/:id_turismo", "OpinionController.store")
     Route.get("validar_estatus_logueo", "UserController.validarLogueoEstatus") // valida si esta logueado y si el estatus
     Route.get("obtener_imagen/:file", "UploadController.obtenerImagen") // trae la primera imagen de las subcategorias
+    Route.get("perfil_img/:file", "UploadController.perfilImg")
   })
 );
 
@@ -63,6 +64,8 @@ addPrefixToGroup(
     Route.post("explora_destino", "TurismoController.store")
     Route.delete("turismo/:id", "TurismoController.destroy")
     Route.delete("opi/:id", "OpinionController.destroy")
+    Route.get("user_info", "UserController.show")
+    Route.post("subir_foto_perfil", "UploadController.subirPerfil")
 
   }).middleware("auth")
 );

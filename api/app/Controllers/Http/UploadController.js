@@ -22,6 +22,37 @@ class UploadController {
     response.download(Helpers.appRoot('storage/uploads/turismo') + `/${dir}`)
   }
 
+  async perfilImg ({ params, response, auth }) {
+    let dir = params.file
+    console.log(dir, 'dirrrrrrrrrr')
+    response.download(Helpers.appRoot('storage/uploads/perfil') + `/${dir}`)
+  }
+
+  async subirPerfil ({ request, response, auth }) {
+    let user = await auth.getUser()
+    let id = user._id.toString()
+    var profilePic = request.file('perfil', {
+    })
+    if (profilePic) {
+      if (Helpers.appRoot('storage/uploads/perfil')) {
+        await profilePic.move(Helpers.appRoot('storage/uploads/perfil'), {
+          name: user._id.toString(),
+          overwrite: true
+        })
+      } else {
+        mkdirp.sync(`${__dirname}/storage/Excel`)
+      }
+
+      if (!profilePic.moved()) {
+        return profilePic.error()
+      } else {
+        console.log(id, 'iddddddddd')
+        user = await User.query().where('_id', id.toString()).update({perfil: true})
+        response.send(user)
+      }
+    }
+  }
+
   async upload({
     request
   }) {
