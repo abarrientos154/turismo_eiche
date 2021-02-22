@@ -194,7 +194,233 @@ const data = [
     Modelo casi estandarizado por le empresa del Ferrocarril para sus estaciones de pasajeros construidas en toda la línea de la pampa Antofagastina a principios del siglo XX y a su vez de estilo típico para las construcciones industriales de la época salitrera.
     Construcción enteramente en madera de pino oregón.
     `
-  }
+  },
+  {
+    id: 18,
+    subCategoria_id: 4,
+    nombre: 'RESTAURANTE TITO COBREOLA',
+    img: '',
+    puntuacion: 0,
+    direccion: 'AV. SAN MARTIN 526, MEJILLONES CHILE ',
+    descripcion: `
+    COMIDA CHILENA Y SUBAMERICANA
+    `
+  },
+  {
+    id: 19,
+    subCategoria_id: 4,
+    nombre: 'ESPACIO LIBERO',
+    img: '',
+    puntuacion: 0,
+    direccion: 'PASAJE LENIZ 115, ESQUINA SAN MARTIN, MEJILLONES 1240000 CHILE ',
+    numerocontact: '+56998905044/  +56977932176',
+    correocontact: 'reserva.espaciolibero@gmail.com',
+    descripcion: `
+    BAR, PIZZERIA, CAFÉ Y PUB.
+    `
+  },
+  {
+    id: 20,
+    subCategoria_id: 4,
+    nombre: 'RUSTIC RESTOBAR AC',
+    img: '',
+    puntuacion: 0,
+    direccion: 'AV SAN MARTIN 776, 1310000 MEJILLONES',
+    numerocontact: '+56940162705',
+    descripcion: `
+    BAR.
+    `
+  },
+  {
+    id: 21,
+    subCategoria_id: 4,
+    nombre: 'SABORES DE CAMPO',
+    img: '',
+    puntuacion: 0,
+    direccion: 'ANDALICAN 955, 1240000 MEJILLONES',
+    numerocontact: '+5661638211',
+
+  },
+  {
+    id: 22,
+    subCategoria_id: 4,
+    nombre: 'LA ROCA',
+    img: '',
+    puntuacion: 0,
+    direccion: 'ANDALICAN 444, MEJILLONES, REGION DE ANTOFAGASTA',
+    numerocontact: '+56965573942',
+    descripcion: 'GASTRONOMIA PERUANA',
+    correocontact: 'yeralva_@hotmail.com'
+  },
+  {
+    id: 23,
+    subCategoria_id: 4,
+    nombre: 'RESTO BAR ESPINAKEITOR',
+    img: '',
+    puntuacion: 0,
+    direccion: 'AV. B.O HIGGINS #306, 1240000, MEJILLONES',
+    numerocontact: '+56965573942',
+    descripcion: 'BAR',
+    pagina: 'https://www.espinakeitor.cl/'
+  },
+  {
+    id: 24,
+    subCategoria_id: 4,
+    nombre: 'EMPANAPOLIX',
+    img: '',
+    puntuacion: 0,
+    direccion: 'RIQUELME 456, MEJILLONES 1318101, CHILE',
+    numerocontact: '+56552622493',
+    correocontact: 'empanapolix.mejillones@gmail.com ',
+    descripcion: 'COMIDA CHILENA, SUDAMERICANA Y APTO PARA VEGETARIANOS',
+  },
+  {
+    id: 25,
+    subCategoria_id: 4,
+    nombre: 'RUMPHAY RUMPHAY',
+    img: '',
+    puntuacion: 0,
+    direccion: 'MEJILLONES, ANTOFAGASTA, CHILE ',
+  },
+  {
+    id: 26,
+    subCategoria_id: 4,
+    nombre: 'RESTAURANTE CASINO MUNICIPAL MEJILLONES',
+    img: '',
+    puntuacion: 0,
+    direccion: 'ARTURO PRAT S/N CASINO MUNICIPAL DE MEJILLONES, MEJILLONES CHILE ',
+    numerocontact:'+56552622493',
+    descripcion:'MASRISCOS Y COMIDA CHILENA',
+    correocontact:'eventos@inversionespukara.cl',
+    pagina:'https://www.inversionespukara.cl/'
+  },
+  {
+    id: 27,
+    subCategoria_id: 5,
+    nombre: 'HOTEL ALTO DEL SOL',
+    img: '',
+    puntuacion: 0,
+    direccion: 'MEJILLONES PASAJE GOÑI#238',
+    numerocontact:'56522526597',
+    pagina:'https://hotelaltodelsol.com'
+  },
+  {
+    id: 28,
+    subCategoria_id: 5,
+    nombre: 'HOTEL H&H',
+    img: '',
+    puntuacion: 0,
+    direccion: 'ONGOLMO 575- MEJILLONES, REGION DE ANGOFAGASTA ',
+    numerocontact:'552621682/ 987254711',
+    correocontact: 'hotelhyhmejillones@gmail.com'
+  },
+  {
+    id: 29,
+    subCategoria_id: 5,
+    nombre: 'HOTEL PARIS',
+    img: '',
+    puntuacion: 0,
+    direccion: 'PASAJE IQUIQUE 095 MEJILLONES, ANTOFAGASTA, REGION ANTOFAGASTA ',
+    descripcion: 'BAÑO PRIVADO, DESAYUNO, ESTACIONAMIENTO. TV CABLE',
+    numerocontact:'055262306',
+  },
+  {
+    id: 30,
+    subCategoria_id: 5,
+    nombre: 'HOTEL MIRAMAR ',
+    img: '',
+    puntuacion: 0,
+    direccion: 'SAN MARTIN 650, MEJILLONES, CHILE ',
+    descripcion: 'TV CABLE, WIFI, SERVICIO DE ALIMENTACION',
+    numerocontact:'+55-2621 638',
+    correocontact: ' contacto@hotelmiramarmejillones.cl',
+    pagina:'http://www.hotelmiramarmejillones.cl/'
+  },
+  {
+    id: 31,
+    subCategoria_id: 5,
+    nombre: 'APARTA HOTEL RAPALLO',
+    img: '',
+    puntuacion: 0,
+    direccion: 'MATIAS COUSIÑO #068, MEJILLONES- II REGION- CHILE ',
+    descripcion: 'GENERADOR ELECTRICO, ALOJAMIENTO (DIARIO, SEMANAL O MENSUAL), SERVICIO DE LAVANDERIA, WIFI, ESTACIONAMIENTO, TELEFONO EN HABITACIÓN, TV CABLE, SERVICIO DE MUCAMA, COCINA AMERICANA EQUIPADA, CONFORTABLES DEPARTAMENTOS',
+    numerocontact:'(055) 262 32 93',
+    pagina:'https://www.aparthotelrapallo.cl/'
+  },
+  {
+    id: 32,
+    subCategoria_id: 5,
+    nombre: 'APARTAHOTEL BAHIA ',
+    img: '',
+    puntuacion: 0,
+    direccion: 'PASAJE COVADONGA 083 MEJILLONES, CHILE',
+    descripcion: 'GENERADOR ELECTRICO,LAVANDERIA, WIFI, ESTACIONAMIENTO, ASISTENCIA SECRETARIAL, TV CABLE, SERVICIO DE MUCAMA.',
+    numerocontact:'+56552622385',
+  },
+  {
+    id: 33,
+    subCategoria_id: 5,
+    nombre: 'HOTEL MEJILLONES',
+    img: '',
+    puntuacion: 0,
+    direccion: 'UBICADO FRENTE DEL OCEANO PACIFICO Y DE LA CIUDAD A 64 KILOMETROS DE ANTOFAGASTA A 35 KILOMETROS DEL AEROPUERTO CERRO MORENO',
+    descripcion: 'DESAYUNO Y CENA EN COMEDOR CON UNA HERMOSA VISTA A LA BAHIA, TV CABLE, WIFI, ESTACIONAMIENTO PRIVADO, SALA DE ESTAR CON DIRECTV HD, LAVANDERIA',
+    numerocontact:'055 – 2555149; 055- 2555186',
+    correocontact: 'reservas@hotelmejillones.cl',
+    pagina:'https://hotelmejillones.cl/'
+  },
+  {
+    id: 34,
+    subCategoria_id: 7,
+    nombre: 'PUNTA ANGAMOS',
+    img: '',
+    puntuacion: 0,
+    descripcion: 'TAXI',
+    numerocontact:'+56552622020',
+  },
+  {
+    id: 35,
+    subCategoria_id: 7,
+    nombre: 'TAXI MEJILOLONES',
+    img: '',
+    puntuacion: 0,
+    descripcion: 'TAXI',
+    numerocontact:'+56552623107',
+  },
+  {
+    id: 36,
+    subCategoria_id: 7,
+    nombre: 'TAXI CENTRAL',
+    img: '',
+    puntuacion: 0,
+    descripcion: 'TAXI',
+    numerocontact:'+56552623040',
+  },
+  {
+    id: 37,
+    subCategoria_id: 8,
+    nombre: 'BUSES BIAGGINI',
+    img: '',
+    puntuacion: 0,
+    descripcion: 'BUSES',
+  },
+  {
+    id: 38,
+    subCategoria_id: 8,
+    nombre: 'BUSES COBREMAR',
+    img: '',
+    puntuacion: 0,
+    descripcion: 'BUSES',
+  },
+  {
+    id: 39,
+    subCategoria_id: 9,
+    nombre: 'TURISMO JM',
+    img: '',
+    puntuacion: 0,
+    numerocontact: '+56991451663',
+    correocontact:'turismojm@gmail.com',
+  },
 
   /* {
     id: 1,

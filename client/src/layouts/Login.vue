@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="row justify-center">
-    <q-card class="bg-white q-pa-lg q-ma-md shadow-3">
+    <div class="bg-white q-pa-sm q-ma-md">
             <div class="row justify-center items-center">
               <div class="column">
                 <div class="row justify-center">
@@ -53,7 +53,7 @@
               <div class="row absolute-bottom justify-center q-py-sm">
                   <div class="q-px-sm text-subtitle2 text-grey">Términos y condiciones de uso</div>
               </div>
-    </q-card>
+    </div>
    </div>
   </div>
 </template>

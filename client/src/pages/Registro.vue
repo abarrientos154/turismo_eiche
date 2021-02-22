@@ -15,20 +15,6 @@
             class="q-gutter-md q-ma-md"
           >
           <div class="animated-body" v-show="show">
-              <div class="q-ma-sm gray">
-            <q-file bottom-slots accept=".jpg, image/*" v-model="perfilFile" hint="Introduce una Foto de Perfil" outlined label="" @input="test"
-              error-message="Debes subir una foto de perfil"
-              :error="$v.perfilFile.$error" @blur="$v.perfilFile.$touch()">
-              <template v-slot:prepend>
-                <q-avatar>
-                  <img  :src="imgPerfil ? imgPerfil : 'noimg.png'">
-                </q-avatar>
-              </template>
-              <template v-slot:append>
-                <q-icon name="close" color="negative" @click.stop="perfilFile = null" class="cursor-pointer" />
-              </template>
-            </q-file>
-          </div>
               <q-input outlined class="q-ma-sm gray" v-model="form.full_name" label="Introduce tu Nombre">
                 <template v-slot:prepend>
                   <q-icon name="account_circle" color="primary"></q-icon>

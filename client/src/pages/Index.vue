@@ -2,10 +2,10 @@
 <div>
    <div v-for="(item, index) in categorias" :key="index">
     <div class="row justify-center">
-      <q-card class="q-my-none" style="width:100%; height:100%" >
+      <div style="width:100%; height:100%" >
       <div class="column justify-center items-center bg-white ">
 
-        <q-card class="my-card shadow-11 q-mt-md">
+        <q-card class="my-card q-mt-sm">
           <q-img :src="item.img" style="height: 100%; width: 100%">
             <div v-if="index === 0" class="absolute-center">
               <q-btn rounded color="white" class="absolute-center glossy" text-color="black" :label="item.titulo" style="z-index:1" @click="$router.push('/Explora')" />
@@ -16,15 +16,15 @@
           </q-img>
          </q-card>
 
-          <div class="my-card">
-              <q-card class="q-pa-lg shadow-up-3 q-mt-sm" style="border-top-left-radius:25px;border-top-right-radius:25px">
-              <div class="q-mt-none q-pl-md text-grey-10 text-bold">Algunos Destinos:</div>
+          <div class="my-card q-mt-sm">
+              <div class="q-mt-sm">
+              <div class="q-pl-md text-grey-10 text-bold">Algunos Destinos:</div>
               <q-scroll-area
               horizontal
               style="height: 310px;"
             >
               <div class="row no-wrap">
-                <q-card v-for="(item2, index2) in options(index + 1)" :key="index2" class="q-mr-sm" style="border-radius:12px;width: 200px">
+                <q-card v-for="(item2, index2) in options(index + 1)" :key="index2" class="q-mr-sm" style="border-radius:12px;width: 200px; height: 300px">
                   <q-card-section>
                     <div class="text-subtitle1">{{item2.nombre}}</div>
                     <q-img :src="item2.img" spinner-color="white" style="height: 170px; width: 170px">
@@ -41,10 +41,10 @@
                 </q-card>
               </div>
             </q-scroll-area>
-          </q-card>
+          </div>
           </div>
 
-  <div class="my-card">
+  <div class="my-card q-pt-md">
     <q-carousel
         v-model="slide"
         vertical
@@ -58,7 +58,7 @@
         padding
         arrows
         height="300px"
-        class="q-mt-md q-pl-md bg-blue-grey-6 text-white shadow-1 rounded-borders"
+        class="q-pl-md bg-blue-grey-6 text-white rounded-borders"
       >
         <q-carousel-slide name="style" class="column no-wrap flex-center">
           <q-icon name="style" size="56px" />
@@ -87,7 +87,7 @@
     </q-carousel>
   </div>
       </div>
-    </q-card>
+    </div>
     </div>
    </div>
 </div>
@@ -171,6 +171,6 @@ export default {
 </style>
 <style lang="sass" scoped>
 .my-card
-  width: 90%
+  width: 100%
   height:50%
 </style>
