@@ -24,7 +24,7 @@
                   <q-separator dark />
                   <q-card-actions>
                     <q-btn flat @click="item2.mostrar = !item2.mostrar">Descripción</q-btn>
-                    <q-btn flat >Ver</q-btn>
+                    <q-btn flat  @click="$router.push('/detalle/'+item2._id)">Ver</q-btn>
                   </q-card-actions>
                 </q-card>
               </div>
@@ -43,23 +43,39 @@ export default {
   mounted () {
     console.log(this.id, 'este es el id')
     this.verificarId()
+    this.obtener_turismo()
   },
   methods: {
     verificarId () {
       this.$api.get('idsub/' + this.id).then(res => {
         if (res) {
-          this.opciones2 = res.map(v => {
+          this.opciones = res.map(v => {
             return {
               ...v,
               mostrar: false
             }
           })
         }
+        console.log(this.opciones2, 'datos')
       })
     },
     options (id) {
-      console.log(this.opciones.filter(v => v.categoria_id === id), 'algo')
-      return this.opciones.filter(v => v.categoria_id === id)
+      console.log(this.opciones2.filter(v => v.categoria_id === id), 'algo')
+      return this.opciones2.filter(v => v.categoria_id === id)
+    },
+    obtener_turismo () {
+      this.$api.get('turismo').then(res => {
+        if (res) {
+          this.opciones2 = res.map(v => {
+            return {
+              ...v,
+              mostrar: false,
+              categoria_id: v.categoria.categoria_id
+            }
+          })
+          console.log(this.opciones, 'turismos')
+        }
+      })
     }
   }
 }

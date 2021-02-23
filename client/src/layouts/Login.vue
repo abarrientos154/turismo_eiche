@@ -46,7 +46,7 @@
                   <q-btn label="registrate aqui" class="full-width" color="primary" @click="$router.push('/registro')" />
                 </div>
                 <div class="colunm justify-center q-pa-md">
-                 <p align="center" style="cursor:pointer"><a class="text-bold text-primary" @click="$router.push('/home')">Omitir</a></p>
+                 <p align="center" style="cursor:pointer"><a class="text-bold text-primary" @click="$router.push('/slider')">Omitir</a></p>
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@ export default {
               if (this.user.roles[0] === 1) {
                 this.$router.push('/Userlist')
               } else if (this.user.roles[0] === 2) {
-                this.$router.push('home')
+                this.$router.push('/slider')
               }
             } else {
               this.$q.notify({

@@ -1,10 +1,13 @@
 <template>
 <div>
   <q-layout view="lHh Lpr lFf">
-    <q-header>
-      <div class="bg-primary row justify-center">
+    <q-header elevated>
         <q-toolbar class="bg-primary text-white rounded-borders">
-          <div style="left:0px; position:absolute">
+        <q-btn flat dense round @click="drawerLeft = !drawerLeft" icon="menu" />
+        <div class="absolute-center">
+          <q-toolbar-tittle> pagina</q-toolbar-tittle>
+        </div>
+          <div style="left:50px; position:absolute">
           <q-btn round @click="perfilD = true" v-if="logueado">
             <q-avatar size="40px">
               <img :src="usuario_logueado.perfil ? baseu : 'noimg.png'">
@@ -12,35 +15,26 @@
             </q-btn>
           </div>
           <div style="right:0px; position:absolute">
-            <q-btn round dense icon="settings" size="20px" color="primary" >
-              <q-menu>
-                <q-list style="min-width: 100px">
-                  <q-item clickable v-ripple class="bg-blue-grey-1 q-pa-md" @click="cerrarsesion()">
-                    <q-item-section> <q-icon name="exit_to_app" size='xl' /></q-item-section>
-                    <q-item-section>Cerrar sesion</q-item-section>
-                  </q-item>
-                </q-list>
-              </q-menu>
+            <q-btn flat label="Salir" size="12px" color="white" @click="cerrarsesion()" >
             </q-btn>
           </div>
         </q-toolbar>
-      </div>
-    </q-header>
 
-    <q-footer class="bg-primary text-white">
-      <div class="q-mt-none">
-        <q-tabs
-          v-model="tab"
-          align="justify"
-          class="bg-primary text-white shadow-2"      >
-          <q-tab icon="explore" @click="ircategoria(1)" />
-          <q-tab icon="local_dining" @click="ircategoria(2)" />
-          <q-tab icon="hotel" @click="ircategoria(3)" />
-          <q-tab icon="commute" @click="ircategoria(4)" />
-          <q-tab icon="streetview" @click="ircategoria(5)" />
-        </q-tabs>
-      </div>
-    </q-footer>
+    </q-header>
+        <q-drawer v-model="drawerLeft" :width="250" :breakpoint="700" bordered content-class="bg-white" >
+          <q-list class="q-ma-sm">
+            <q-item v-for="(item, index) in menu" :key="index"  clickable v-ripple class="bg-grey-3" @click="ircategoria(item.ruta)" style="border-radius:12px">
+                <q-item-section>
+                  <div class="row">
+                    <q-item-section avatar>
+                    <q-icon :name="item.icon"></q-icon>
+                  </q-item-section>
+                  <q-item-label class="text-bold">{{item.titulo}}</q-item-label>
+                  </div>
+                </q-item-section>
+            </q-item>
+          </q-list>
+        </q-drawer>
 
     <q-dialog v-model="perfilD">
       <foto-perfil :logueado="logueado" />
@@ -69,7 +63,35 @@ export default {
       data: {},
       tab: '',
       usuario_logueado: {},
-      baseu: ''
+      baseu: '',
+      drawerLeft: false,
+      menu: [
+        {
+          titulo: 'Explora Destinos',
+          icon: 'explore',
+          ruta: 1
+        },
+        {
+          titulo: 'Restaurantes y Pubs',
+          icon: 'local_dining',
+          ruta: 2
+        },
+        {
+          titulo: 'Hospedaje',
+          icon: 'hotel',
+          ruta: 3
+        },
+        {
+          titulo: 'Transporte',
+          icon: 'commute',
+          ruta: 4
+        },
+        {
+          titulo: 'Turismo',
+          icon: 'streetview',
+          ruta: 5
+        }
+      ]
     }
   },
   mounted () {
@@ -104,6 +126,7 @@ export default {
         this.usuario_logueado = res
         this.baseu = env.apiUrl + '/perfil_img/' + this.usuario_logueado._id
         this.$q.loading.hide()
+        console.log(this.usuario_logueado, 'usuario_logueado')
       })
       this.$q.loading.hide()
     }

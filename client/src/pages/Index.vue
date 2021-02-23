@@ -24,20 +24,24 @@
               style="height: 310px;"
             >
               <div class="row no-wrap">
-                <q-card v-for="(item2, index2) in options(index + 1)" :key="index2" class="q-mr-sm" style="border-radius:12px;width: 200px; height: 300px">
-                  <q-card-section>
-                    <div class="text-subtitle1">{{item2.nombre}}</div>
-                    <q-img :src="item2.img" spinner-color="white" style="height: 170px; width: 170px">
-                      <div v-if="item2.mostrar" class="column justify-center items-center">
-                        {{item2.descripcion}}
+                <q-card v-for="(item2, index2) in options(index + 1)" :key="index2" class="q-mr-sm q-mt-sm">
+                    <q-img :src="item2.img" spinner-color="white" style="border-radius:12px; height: 260px; width: 180px">
+                      <div class="absolute-full">
+                        <div class="text-subtitle1">{{item2.nombre}}</div>
+                        <q-scroll-area v-if="item2.mostrar" style="height: 170px; max-width: 300px;">
+                          <div v-for="n in 100" :key="n" class="q-py-xs" >
+                            <div v-if="item2.mostrar" class="column justify-center items-center">
+                            {{item2.descripcion}}
+                          </div>
+                          </div>
+                        </q-scroll-area>
+
+                        <div class="row absolute-bottom">
+                          <q-btn flat @click="item2.mostrar = !item2.mostrar">Descripción</q-btn>
+                          <q-btn flat @click="$router.push('/detalle/'+ item2._id)">Ver</q-btn>
+                        </div>
                       </div>
                     </q-img>
-                  </q-card-section>
-                  <q-separator dark />
-                  <q-card-actions>
-                    <q-btn flat @click="item2.mostrar = !item2.mostrar">Descripción</q-btn>
-                    <q-btn flat @click="$router.push('/detalle/'+item2._id)">Ver</q-btn>
-                  </q-card-actions>
                 </q-card>
               </div>
             </q-scroll-area>
@@ -61,28 +65,13 @@
         class="q-pl-md bg-blue-grey-6 text-white rounded-borders"
       >
         <q-carousel-slide name="style" class="column no-wrap flex-center">
-          <q-icon name="style" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
         </q-carousel-slide>
         <q-carousel-slide name="tv" class="column no-wrap flex-center">
-          <q-icon name="live_tv" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
         </q-carousel-slide>
         <q-carousel-slide name="layers" class="column no-wrap flex-center">
-          <q-icon name="layers" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
         </q-carousel-slide>
         <q-carousel-slide name="map" class="column no-wrap flex-center">
-          <q-icon name="terrain" size="56px" />
-          <div class="q-mt-md text-center">
-            {{ lorem }}
-          </div>
+
         </q-carousel-slide>
     </q-carousel>
   </div>
@@ -102,8 +91,7 @@ export default {
       vista: false,
       opciones: [],
       opciones3: [],
-      slide: 'style',
-      lorem: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque voluptatem totam, architecto cupiditate officia rerum, error dignissimos praesentium libero ab nemo.'
+      slide: 'style'
     }
   },
   methods: {
