@@ -29,7 +29,7 @@
                       <div class="absolute-full">
                         <div class="text-subtitle1">{{item2.nombre}}</div>
                         <q-scroll-area v-if="item2.mostrar" style="height: 170px; max-width: 300px;">
-                          <div v-for="n in 100" :key="n" class="q-py-xs" >
+                          <div class="q-py-xs" >
                             <div v-if="item2.mostrar" class="column justify-center items-center">
                             {{item2.descripcion}}
                           </div>
