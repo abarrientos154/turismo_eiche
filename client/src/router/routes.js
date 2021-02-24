@@ -1,16 +1,16 @@
 
 const routes = [
-  { path: '/', component: () => import('pages/Splash.vue') },
-  { path: '/login', component: () => import('layouts/Login.vue') },
+  { path: '/login', component: () => import('pages/Login.vue') },
   {
     path: '/home',
     component: () => import('layouts/MainLayout.vue'),
+    meta: { titulo: '' },
     children: [
-      { path: '', component: () => import('pages/Index.vue') },
-      { path: '/detalle/:id', component: () => import('pages/Descripciones/Detalle.vue') },
-      { path: '/categoria/:id', component: () => import('pages/Categorias.vue') },
-      { path: '/listado/:id', component: () => import('pages/Listados/Listado.vue') },
-      { path: '/explora', component: () => import('pages/Explora.vue') }
+      { path: '', component: () => import('pages/Index.vue'), meta: { titulo: 'Home' } },
+      { path: '/detalle/:id', component: () => import('pages/Descripciones/Detalle.vue'), meta: { titulo: 'Turismo' } },
+      { path: '/categoria/:id', component: () => import('pages/Categorias.vue'), meta: { titulo: 'Categoria' } },
+      { path: '/listado/:id', component: () => import('pages/Listados/Listado.vue'), meta: { titulo: 'Listado' } },
+      { path: '/explora', component: () => import('pages/Explora.vue'), meta: { titulo: 'Explora Destino' } }
     ]
   },
   {

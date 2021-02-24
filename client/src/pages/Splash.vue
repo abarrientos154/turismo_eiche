@@ -28,7 +28,7 @@ export default {
       location.href = 'https://www.eichechile.com'
     },
     test () {
-      this.$router.push('/login')
+      this.$emit('pasar')
     }
   },
   beforeDestroy () {
@@ -36,7 +36,7 @@ export default {
   },
   created () {
     console.log('corriendo2')
-    this.timer = setInterval(this.test, 2000)
+    this.timer = setInterval(this.test, 5000)
   },
   cancelAutoUpdate () { clearInterval(this.timer) }
 

@@ -132,6 +132,7 @@ class UserController {
     console.log(permissions, 'permissions')
     token.email = user.email
     token.estatus = user.estatus
+    token.full_name = user.full_name ? user.full_name : null
     let data = {}
     data.TUR_SESSION_INFO = token
     return data

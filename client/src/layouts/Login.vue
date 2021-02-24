@@ -6,7 +6,6 @@
               <div class="column">
                 <div class="row justify-center">
                     <div class="fondo" style="width:200px;height:200px;"></div>
-                    <div class="text-h6 text-grey-9 text-bold">¡Bienvenido!</div>
                 </div>
 
                 <div class="col-xs-12 col-sm-6 q-ma-sm col-md-6 col-lg-6">

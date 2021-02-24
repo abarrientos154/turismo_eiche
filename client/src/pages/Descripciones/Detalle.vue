@@ -1,18 +1,12 @@
 <template>
-<q-page class="q-pa-md">
-    <q-card class="bg-white full-width q-ma-md shadow-3">
-
-    <q-card class="bg-primary shadow-up-3" style="border-top-left-radius:25px;border-top-right-radius:25px;height:200px">
-          <div style="width: 100%;height:100%">
-            <q-card class="bg-white" style="border-radius:12px;width: 100%;height: 100%">
-              <q-img v-if="form.img" :src="form.img" style="height: 100%; width: 100%" />
-              <q-carousel v-else animated v-model="slide" arrows navigation infinite class="full-width full-height" >
-                <q-carousel-slide class="full-width full-height" v-for="(item, index) in form.images" :key="index" :name="index" :img-src="baseu + item" />
-              </q-carousel>
-            </q-card>
-          </div>
-      </q-card>
-
+<q-page>
+  <div style="width: 100%;height:100%">
+    <q-img v-if="form.img" :src="form.img" style="height: 100%; width: 100%" />
+    <q-carousel v-else animated v-model="slide" arrows navigation infinite class="full-width full-height" >
+      <q-carousel-slide class="full-width full-height" v-for="(item, index) in form.images" :key="index" :name="index" :img-src="baseu + item" />
+    </q-carousel>
+  </div>
+    <q-card class="bg-white full-width shadow-3">
        <q-card-section>
           <div class="text-h6">{{form.nombre}}</div>
            <q-breadcrumbs>
@@ -21,6 +15,8 @@
           <q-breadcrumbs-el label="Turismo" />
         </q-breadcrumbs>
         </q-card-section>
+        <div class="q-ml-md text-h7 text-grey-9 text-bold">Popularidad del lugar:</div>
+                <q-rating class="q-pa-sm" v-model="form.puntuacion" max="5" size="2.5em" color="yellow" disable icon="star_border" icon-selected="star" icon-half="star_half" no-dimming />
           <div class="q-pa-md text-h7 text-grey-9 text-bold">Descripcion del lugar:</div>
             <q-card-section class="q-pt-none">
               {{ form.descripcion }}
@@ -35,8 +31,6 @@
                     <div class="text-h7">{{form.tiempoinicio}}-{{form.tiempofinal}}</div>
                   </q-card-section>
               </q-card>
-              <div class="q-ml-md text-h7 text-grey-9 text-bold">Popularidad del lugar:</div>
-                <q-rating class="q-pa-sm" v-model="form.puntuacion" max="5" size="3.5em" color="yellow" disable icon="star_border" icon-selected="star" icon-half="star_half" no-dimming />
                 <q-card-section >
                 <q-btn flat class="q-mt-none" label="Dar mi opinión" color="primary" @click="abrirOpinion()" />
                 </q-card-section>

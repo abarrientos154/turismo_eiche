@@ -1,11 +1,14 @@
 <template>
 <div>
+  <div class="row justify-center">
+  <div class="row q-mt-sm text-h6 text-bold"><p class="text-h5">Bienvenido a Mejillones {{logueado ? user.full_name : ''}}</p> </div>
+  </div>
    <div v-for="(item, index) in categorias" :key="index">
     <div class="row justify-center">
       <div style="width:100%; height:100%" >
       <div class="column justify-center items-center bg-white ">
 
-        <q-card class="my-card q-mt-sm">
+        <q-card class="my-card" @click="index === 0 ? $router.push('/Explora') : ircategoria(item.id)">
           <q-img :src="item.img" style="height: 100%; width: 100%">
             <div v-if="index === 0" class="absolute-center">
               <q-btn rounded color="white" class="absolute-center glossy" text-color="black" :label="item.titulo" style="z-index:1" @click="$router.push('/Explora')" />
@@ -87,11 +90,14 @@ export default {
   data () {
     return {
       categorias: [],
+      logueado: false,
       mostrar: '',
       vista: false,
       opciones: [],
       opciones3: [],
-      slide: 'style'
+      slide: 'style',
+      user: {
+      }
     }
   },
   methods: {
@@ -144,6 +150,15 @@ export default {
     },
     ircategoria (numerocategoria) {
       this.$router.push('/categoria/' + numerocategoria)
+    },
+    estaLogueado () {
+      const logueo = JSON.parse(localStorage.getItem('TUR_SESSION_INFO'))
+      if (logueo) {
+        this.logueado = true
+        this.user = JSON.parse(localStorage.getItem('TUR_SESSION_INFO'))
+      } else {
+        this.logueado = false
+      }
     }
   },
   mounted () {

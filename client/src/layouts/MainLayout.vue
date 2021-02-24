@@ -5,7 +5,7 @@
         <q-toolbar class="bg-primary text-white rounded-borders">
         <q-btn flat dense round @click="drawerLeft = !drawerLeft" icon="menu" />
         <div class="absolute-center">
-          <q-toolbar-tittle> pagina</q-toolbar-tittle>
+          <div>{{this.$route.meta.titulo}}</div>
         </div>
           <div style="left:50px; position:absolute">
           <q-btn round @click="perfilD = true" v-if="logueado">
@@ -23,15 +23,11 @@
     </q-header>
         <q-drawer v-model="drawerLeft" :width="250" :breakpoint="700" bordered content-class="bg-white" >
           <q-list class="q-ma-sm">
-            <q-item v-for="(item, index) in menu" :key="index"  clickable v-ripple class="bg-grey-3" @click="ircategoria(item.ruta)" style="border-radius:12px">
-                <q-item-section>
-                  <div class="row">
-                    <q-item-section avatar>
-                    <q-icon :name="item.icon"></q-icon>
-                  </q-item-section>
-                  <q-item-label class="text-bold">{{item.titulo}}</q-item-label>
-                  </div>
-                </q-item-section>
+            <q-item :active="link === item.ruta" active-class="my-menu-link" v-for="(item, index) in menu" :key="index"  clickable v-ripple @click="ircategoria(item.ruta)" style="border-radius:12px">
+              <q-item-section avatar>
+                <q-icon :name="item.icon" size="md"></q-icon>
+              </q-item-section>
+              <q-item-section>{{item.titulo}}</q-item-section>
             </q-item>
           </q-list>
         </q-drawer>
@@ -51,11 +47,17 @@
 import FotoPerfil from '../components/FotoPerfil'
 import env from '../env'
 export default {
+  computed: {
+    titulo () {
+      return this.$route.meta.titulo
+    }
+  },
   components: {
     FotoPerfil
   },
   data () {
     return {
+      link: 0,
       imgPerfil: null,
       logueado: false,
       perfilD: false,
@@ -66,6 +68,11 @@ export default {
       baseu: '',
       drawerLeft: false,
       menu: [
+        {
+          titulo: 'Home',
+          icon: 'home',
+          ruta: 0
+        },
         {
           titulo: 'Explora Destinos',
           icon: 'explore',
@@ -90,18 +97,29 @@ export default {
           titulo: 'Turismo',
           icon: 'streetview',
           ruta: 5
+        },
+        {
+          titulo: 'cerrar sesión',
+          icon: 'exit_to_app',
+          ruta: 9
         }
       ]
     }
   },
   mounted () {
     this.estaLogueado()
+    console.log(this.$route.meta.titulo, 'asdasda')
   },
   methods: {
     ircategoria (numerocategoria) {
-      this.$router.push('/categoria/' + numerocategoria)
-      location.href = 'http://localhost:8080/#/categoria/' + numerocategoria
-      location.reload()
+      this.link = numerocategoria
+      if (numerocategoria === 0) {
+        this.$router.push('/home')
+      } else if (numerocategoria === 9) {
+        this.cerrarsesion()
+      } else {
+        this.$router.push('/categoria/' + numerocategoria)
+      }
     },
     cerrarsesion () {
       localStorage.removeItem('TUR_SESSION_INFO')
@@ -134,6 +152,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+.my-menu-link {
+  color: white;
+  background: $primary;
+}
 </style>
