@@ -8,11 +8,17 @@
       <div class="column justify-center items-center bg-white ">
         <q-card class="my-card" @click="index === 0 ? $router.push('/Explora') : ircategoria(item.id)">
           <q-img :src="item.img" style="height: 100%; width: 100%">
+            <div class="absolute-full">
             <div v-if="index === 0" class="absolute-center">
-              <q-btn rounded color="white" class="absolute-center glossy" text-color="black" :label="item.titulo" style="z-index:1" @click="$router.push('/Explora')" />
+              <q-avatar square style="height: 100px; width: 200px" @click="$router.push('/Explora')">
+                <img :src="item.titulo">
+              </q-avatar>
             </div>
             <div v-else class="absolute-center">
-              <q-btn rounded color="white" class="absolute-center glossy" text-color="black" :label="item.titulo" style="z-index:1" @click="ircategoria(item.id)" />
+            <q-avatar square style="height: 100px; width: 200px" @click="ircategoria(item.id)">
+                <img :src="item.titulo">
+              </q-avatar>
+            </div>
             </div>
           </q-img>
          </q-card>
@@ -104,10 +110,6 @@ export default {
         if (res) {
           console.log(res, 'categorias')
           this.categorias = res
-          this.$q.notify({
-            message: ('Bienvenido a Mejillones' + ' ' + this.user.full_name),
-            color: 'primary'
-          })
         }
       })
     },
@@ -169,7 +171,6 @@ export default {
     this.obtener_categorias()
     this.obtener_subcategoria()
     this.obtener_turismo()
-    this.estaLogueado()
   }
 }
 

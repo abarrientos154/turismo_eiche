@@ -17,32 +17,32 @@ const data = [
   {
     id: 1,
     name: 'exploraD',
-    titulo: 'Explora Destinos',
-    img: 'https://okdiario.com/img/2020/04/15/aprende-a-explorar-la-casa-con-los-ninos-durante-el-confinamiento.jpg'
+    titulo: 'categorias/exploradestinos2.png',
+    img: 'categorias/exploradestinos.png'
   },
   {
     id: 2,
     name: 'restaurantes',
-    titulo: 'Restaurantes y Pubs',
-    img: 'https://traveler.marriott.com/es/wp-content/uploads/sites/2/2018/11/SpiceMarket_cDanielAlvarez.jpg'
+    titulo: 'categorias/pubyrestaurantes2.png',
+    img: 'categorias/pubsyresturants.jpg'
   },
   {
     id: 3,
     name: 'hospedaje',
-    titulo: 'Hospedaje',
-    img: 'https://i0.wp.com/escapesporelmundo.com/wp-content/uploads/2019/01/hotel-post-e1551840906962.png?fit=920%2C518&ssl=1'
+    titulo: 'categorias/hospedaje2.png',
+    img: 'categorias/hospedaje.jpg'
   },
   {
     id: 4,
     name: 'servicios',
-    titulo: 'Servicios de transporte',
-    img: 'https://media.informabtl.com/wp-content/uploads/2019/12/4f38f069-servicio-de-transporte-privado.jpg'
+    titulo: 'categorias/taxi_y_buses_2.png',
+    img: 'categorias/taxisybuses.jpg'
   },
   {
     id: 5,
     name: 'actividades',
-    titulo: 'Actividades',
-    img: 'https://cucunver.com/blog/wp-content/uploads/2018/11/actividades_asociaciones.jpg'
+    titulo: 'categorias/paseos_nauticos_2.png',
+    img: 'categorias/paseosnauticos.jpg'
   }
 
 ]

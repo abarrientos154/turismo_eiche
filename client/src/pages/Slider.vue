@@ -69,6 +69,8 @@ export default {
   name: 'PageIndex',
   data () {
     return {
+      user: {
+      },
       slide: 'parte1',
       lorem: '¡Descubre diferentes lugares, playas, hoteles y principales zonas turísticas en Mejillones para planificar de manera más organizada y divertida tu viaje! Consigue ofertas exclusivas, gestiona tus reservas y revisa la opinión de otros viajeros.',
       lorem2: '¿Qué contiene la app? ',
@@ -80,11 +82,8 @@ export default {
   methods: {
     ruta () {
       if (this.slide === 'parte3') {
+        this.estaLogueado()
         this.$router.push('/home')
-        this.$q.notify({
-          message: ('Bienvenido a Mejillones' + ' ' + this.user.full_name),
-          color: 'primary'
-        })
       } else {
         this.$refs.carousel.next()
       }
@@ -94,12 +93,19 @@ export default {
       if (logueo) {
         this.logueado = true
         this.user = JSON.parse(localStorage.getItem('TUR_SESSION_INFO'))
+        this.$q.notify({
+          message: ('Bienvenido a Mejillones' + ' ' + this.user.full_name),
+          color: 'primary'
+        })
       } else {
         this.logueado = false
+        this.$q.notify({
+          message: ('Bienvenido a Mejillones'),
+          color: 'primary'
+        })
       }
     },
     mounted () {
-      this.estaLogueado()
     }
   }
 }

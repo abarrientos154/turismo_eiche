@@ -381,7 +381,7 @@ const data = [
   {
     id: 35,
     subCategoria_id: 7,
-    nombre: 'TAXI MEJILOLONES',
+    nombre: 'TAXI MEJILLONES',
     img: 'https://www.enac.es/documents/7020/b05c15c5-25b0-4fd1-ba60-cd45723286fe',
     puntuacion: 0,
     descripcion: 'TAXI',
