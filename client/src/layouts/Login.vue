@@ -7,7 +7,6 @@
                 <div class="row justify-center">
                     <div class="fondo" style="width:200px;height:200px;"></div>
                 </div>
-
                 <div class="col-xs-12 col-sm-6 q-ma-sm col-md-6 col-lg-6">
                   <q-input type="email" v-model="form.email" placeholder="Ingrese su email" autofocus outlined :error="$v.form.email.$error" error-message="Este campo es requerido" @blur="$v.form.email.$touch()" >
                     <template v-slot:append>
@@ -64,6 +63,7 @@ export default {
   data () {
     return {
       form: {},
+      url: 'https://scontent-mia3-1.xx.fbcdn.net/v/t1.0-9/79414467_2771389276250882_1004081934109769728_o.jpg?_nc_cat=100&ccb=3&_nc_sid=8bfeb9&_nc_ohc=qjDifa0Tr40AX_b1_R4&_nc_ht=scontent-mia3-1.xx&oh=c1533504c6b6a98bf7065d2e80b6b44c&oe=605A23AF',
       isPwd: true,
       loading: false,
       lorem: 'rfrefrtfretfr',

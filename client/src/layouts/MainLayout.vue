@@ -127,7 +127,7 @@ export default {
         message: 'Sesion cerrada con exito',
         color: 'positive'
       })
-      this.$router.push('/login')
+      this.$router.push('/')
     },
     estaLogueado () {
       const logueo = JSON.parse(localStorage.getItem('TUR_SESSION_INFO'))

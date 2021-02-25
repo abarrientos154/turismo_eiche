@@ -1,13 +1,11 @@
 <template>
 <div>
   <div class="row justify-center">
-  <div class="row q-mt-sm text-h6 text-bold"><p class="text-h5">Bienvenido a Mejillones {{logueado ? user.full_name : ''}}</p> </div>
   </div>
    <div v-for="(item, index) in categorias" :key="index">
     <div class="row justify-center">
       <div style="width:100%; height:100%" >
       <div class="column justify-center items-center bg-white ">
-
         <q-card class="my-card" @click="index === 0 ? $router.push('/Explora') : ircategoria(item.id)">
           <q-img :src="item.img" style="height: 100%; width: 100%">
             <div v-if="index === 0" class="absolute-center">
@@ -106,6 +104,10 @@ export default {
         if (res) {
           console.log(res, 'categorias')
           this.categorias = res
+          this.$q.notify({
+            message: ('Bienvenido a Mejillones' + ' ' + this.user.full_name),
+            color: 'primary'
+          })
         }
       })
     },
@@ -140,6 +142,7 @@ export default {
         }
       })
     },
+
     verificarId () {
       this.$api.get('idsub/' + 1).then(res => {
         if (res) {
@@ -157,6 +160,7 @@ export default {
         this.logueado = true
         this.user = JSON.parse(localStorage.getItem('TUR_SESSION_INFO'))
       } else {
+        this.user.full_name = ''
         this.logueado = false
       }
     }
@@ -165,6 +169,7 @@ export default {
     this.obtener_categorias()
     this.obtener_subcategoria()
     this.obtener_turismo()
+    this.estaLogueado()
   }
 }
 
