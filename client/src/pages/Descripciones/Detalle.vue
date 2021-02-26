@@ -67,10 +67,10 @@
                       </div>
                     </q-list>
                   </div>
-                  <div v-else style="height: 150px">
-                    <div class="absolute-center text-subtitle1">
-                      Actualmente sin Comentarios...
-                    </div>
+                  <div v-else style="height: 250px">
+                   <div class="row justify-center">
+                    <q-img src="sin comentario.png" style="height:250px;width:250px"  />
+                   </div>
                   </div>
                 </q-card>
               </q-card-section>
@@ -211,3 +211,6 @@ export default {
 }
 
 </script>
+
+<style lang="scss">
+</style>

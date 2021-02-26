@@ -19,27 +19,27 @@ const data = [
     name: 'ciudad',
     categoria_id: 1,
     titulo: 'Ciudad',
-    img: 'https://www.vuelaviajes.com/wp-content/2017/01/Santiago-de-Chile-destacada.jpg',
-    descripcion:'Lorem ipsum dolor sit amet'
-
+    img: 'subcategoria/luagresconhistoria.jpg',
+    descripcion:'Lorem ipsum dolor sit amet',
+    clickImg: 'subcategoria/lugares_historicos_2.png'
   },
   {
     id: 2,
     name: 'ruinas',
     categoria_id: 1,
     titulo: 'Ruinas y Lugares históricos',
-    img: 'https://radiochilena.cl/wp-content/uploads/2017/11/Palacio-de-la-Moneda-chile.jpg',
-    descripcion:'Lorem ipsum dolor sit amet'
-
+    img: 'subcategoria/luagresconhistoria.jpg',
+    descripcion:'Lorem ipsum dolor sit amet',
+    clickImg: 'subcategoria/lugares_historicos_2.png'
   },
   {
     id: 3,
     name: 'playas',
     categoria_id: 1,
     titulo: 'Playas',
-    img: 'https://enviajes.cl/wp-content/uploads/2014/11/Mejores-playas-de-Chile-Playa-Cavancha.jpg',
-    descripcion:'Lorem ipsum dolor sit amet'
-
+    img: 'subcategoria/playas.jpg',
+    descripcion:'Lorem ipsum dolor sit amet',
+    clickImg: 'subcategoria/playas2.png'
   },
   {
     id: 4,
@@ -143,6 +143,7 @@ class SubCategoriaSeeder {
         subCategoria.name = data[i].name
         subCategoria.titulo = data[i].titulo
         subCategoria.img = data[i].img
+        subCategoria.clickImg = data[i].clickImg
         subCategoria.categoria_id = data[i].categoria_id
         await subCategoria.save()
       }

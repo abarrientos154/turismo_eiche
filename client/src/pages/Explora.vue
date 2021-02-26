@@ -12,14 +12,15 @@
         padding
         arrows
         class="bg-blue-grey-9 text-white shadow-1"
-        style="height:87vh"
+        style="height:94vh"
       >
         <q-carousel-slide :name="index" class="column no-wrap flex-center" :img-src="item.img" v-for="(item, index) in opciones" :key="index">
-          <div class="q-mt-md text-center text-h5 text-bold">
-            {{ item.name }}
-          </div>
-          <div class="absolute-bottom-right q-mb-sm" style="z-index:1">
-            <q-btn push dense color="primary" @click="$router.push('/categoria/' + 1)" label="Ver" style="width:70px"/>
+          <div class="absolute-full fondo-negro">
+            <div class="absolute-center">
+              <q-avatar square style="height: 100px; width: 200px" @click="$router.push('/Explora')">
+                <img :src="item.clickImg" @click="$router.push('/categoria/' + 1)">
+              </q-avatar>
+            </div>
           </div>
         </q-carousel-slide>
       </q-carousel>
@@ -52,3 +53,9 @@ export default {
 }
 
 </script>
+
+<style lang="scss">
+.fondo-negro {
+  background: rgba(0, 0, 0, 0.344);
+}
+</style>
