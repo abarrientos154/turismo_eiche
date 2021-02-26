@@ -15,15 +15,6 @@ const Factory = use('Factory')
 const SubCategoria = use("App/Models/SubCategoria")
 const data = [
   {
-    id: 1,
-    name: 'ciudad',
-    categoria_id: 1,
-    titulo: 'Ciudad',
-    img: 'subcategoria/luagresconhistoria.jpg',
-    descripcion:'Lorem ipsum dolor sit amet',
-    clickImg: 'subcategoria/lugares_historicos_2.png'
-  },
-  {
     id: 2,
     name: 'ruinas',
     categoria_id: 1,
