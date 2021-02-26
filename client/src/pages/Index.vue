@@ -54,34 +54,6 @@
             </q-scroll-area>
           </div>
           </div>
-
-  <div class="my-card q-pt-md">
-    <q-carousel
-        v-model="slide"
-        vertical
-        transition-prev="slide-down"
-        transition-next="slide-up"
-        swipeable
-        animated
-        control-color="white"
-        navigation-icon="radio_button_unchecked"
-        navigation
-        padding
-        arrows
-        height="300px"
-        class="q-pl-md bg-blue-grey-6 text-white rounded-borders"
-      >
-        <q-carousel-slide name="style" class="column no-wrap flex-center">
-        </q-carousel-slide>
-        <q-carousel-slide name="tv" class="column no-wrap flex-center">
-        </q-carousel-slide>
-        <q-carousel-slide name="layers" class="column no-wrap flex-center">
-        </q-carousel-slide>
-        <q-carousel-slide name="map" class="column no-wrap flex-center">
-
-        </q-carousel-slide>
-    </q-carousel>
-  </div>
       </div>
     </div>
     </div>

@@ -1,9 +1,9 @@
 <template>
 <div>
-  <div class="row justify-center">
-    <div class="bg-white q-pa-sm q-ma-md">
-            <div class="row justify-center items-center">
-              <div class="column">
+  <div class="row justify-center no-box-shadow">
+    <div class="bg-white q-pa-sm q-ma-md no-box-shadow">
+            <div class="row justify-center items-center no-box-shadow">
+              <div class="column no-box-shadow">
                 <div class="row justify-center">
                     <div class="fondo" style="width:200px;height:200px;"></div>
                 </div>
@@ -118,7 +118,7 @@ export default {
 </script>
 <style>
 .fondo {
-  background-image: url('../../../client/public/turismo original sin sombra-01.png');
+  background-image: url('../../../client/public/turismo.png');
   background-size: 100% 100%;
 }
 </style>
