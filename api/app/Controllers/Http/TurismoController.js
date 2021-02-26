@@ -12,6 +12,7 @@ var randomize = require('randomatic');
  * Resourceful controller for interacting with turismos
  */
 const Turismo = use("App/Models/Turismo")
+const Categoria = use("App/Models/Categoria")
 
 class TurismoController {
   /**
@@ -25,7 +26,9 @@ class TurismoController {
    */
   async index ({ request, response, view }) {
     let turismo = (await Turismo.query().where({}).with('categoria').fetch()).toJSON()
-    console.log(turismo , 'turismo')
+    for (let j of turismo) {
+      j.categoria_info = await Categoria.where('id', j.categoria.categoria_id).first()
+    }
     response.send(turismo)
   }
 

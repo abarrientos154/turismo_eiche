@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="row justify-center">
-      <div class="text-h6 q-ma-md text-center titulos">TITULO</div>
+      <div class="text-h6 q-ma-md text-center titulos">{{filtrarOpciones[0].categoria_info.label}}</div>
     </div>
       <div class="q-pa-md q-gutter-sm">
         <q-breadcrumbs>
@@ -81,6 +81,7 @@ export default {
             }
           })
           this.options()
+          console.log(this.filtrarOpciones, 'resultado')
         }
       })
     }
