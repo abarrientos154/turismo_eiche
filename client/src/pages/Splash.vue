@@ -2,7 +2,7 @@
 <div>
   <div class="window-height bg-white">
     <div class="fullscreen column justify-center items-center">
-      <div class="fondo" style="width:200px;height:300px;">
+      <div class="fondo" style="width:200px;height:200px;">
     </div>
       <div class="row absolute-bottom justify-center q-py-sm">
         <div class="row">
@@ -45,7 +45,7 @@ export default {
 
 <style>
 .fondo {
-  background-image: url('../../../client/public/turismo original sin sombra-01.png');
+  background-image: url('../../../client/public/turismo.png');
   background-size: 100% 100%;
 }
 </style>

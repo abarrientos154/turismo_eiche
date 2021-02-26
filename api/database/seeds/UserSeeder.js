@@ -55,6 +55,7 @@ class UserSeeder {
         user.password = i.password
         user.name = i.name
         user.lastName = i.lastName
+        user.estatus = i.estatus
         user.roles = i.roles
         user.country_id = i.country_id ? i.country_id : null
         await user.save()
