@@ -1,66 +1,60 @@
 <template>
 <div>
-    <div class="window-height bg-white" style="width:100%;height:100%;">
-      <div class="fullscreen column justify-center items-center">
-        <div class="column justify-center items-center bg-primary ">
-            <q-carousel
-                v-model="slide"
-                transition-prev="scale"
-                transition-next="scale"
-                swipeable
-                animated
-                control-color="primary"
-                navigation
-                padding
-                ref="carousel"
-                height="600px"
-                class="bg-white text-white rounded-borders"
-                >
-              <q-carousel-slide name="parte1" class="column no-wrap flex-center">
-                <q-avatar class="parte1" size="300px">
-                </q-avatar>
-                <div class="text-center text-grey-8">
-                  {{ lorem }}
-                </div>
-              </q-carousel-slide>
-              <q-carousel-slide name="parte2"  class="column no-wrap flex-center">
-              <q-avatar class="parte2" size="300px">
-                </q-avatar>
-                <div class="text-center text-grey-8">
-                  {{ lorem3 }}
-                </div>
-                </q-carousel-slide>
-              <q-carousel-slide name="parte3"  class="column no-wrap flex-center">
-              <q-avatar class="parte3" size="300px">
-                </q-avatar>
-                <div class="text-center text-grey-8">
-                  {{ lorem5 }}
-                </div>
-                  </q-carousel-slide>
-                  <template v-slot:control>
-                  <q-carousel-control
-                    position="bottom-right"
-                    :offset="[15, 300]"
-                    class="q-gutter-xs">
-                    <q-btn
-                      push flat text-color="primary" icon="keyboard_arrow_right"
-                      @click="ruta()"
-                    />
-                  </q-carousel-control>
-                   <q-carousel-control
-                    position="bottom-left"
-                    :offset="[15, 300]"
-                    class="q-gutter-xs">
-                    <q-btn
-                      push flat text-color="primary" icon="keyboard_arrow_left"
-                      @click="$refs.carousel.previous()"
-                    />
-                  </q-carousel-control>
-                  </template>
-            </q-carousel>
-        </div>
+  <q-carousel
+      v-model="slide"
+      transition-prev="scale"
+      transition-next="scale"
+      swipeable
+      animated
+      control-color="primary"
+      navigation
+      padding
+      ref="carousel"
+      height="700px"
+      class="bg-white fullscreen column justify-center items-center text-white rounded-borders"
+      >
+    <q-carousel-slide name="parte1" class="column no-wrap flex-center">
+      <q-img class="parte1" style="height: 500px; width: 300px">
+      </q-img>
+      <div class="text-center text-grey-8">
+        {{ lorem }}
       </div>
-    </div>
+    </q-carousel-slide>
+    <q-carousel-slide name="parte2"  class="column no-wrap flex-center">
+    <q-img class="parte2" style="height: 500px; width: 300px">
+      </q-img>
+      <div class="text-center text-grey-8">
+        {{ lorem3 }}
+      </div>
+      </q-carousel-slide>
+    <q-carousel-slide name="parte3"  class="column no-wrap flex-center">
+    <q-img class="parte3" style="height: 500px; width: 300px">
+      </q-img>
+      <div class="text-center text-grey-8">
+        {{ lorem5 }}
+      </div>
+        </q-carousel-slide>
+        <template v-slot:control>
+        <q-carousel-control
+          position="bottom-right"
+          :offset="[15, 300]"
+          class="q-gutter-xs">
+          <q-btn
+            push flat text-color="primary" icon="keyboard_arrow_right"
+            @click="ruta()"
+          />
+        </q-carousel-control>
+          <q-carousel-control
+          position="bottom-left"
+          :offset="[15, 300]"
+          class="q-gutter-xs">
+          <q-btn
+            push flat text-color="primary" icon="keyboard_arrow_left"
+            @click="$refs.carousel.previous()"
+          />
+        </q-carousel-control>
+        </template>
+  </q-carousel>
 </div>
 </template>
 
@@ -94,7 +88,7 @@ export default {
         this.logueado = true
         this.user = JSON.parse(localStorage.getItem('TUR_SESSION_INFO'))
         this.$q.notify({
-          message: ('Bienvenido a Mejillones' + ' ' + this.user.full_name),
+          message: ('Bienvenido a Mejillones' + ' ' + this.user.full_name + ' ' + this.user.last_name),
           color: 'primary'
         })
       } else {

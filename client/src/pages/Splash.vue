@@ -1,13 +1,13 @@
 <template>
 <div>
-  <div class="window-height bg-white">
+  <div class="fullscreen fondo2">
     <div class="fullscreen column justify-center items-center">
       <div class="fondo" style="width:200px;height:200px;">
     </div>
-      <div class="row absolute-bottom justify-center q-py-sm">
+      <div class="row absolute-bottom justify-center q-py-md">
         <div class="row">
-          <div class="text-black text-subtitle2">Un proyecto desarrollado por</div>
-          <div class="text-black q-ml-sm text-bold text-subtitle2" @click="ruta()">EICHE.</div>
+          <div class="text-white text-caption">Un proyecto desarrollado por</div>
+          <div class="text-white q-ml-sm text-bold text-text-caption" @click="ruta()">EICHE.</div>
         </div>
       </div>
 
@@ -47,5 +47,11 @@ export default {
 .fondo {
   background-image: url('../../../client/public/turismo.png');
   background-size: 100% 100%;
+}
+</style>
+<style>
+.fondo2 {
+background-image: url('../../public/final01_background.jpeg');
+background-size: 100% 100%;
 }
 </style>

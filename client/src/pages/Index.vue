@@ -31,10 +31,10 @@
               style="height: 310px;"
             >
               <div class="row no-wrap">
-                <q-card v-for="(item2, index2) in options(index + 1)" :key="index2" class="q-mr-sm q-mt-sm">
-                    <q-img :src="item2.img" spinner-color="white" style="border-radius:12px; height: 260px; width: 180px">
+                <q-card v-for="(item2, index2) in options(index + 1)" :key="index2" class="q-mr-sm q-mt-sm" >
+                    <q-img :src="item2.img" spinner-color="white" @click="$router.push('/detalle/'+ item2._id)" style="border-radius:12px; height: 260px; width: 180px" >
                       <div class="absolute-full">
-                        <div class="text-subtitle1">{{item2.nombre}}</div>
+                        <div class="text-caption text-bold">{{item2.nombre}}</div>
                         <q-scroll-area v-if="item2.mostrar" style="height: 170px; max-width: 300px;">
                           <div class="q-py-xs" >
                             <div v-if="item2.mostrar" class="column justify-center items-center">
@@ -42,13 +42,11 @@
                           </div>
                           </div>
                         </q-scroll-area>
-
-                        <div class="row absolute-bottom">
-                          <q-btn flat @click="item2.mostrar = !item2.mostrar">Descripción</q-btn>
-                          <q-btn flat @click="$router.push('/detalle/'+ item2._id)">Ver</q-btn>
-                        </div>
                       </div>
                     </q-img>
+                    <div class="row justify-center absolute-bottom">
+                      <q-btn flat @click="item2.mostrar = !item2.mostrar" class="text-white" style="z-index:1">Descripción</q-btn>
+                    </div>
                 </q-card>
               </div>
             </q-scroll-area>
@@ -80,19 +78,16 @@ export default {
     obtener_categorias () {
       this.$api.get('categoria').then(res => {
         if (res) {
-          console.log(res, 'categorias')
           this.categorias = res
         }
       })
     },
     options (id) {
-      console.log(this.opciones.filter(v => v.categoria_id === id), 'algo')
       return this.opciones.filter(v => v.categoria_id === id)
     },
     obtener_subcategoria () {
       this.$api.get('sub').then(res => {
         if (res) {
-          console.log(res, 'subcategorias')
           this.opciones3 = res.map(v => {
             return {
               ...v,
@@ -112,7 +107,6 @@ export default {
               categoria_id: v.categoria.categoria_id
             }
           })
-          console.log(this.opciones, 'turismos')
         }
       })
     },
@@ -121,7 +115,6 @@ export default {
       this.$api.get('idsub/' + 1).then(res => {
         if (res) {
           this.opciones = res
-          console.log(this.opciones, 'opcionesssss')
         }
       })
     },

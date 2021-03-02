@@ -1,58 +1,53 @@
 <template>
 <div>
-  <div class="row justify-center no-box-shadow">
-    <div class="bg-white q-pa-sm q-ma-md no-box-shadow">
-            <div class="row justify-center items-center no-box-shadow">
-              <div class="column no-box-shadow">
-                <div class="row justify-center">
-                    <div class="fondo" style="width:200px;height:200px;"></div>
-                </div>
-                <div class="col-xs-12 col-sm-6 q-ma-sm col-md-6 col-lg-6">
-                  <q-input type="email" v-model="form.email" placeholder="Ingrese su email" autofocus outlined :error="$v.form.email.$error" error-message="Este campo es requerido" @blur="$v.form.email.$touch()" >
+  <div class="fullscreen bg-white no-box-shadow">
+          <div class="row q-pa-xl justify-center items-center no-box-shadow">
+            <div class="column no-box-shadow">
+              <div class="row q-pa-sm justify-center">
+                  <div class="fondo" style="width:200px;height:200px;"></div>
+              </div>
+              <div class="col-xs-12 col-sm-6 q-ma-sm col-md-6 col-lg-6">
+                <q-input type="email" v-model="form.email" placeholder="Ingrese su email" autofocus outlined :error="$v.form.email.$error" error-message="Este campo es requerido" @blur="$v.form.email.$touch()" >
+                  <template v-slot:append>
+                    <q-icon name="mail" color= "primary"></q-icon>
+                  </template>
+                </q-input>
+                  <q-input :type="isPwd ? 'password' : 'text'" v-model="form.password" placeholder="Ingrese su contraseña" outlined :error="$v.form.password.$error" error-message="Este campo es requerido" @blur="$v.form.password.$touch()" >
                     <template v-slot:append>
-                      <q-icon name="mail" color= "primary"></q-icon>
+                      <q-icon
+                        :name="isPwd ? 'visibility_off' : 'visibility'"
+                        class="cursor-pointer"
+                        color= "primary"
+                        @click="isPwd = !isPwd"
+                      />
                     </template>
                   </q-input>
-                    <q-input :type="isPwd ? 'password' : 'text'" v-model="form.password" placeholder="Ingrese su contraseña" outlined :error="$v.form.password.$error" error-message="Este campo es requerido" @blur="$v.form.password.$touch()" >
-                      <template v-slot:append>
-                        <q-icon
-                          :name="isPwd ? 'visibility_off' : 'visibility'"
-                          class="cursor-pointer"
-                          color= "primary"
-                          @click="isPwd = !isPwd"
-                        />
-                      </template>
-                    </q-input>
-                </div>
-                <div class="row justify-center">
-                  <div class="text-h9 text-grey-9 text-bold">¿Olvidaste la contraseña?</div>
-                </div>
-                <div class="col-xs-12 col-sm-6 q-ma-sm col-md-6 col-lg-6">
-                  <q-btn
-                    class="full-width"
-                    color="primary"
-                    :loading="loading"
-                    @click="onSubmit()"
-                  >Ingresar
-                    <template v-slot:loading>
-                      <q-spinner-hourglass class="on-center" />
-                      Loading...
-                    </template>
-                  </q-btn>
-                </div>
-                <div class="col-xs-12 col-sm-6 q-ma-sm col-md-6 col-lg-6">
-                  <q-btn label="registrate aqui" class="full-width" color="primary" @click="$router.push('/registro')" />
-                </div>
-                <div class="colunm justify-center q-pa-md">
-                 <p align="center" style="cursor:pointer"><a class="text-bold text-primary" @click="$router.push('/slider')">Omitir</a></p>
-                </div>
+              </div>
+              <div class="row justify-center">
+                <div class="text-h9 text-grey-9 text-bold">¿Olvidaste la contraseña?</div>
+              </div>
+              <div class="col-xs-12 col-sm-6 q-ma-sm col-md-6 col-lg-6">
+                <q-btn
+                  class="full-width"
+                  color="primary"
+                  :loading="loading"
+                  @click="onSubmit()"
+                >Ingresar
+                  <template v-slot:loading>
+                    <q-spinner-hourglass class="on-center" />
+                    Loading...
+                  </template>
+                </q-btn>
+              </div>
+              <div class="col-xs-12 col-sm-6 q-ma-sm col-md-6 col-lg-6">
+                <q-btn label="registrate aqui" class="full-width" color="primary" @click="$router.push('/registro')" />
+              </div>
+              <div class="colunm justify-center q-pa-md">
+                <p align="center" style="cursor:pointer"><a class="text-bold text-primary" @click="$router.push('/slider')">Omitir</a></p>
               </div>
             </div>
-              <div class="row absolute-bottom justify-center q-py-sm">
-                  <div class="q-px-sm text-subtitle2 text-grey">Términos y condiciones de uso</div>
-              </div>
+          </div>
     </div>
-   </div>
   </div>
 </template>
 

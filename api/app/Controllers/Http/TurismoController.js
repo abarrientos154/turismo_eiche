@@ -13,6 +13,7 @@ var randomize = require('randomatic');
  */
 const Turismo = use("App/Models/Turismo")
 const Categoria = use("App/Models/Categoria")
+const Opinion = use("App/Models/Opinion")
 
 class TurismoController {
   /**
@@ -107,6 +108,13 @@ class TurismoController {
 
   async busquedabyid ({ params, request, response, view }) {
     let detalle = await Turismo.find(params.id)
+    let opiniones = (await Opinion.query().where('turismo_id', detalle._id.toString()).with('user_info').fetch()).toJSON()
+    let acumulador = 0
+    for (let j of opiniones) {
+      acumulador = acumulador + j.puntuacion
+    }
+    let promedio = (acumulador / opiniones.length)
+    detalle.puntuacion = promedio
     response.send(detalle)
   }
 

@@ -46,7 +46,7 @@
                       <div v-for="(item, index) in data" :key="index">
                         <q-item class="q-mt-md">
                           <q-item-section top avatar>
-                            <q-avatar >
+                            <q-avatar>
                               <q-img :src="item.img" />
                             </q-avatar>
                           </q-item-section>
@@ -73,31 +73,29 @@
                    </div>
                   </div>
                 </q-card>
+                <div class="row justify-center items-center">
+                <q-btn class="q-mt-sm" style="width:150px" color="primary" label="volver" push @click="$router.go(-1)" />
+              </div>
               </q-card-section>
 
-                <div class="row justify-center items-center">
-          <q-btn class="q-mt-sm" color="primary" label="volver" push @click="$router.go(-1)" />
-        </div>
         <q-dialog v-model="opinion">
-            <q-card style="width: 100%;border-radius:12px" class="q-ma-sm q-pa-lg shadow-3 bg-grey-3">
-              <div class="q-pa-none text-h6 text-grey-9 text-bold">Añadir comentario</div>
+            <q-card style="width: 100%;border-radius:12px" class="q-ma-sm">
+              <div class="column items-center justify-center">
+              <div class="text-h6 text-grey-9 text-bold">Añadir comentario</div>
+               </div>
               <q-card-section>
-                <div class="q-pa-sm" style="width: 100%">
+                <div style="width: 265px">
                   <q-input outlined  bottom-slots v-model="form2.comentario" label="Ingresa tu comentario" type=textarea>
-                    <template v-slot:before>
-                      <q-avatar>
-                        <img src="https://www.adl-logistica.org/wp-content/uploads/2019/07/imagen-perfil-sin-foto.png">
-                      </q-avatar>
-                    </template>
                   </q-input>
                 </div>
+                <div>
+                <div class="text-subtitle-2 text-grey-9 text-bold">Añade una Puntuacion</div>
+                <q-rating v-model="form2.puntuacion" color="amber-13" size="2.5em" icon="star" />
+              </div>
               </q-card-section>
-              <q-card-section>
-                <div class="q-pa-none text-h6 text-grey-9 text-bold">Añade una Puntuacion al lugar</div>
-                <q-rating v-model="form2.puntuacion" color="amber-13" size="3em" icon="star" />
-              </q-card-section>
-              <div style="right:0px; bottom:0px; position:absolute">
-                <q-btn class="q-mt-md bg-blue-grey-2" label="Enviar" icon="send" @click="comentar()"  />
+
+              <div class="column items-center justify-center">
+                <q-btn class="q-mt-md bg-primary text-white" label="Comentar" icon="send" @click="comentar()"  />
               </div>
             </q-card>
         </q-dialog>
@@ -114,6 +112,7 @@ export default {
   },
   data () {
     return {
+      usuario_logueado: {},
       type: null,
       form: {},
       opinion: false,
@@ -150,7 +149,7 @@ export default {
           }
         })
       } else {
-        this.$router.push('/login')
+        this.$router.push('/')
         this.$q.notify({
           message: 'Necesita loguearse para poder comentar',
           color: 'negative'
@@ -195,7 +194,7 @@ export default {
         this.data = res.map(v => {
           return {
             ...v,
-            img: 'noimg.png'
+            img: env.apiUrl + '/perfil_img/' + v.user_id
           }
         })
       })

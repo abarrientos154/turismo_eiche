@@ -9,7 +9,7 @@
           <q-breadcrumbs-el label="Categorias" icon="widgets" />
           <q-breadcrumbs-el label="Turismo" />
         </q-breadcrumbs>
-              <div class= "row q-gutter-sm justify-around" >
+              <div class="row justify-around" >
                 <q-card v-for="(item2, index2) in filtrarOpciones" :key="index2" class="q-mt-sm">
                     <q-img :src="item2.img" spinner-color="white" style="border-radius:12px; height: 260px; width: 155px">
                       <div class="absolute-full">
@@ -30,6 +30,9 @@
                     </q-img>
                 </q-card>
               </div>
+        <div class="full-width column items-center justify-center">
+          <q-btn class="q-mt-sm" style="width:50%" color="primary"  label="Volver" push @click="$router.go(-1)" />
+        </div>
     </div>
   </div>
 </template>
@@ -43,10 +46,8 @@ export default {
       id: this.$route.params.id
     }
   },
-  mounted () {
-    console.log(this.id, 'este es el id')
-    // this.verificarId()
-    this.obtener_turismo()
+  async mounted () {
+    await this.obtener_turismo()
   },
   watch: {
     $route (to, from) {
@@ -55,7 +56,11 @@ export default {
   },
   methods: {
     options () {
-      this.filtrarOpciones = this.opciones2.filter(v => v.categoria_id === parseInt(this.$route.params.id))
+      if (!this.$route.params.subcategoria_id) {
+        this.filtrarOpciones = this.opciones2.filter(v => v.categoria_id === parseInt(this.$route.params.id))
+      } else {
+        this.filtrarOpciones = this.opciones2.filter(v => v.categoria_id === parseInt(this.$route.params.id) && v.subCategoria_id === parseInt(this.$route.params.subcategoria_id))
+      }
     },
     verificarId () {
       this.$api.get('idsub/' + this.id).then(res => {
@@ -67,11 +72,10 @@ export default {
             }
           })
         }
-        console.log(this.opciones2, 'datos')
       })
     },
-    obtener_turismo () {
-      this.$api.get('turismo').then(res => {
+    async obtener_turismo () {
+      await this.$api.get('turismo').then(res => {
         if (res) {
           this.opciones2 = res.map(v => {
             return {
@@ -81,7 +85,6 @@ export default {
             }
           })
           this.options()
-          console.log(this.filtrarOpciones, 'resultado')
         }
       })
     }
@@ -90,7 +93,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .titulos {
-  background-color: #52b6f8;
+  background-color: #fefeff;
   width: 250px;
   border-radius: 12px
 }

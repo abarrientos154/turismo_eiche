@@ -9,6 +9,7 @@ const routes = [
       { path: '', component: () => import('pages/Index.vue'), meta: { titulo: 'Home' } },
       { path: '/detalle/:id', component: () => import('pages/Descripciones/Detalle.vue'), meta: { titulo: 'Turismo' } },
       { path: '/categoria/:id', component: () => import('pages/Categorias.vue'), meta: { titulo: 'Categoria' } },
+      { path: '/categoria/:id/:subcategoria_id', component: () => import('pages/Categorias.vue'), meta: { titulo: 'Categoria' } },
       { path: '/listado/:id', component: () => import('pages/Listados/Listado.vue'), meta: { titulo: 'Listado' } },
       { path: '/explora', component: () => import('pages/Explora.vue'), meta: { titulo: 'Explora Destino' } }
     ]

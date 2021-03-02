@@ -14,9 +14,8 @@
             </q-avatar>
             </q-btn>
           </div>
-          <div style="right:0px; position:absolute">
-            <q-btn flat label="Salir" size="12px" color="white" @click="cerrarsesion()" >
-            </q-btn>
+          <div style="right:10px; position:absolute">
+            <q-icon name="exit_to_app" size="25px" @click="cerrarsesion()"></q-icon>
           </div>
         </q-toolbar>
 
@@ -74,9 +73,14 @@ export default {
           ruta: 0
         },
         {
-          titulo: 'Explora Destinos',
-          icon: 'explore',
+          titulo: 'Lugares Historicos',
+          icon: 'wb_shade',
           ruta: 1
+        },
+        {
+          titulo: 'Playas',
+          icon: 'beach_access',
+          ruta: 6
         },
         {
           titulo: 'Restaurantes y Pubs',
@@ -117,6 +121,10 @@ export default {
         this.$router.push('/home')
       } else if (numerocategoria === 9) {
         this.cerrarsesion()
+      } else if (numerocategoria === 1) {
+        this.$router.push('/categoria/1/' + 2)
+      } else if (numerocategoria === 6) {
+        this.$router.push('/categoria/1/' + 3)
       } else {
         this.$router.push('/categoria/' + numerocategoria)
       }

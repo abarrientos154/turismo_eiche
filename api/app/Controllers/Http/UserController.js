@@ -48,20 +48,36 @@ class UserController {
    * @param {Response} ctx.response
    */
   async register({ request, response }) {
-    let requestAll = request.all()
-    const validation = await validate(request.all(), User.fieldValidationRules())
+    let dat = request.only(['dat'])
+    dat = JSON.parse(dat.dat)
+    const validation = await validate(dat, User.fieldValidationRules())
     if (validation.fails()) {
       response.unprocessableEntity(validation.messages())
-    } else if (((await User.where({email: requestAll.email}).fetch()).toJSON()).length) {
+    } else if (((await User.where({email: dat.email}).fetch()).toJSON()).length) {
       response.unprocessableEntity([{
         message: 'Correo ya registrado en el sistema!'
       }])
     } else {
-      let body = request.only(User.fillable)
+      let body = dat
       //const rol = body.roles
       body.roles = [2]
       body.estatus = 1
+      body.perfil = true
       const user = await User.create(body)
+
+      const profilePic = request.file('perfil', {
+      })
+      if (Helpers.appRoot('storage/uploads/perfil')) {
+        await profilePic.move(Helpers.appRoot('storage/uploads/perfil'), {
+          name: user._id.toString(),
+          overwrite: true
+        })
+      } else {
+        mkdirp.sync(`${__dirname}/storage/Excel`)
+      }
+      if (!profilePic.moved()) {
+        return profilePic.error()
+      }
       response.send(user)
     }
   }
@@ -133,6 +149,7 @@ class UserController {
     token.email = user.email
     token.estatus = user.estatus
     token.full_name = user.full_name ? user.full_name : null
+    token.last_name = user.last_name
     let data = {}
     data.TUR_SESSION_INFO = token
     return data

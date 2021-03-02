@@ -17,8 +17,8 @@
         <q-carousel-slide :name="index" class="column no-wrap flex-center" :img-src="item.img" v-for="(item, index) in opciones" :key="index">
           <div class="absolute-full fondo-negro">
             <div class="absolute-center">
-              <q-avatar square style="height: 100px; width: 200px" @click="$router.push('/Explora')">
-                <img :src="item.clickImg" @click="$router.push('/categoria/' + 1)">
+              <q-avatar square style="height: 100px; width: 200px">
+                <img :src="item.clickImg" @click="ir(item.id)">
               </q-avatar>
             </div>
           </div>
@@ -38,6 +38,9 @@ export default {
     }
   },
   methods: {
+    ir (id) {
+      this.$router.push('/categoria/1/' + id)
+    },
     verificarId () {
       this.$api.get('idsub/' + 1).then(res => {
         if (res) {
