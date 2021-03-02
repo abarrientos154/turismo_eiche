@@ -15,25 +15,44 @@
           <q-breadcrumbs-el label="Turismo" />
         </q-breadcrumbs>
         </q-card-section>
-        <div class="q-ml-md text-h7 text-grey-9 text-bold">Popularidad del lugar:</div>
-                <q-rating class="q-pa-sm" v-model="form.puntuacion" max="5" size="2.5em" color="yellow" disable icon="star_border" icon-selected="star" icon-half="star_half" no-dimming />
-          <div class="q-pa-md text-h7 text-grey-9 text-bold">Descripcion del lugar:</div>
-            <q-card-section class="q-pt-none">
-              {{ form.descripcion }}
+        <div class="q-ml-md text-h7 text-grey-9 text-bold">Popularidad:</div>
+          <q-rating class="q-pa-sm" v-model="form.puntuacion" max="5" size="2.5em" color="yellow" disable icon="star_border" icon-selected="star" icon-half="star_half" no-dimming />
+            <div v-if="form.descripcion">
+              <div class="q-pa-md text-h7 text-grey-9 text-bold">Descripcion:</div>
+                <q-card-section class="q-pt-none">
+                  {{ form.descripcion }}
+                </q-card-section>
+            </div>
+            <div v-if="form.direccion">
+              <div class="q-pa-sm text-h7 text-grey-9 text-bold">Direccion:</div>
+                <q-card-section class="q-pt-none">
+                  {{ form.direccion }}
+                </q-card-section>
+            </div>
+            <div v-if="form.numerocontact">
+            <div class="q-pa-sm text-h7 text-grey-9 text-bold">Numero de contacto:</div>
+             <q-card-section class="q-pt-none">
+              {{ form.numerocontact }}
             </q-card-section>
+            </div>
+            <div v-if="form.pagina">
+            <div class="q-pa-sm text-h7 text-grey-9 text-bold">Pagina web:</div>
+            <q-card-section class="q-pt-none">
+              {{ form.pagina }}
+            </q-card-section>
+            </div>
+
               <q-card v-if="form.habilitarH === true" class="q-pa-none" >
                   <div class="q-pa-md text-h7 text-grey-9 text-bold">Abierto:</div>
                   <q-card-section class="row q-pa-none">
                   <div v-for="(item, index) in form.diastrabajo" :key="index" class="q-ml-md text-h7">{{item}}</div>
                   </q-card-section>
                   <q-card-section >
-                  <div class="q-pa-none text-h7 text-grey-9 text-bold">Horario del lugar:</div>
+                  <div class="q-pa-none text-h7 text-grey-9 text-bold">Horario:</div>
                     <div class="text-h7">{{form.tiempoinicio}}-{{form.tiempofinal}}</div>
                   </q-card-section>
               </q-card>
-                <q-card-section >
                 <q-btn flat class="q-mt-none" label="Dar mi opinión" color="primary" @click="abrirOpinion()" />
-                </q-card-section>
                   <div class="full-width" v-if="form.ubicacion">
                     <google-map :type="type" :center="center" :zoom="10" @getBounds="getBounds" @newPlace="handleNewPlace" :withoutDirection="true" />
                   </div>

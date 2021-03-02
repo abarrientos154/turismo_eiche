@@ -15,7 +15,7 @@
                     <q-icon name="photo_camera" class="absolute-center" size="20px" color="white" />
                   </q-file>
                 </q-avatar>
-                <div class="text-negative text-h6" v-if="$v.perfilFile.$error"> La imagen es Requerida </div>
+                <div class="text-negative text-h7" v-if="$v.perfilFile.$error"> La imagen es Requerida </div>
               </div>
               <q-input outlined class="q-ma-sm" v-model="form.full_name" label="Introduce tu Nombre">
                 <template v-slot:prepend>

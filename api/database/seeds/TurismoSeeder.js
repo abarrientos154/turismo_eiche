@@ -20,7 +20,12 @@ const data = [
     nombre: 'PUNTA CUARTEL',
     img: 'playas/PUNTA CUARTEL.png',
     puntuacion: 0,
+    ubicacion: {
+      lat:-23.045582023309425,
+      lng:-70.49974219215633
+    },
     descripcion: 'Ubicada a 8 km de la comuna, Punta rieles cuenta con hermosas playas. Escondida bajo el sector de Punta Angamos. Se caracteriza por poseer blancas arenas y aguas cristalinas'
+
   },
   {
     id: 2,
@@ -28,6 +33,10 @@ const data = [
     nombre: 'PLAYA LA RINCONADA',
     img: 'playas/PLAYA LA RINCONADA.png',
     puntuacion: 0,
+    ubicacion: {
+      lat:-23.098313609013395,
+      lng:-70.48326494545385
+    },
     descripcion: 'Localizada a 3,5 Km al oeste de Mejillones y situada en las faldas del cerro San Luciano. Playa de arenas Blancas y de tranquilas aguas'
   },
   {
@@ -36,6 +45,7 @@ const data = [
     nombre: 'BALNEARIOS / CAP. DE PUERTO / GUANAYE',
     img: 'playas/PLAYA BALNEARIO.png',
     puntuacion: 0,
+
     descripcion: 'Playas populares centro de la bahía de Mejillones cercanas a muelle pesquero y Plaza de los eventos playas que cuentan con todo servicio a su disposición.'
   },
   {
@@ -44,6 +54,10 @@ const data = [
     nombre: 'CHACAYA',
     img: 'playas/CHACAYA.png',
     puntuacion: 0,
+    ubicacion: {
+      lat:-22.9649912783001,
+      lng:-70.31077021482474
+    },
     descripcion: 'Localizada a 30 Km al norte de Mejillones a través de la ruta B-262. Posee un hermoso paisaje y es perfecta para realizar deportes náuticos y pesca deportiva.'
   },
   {
@@ -51,6 +65,10 @@ const data = [
     subCategoria_id: 3,
     nombre: 'PLAYA GRANDE',
     img: 'playas/PLAYA GRANDE.png',
+    ubicacion: {
+      lat:-22.988164402477747,
+      lng:-70.31113300327982
+    },
     puntuacion: 0,
     descripcion: 'Localizada a 25 Km al norte de Mejillones. Playas de Gran extensión con fina arena'
   },
@@ -60,6 +78,10 @@ const data = [
     nombre: 'PUNTA ITATA',
     img: 'playas/PUNTA ITATA.png',
     puntuacion: 0,
+    ubicacion: {
+      lat:-22.932885887317486,
+      lng:-70.30460844983197
+    },
     descripcion: 'se emplaza a 32 km al norte de Mejillones. Pequeño balneario de aguas cálidas.'
   },
   {
@@ -68,13 +90,17 @@ const data = [
     nombre: 'HORNITOS',
     img: 'playas/HORNITOS.png',
     puntuacion: 0,
+    ubicacion: {
+      lat: -22.91518270316607,
+      lng:-70.29045904299143
+    },
     descripcion: 'Situada a 36 Km al norte de Mejillones es uno de los mejores balnearios turísticos de la región.'
   },
   {
     id: 8,
     subCategoria_id: 2,
     nombre: 'CEMENTERIO  MUNICIPAL ',
-    img: 'ruinasylugaresh/CEMENTERIO MUNICIPAL.png',
+    img: 'ruinasylugaresh/cementerio_mejillones.jpg',
     puntuacion: 0,
     descripcion: `
     *  AÑO DE CONSTRUCCIÓN: 1913
@@ -90,7 +116,7 @@ const data = [
     id: 9,
     subCategoria_id: 2,
     nombre: 'HITO PARALELO 23',
-    img: 'ruinasylugaresh/HITO PARALELO 23.png',
+    img: 'ruinasylugaresh/hito23_mejillones.jpg',
     puntuacion: 0,
     descripcion: `
     Hubo un tiempo en que Chile llegaba hasta Mejillones. Aún se mantiene altivo el hito construido para decir “hasta acá llega Chile”. Tal hito es un verdadero monumento histórico que yace oculto y olvidado en el desierto norte de nuestra comuna. Y el tiempo en que Mejillones fue la frontera norte de Chile fueron años decisivos en la historia de nuestro país. Décadas que desembocaron en una guerra por la posesión del Desierto de Atacama. A fines de la década de 1830 se descubre guano blanco en
@@ -101,7 +127,7 @@ const data = [
     id: 10,
     subCategoria_id: 2,
     nombre: 'IGLESIA CORAZÓN DE MARIA ',
-    img: 'ruinasylugaresh/IGLESIA CORAZÓN DE MARIA.png',
+    img: 'ruinasylugaresh/iglesia_mejillones.jpg',
     puntuacion: 0,
     descripcion: `
     AÑO DE CONSTRUCCIÓN: 1907
@@ -115,7 +141,7 @@ const data = [
     id: 11,
     subCategoria_id: 2,
     nombre: 'DELEGACION MUNICIPAL',
-    img: 'ruinasylugaresh/DELEGACION MUNICIPAL.png',
+    img: 'ruinasylugaresh/delegacion_mejillones.jpg',
     puntuacion: 0,
     descripcion: `
     AÑO DE CONSTRUCCIÓN 1909
@@ -147,7 +173,7 @@ const data = [
     id: 14,
     subCategoria_id: 2,
     nombre: 'CASONA SUB DELEGACION',
-    img: 'ruinasylugaresh/CASONA SUB DELEGACION.png',
+    img: 'ruinasylugaresh/subdelegacion_mejillones.jpg',
     puntuacion: 0,
     descripcion: `
     *  AÑO DE CONSTRUCCIÓN: 1909
@@ -160,7 +186,7 @@ const data = [
     id: 15,
     subCategoria_id: 2,
     nombre: 'MUSEO HISTORICO MEJILLONES',
-    img: 'ruinasylugaresh/MUSEO HISTORICO MEJILLONES.png',
+    img: 'ruinasylugaresh/museo_mejillones.jpg',
     puntuacion: 0,
     descripcion: `
     El Museo Municipal de Mejillones se encuentra emplazado en un edificio de Conservación Histórica, construido originalmente como servicio de Aduana en el año 1909. Construcción en su totalidad de pino Oregón. En 1997 se habilita como Museo albergando en su interior la Historia de Mejillones.
@@ -170,8 +196,12 @@ const data = [
     id: 16,
     subCategoria_id: 2,
     nombre: 'MUNICIPALIDAD DE MEJILLONES',
-    img: 'ruinasylugaresh/MUNICIPALIDAD DE MEJILLONES.png',
+    img: 'ruinasylugaresh/municipalidad_mejillones.jpg',
     puntuacion: 0,
+    ubicacion: {
+      lat: -23.100591047953767,
+      lng:-70.45228578585227
+    },
     descripcion: `
     Fue destinada como   casa del Teniente de Aduana.
     Construido en 1909
@@ -182,7 +212,7 @@ const data = [
     id: 17,
     subCategoria_id: 2,
     nombre: 'ESTACION DE FERROCARRIL',
-    img: 'ruinasylugaresh/ESTACION DE FERROCARRIL.png',
+    img: 'ruinasylugaresh/plazaferro_mejillones.jpg',
     puntuacion: 0,
     descripcion: `
         AÑO DE CONSTRUCCIÓN: 1906
