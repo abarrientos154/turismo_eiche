@@ -1,7 +1,6 @@
 <template>
 <div>
-  <div class="fullscreen fondo2">
-    <div class="fullscreen column justify-center items-center">
+    <div class="fullscreen bg-white column justify-center items-center">
       <div class="fondo" style="width:200px;height:200px;">
     </div>
       <div class="row absolute-bottom justify-center q-py-md">
@@ -12,7 +11,6 @@
       </div>
 
     </div>
-  </div>
 </div>
 </template>
 

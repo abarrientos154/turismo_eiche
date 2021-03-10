@@ -11,23 +11,21 @@
         </q-breadcrumbs>
               <div class="row justify-around" >
                 <q-card v-for="(item2, index2) in filtrarOpciones" :key="index2" class="q-mt-sm">
-                    <q-img :src="item2.img" spinner-color="white" style="border-radius:12px; height: 260px; width: 155px">
+                    <q-img :src="item2.img" spinner-color="white" @click="$router.push('/detalle/'+ item2._id)" style="border-radius:12px; height: 260px; width: 155px">
                       <div class="absolute-full">
                         <div class="text-subtitle1">{{item2.nombre}}</div>
-                        <q-scroll-area v-if="item2.mostrar" style="height: 170px; max-width: 300px;">
+                        <q-scroll-area v-if="item2.mostrar" style="height: 140px; max-width: 300px;">
                           <div class="q-py-xs" >
                             <div v-if="item2.mostrar" class="column justify-center items-center">
                             {{item2.descripcion}}
                           </div>
                           </div>
                         </q-scroll-area>
-
-                        <div class="row absolute-bottom">
-                          <q-btn flat @click="item2.mostrar = !item2.mostrar">Descripción</q-btn>
-                          <q-btn flat @click="$router.push('/detalle/'+ item2._id)">Ver</q-btn>
-                        </div>
                       </div>
                     </q-img>
+                    <div class="row justify-center text-white absolute-bottom">
+                          <q-btn flat @click="item2.mostrar = !item2.mostrar">Descripción</q-btn>
+                        </div>
                 </q-card>
               </div>
         <div class="full-width column items-center justify-center">
