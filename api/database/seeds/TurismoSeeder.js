@@ -106,7 +106,7 @@ const data = [
     *  AÑO DE CONSTRUCCIÓN: 1913
     Con fecha 28 de Julio de 1913, se aceptó por parte del Ministerio de la Industria y Obras Públicas con el Decreto Nº 1440, la propuesta del contratista LISANDRO ALVAREZ para llevar a cabo los trabajos de construcción de la portada y cierre del Cementerio de Mejillones por la suma de $ 77.000 y con un plazo de siete meses para terminar las obras.
     El diseño de la portada le correspondió al  Arquitecto  Don LEONELLO BOTACCI.
-    Las obras se concluyeron recién durante el mes de Julio de 1916.
+    Las obras se concluyeron recién durante el mes de Julio de 1916. El Cementerio, el Templo Corazón de María y la Capitanía de Puerto, son los únicos edificios que desde su proyección en el plano de 1906 hasta la fecha siguen manteniendo sus funciones iniciales.
     *  DESCRIPCIÓN ARQUITECTÓNICA
     Principalmente la descripción corresponde a la construcción de la portada del Cementerio, realizada enteramente en concreto. Su diseño arquitectónico determina una simetría rígida con dos dependencias laterales separadas por una cúpula esférica que le da al diseño una especial característica de estilo neoclásico con influencias europeas.
     Los muros circundantes se confeccionaron enteramente en concreto y se encuentran en excelentes condiciones, sin que hayan mayores modificaciones al diseño original.
@@ -145,7 +145,7 @@ const data = [
     puntuacion: 0,
     descripcion: `
     AÑO DE CONSTRUCCIÓN 1909
-    Mejillones, quedó como Subdelegación dependiente de la Comuna de Antofagasta y por ello,  el 4 de Enero de 1957 y se instalara la Primera Municipalidad el 4 de Marzo de ese mismo año.
+    Mejillones, quedó como Subdelegación dependiente de la Comuna de Antofagasta y por ello,  el 4 de Enero de 1957 y se instalara la Primera Municipalidad el 4 de Marzo de ese mismo año. A diferencia de los otros edificios públicos de la época en nuestra comuna, posee un estilo simple pero igualmente derivado del típico neoclásico inglés. Construido completamente de pino Oregón, se dice traída en abundancia desde EEUU como lastre por los veleros que venían a cargar salitre a las costas Mejilloninas.
 
     `
   },
@@ -179,7 +179,7 @@ const data = [
     *  AÑO DE CONSTRUCCIÓN: 1909
     Mejillones, no siendo una localidad políticamente definida quedó como Subdelegación dependiente de la Comuna de Antofagasta  una de las autoridades más importantes fue el Juez de Subdelegación.
     *  DESCRIPCIÓN ARQUITECTÓNICA
-    De estilo típico neoclásico inglés, construcción  mixta estructurada con vigas y pilares de madera de pino oregón y muros de paneles prefabricados de concreto. Su construcción está alzada en dos pisos, sus ornamentos (adornos de fachada) se destacan pro las aplicaciones en las cornisas y frontones superiores que se muestran hacia los exteriores, reafirmando así el estilo de la influencia europea. Su diseño esta basado en dos bloques que identifican el primer piso del segundo, los cuales hacían diferenciar las oficinas del Juzgado con las dependencias destinadas a la casa del Juez.
+    De estilo típico neoclásico inglés, construcción  mixta estructurada con vigas y pilares de madera de pino oregón y muros de paneles prefabricados de concreto. Su construcción está alzada en dos pisos, sus ornamentos (adornos de fachada) se destacan por las aplicaciones en las cornisas y frontones superiores que se muestran hacia los exteriores, reafirmando así el estilo de la influencia europea. Su diseño esta basado en dos bloques que identifican el primer piso del segundo, los cuales hacían diferenciar las oficinas del Juzgado con las dependencias destinadas a la casa del Juez.
     `
   },
   {
@@ -189,7 +189,7 @@ const data = [
     img: 'ruinasylugaresh/museo_mejillones.jpg',
     puntuacion: 0,
     descripcion: `
-    El Museo Municipal de Mejillones se encuentra emplazado en un edificio de Conservación Histórica, construido originalmente como servicio de Aduana en el año 1909. Construcción en su totalidad de pino Oregón. En 1997 se habilita como Museo albergando en su interior la Historia de Mejillones.
+    Dependencia que se encuentra emplazada en un edificio de Conservación Histórica, construido originalmente como Servicio de Aduana en el año 1909. Con una materialidad en su totalidad de pino Oregón traído desde EEUU, destaca por ser una construcción de una planta en H y sus cornisas con estilo Neoclásico europeo. Como dato curioso podemos destacar que la reja delantera tenía una altura inicial de dos metros y poco después de su entrega fue rebajada hasta la mitad a modo de exhibir desde su exterior los jardines; mismo futuro sufrió su pérgola la cual fue retirada en sus primeros años. En el año 1997 se habilita como Museo albergando en su interior al actual Museo Raúl Mavrakis Morales.
     `
   },
   {
@@ -203,9 +203,7 @@ const data = [
       lng:-70.45228578585227
     },
     descripcion: `
-    Fue destinada como   casa del Teniente de Aduana.
-    Construido en 1909
-    Diseño del arquitecto Luis Jacob, proyectada por el Ingeniero Emilio de Vidts y  ejecutada en 1906
+    Fue construida como casa del teniente de aduana. Construido en el año 1909 bajo el diseño del arquitecto Luis Jacob y proyectada por el ingeniero de la Armada Emilio de Vidt´s y ejecutada en 1906. En 1980 y luego de diferentes deterioros en el tiempo, el edificio fue restaurado por la Universidad de Antofagasta para albergar allí el Museo del Mar que funcionó hasta 1983. En 1990, la alcaldía y otros departamentos Municipales se trasladaron hasta este inmueble donde funcionan hasta el día de hoy.
     `
   },
   {
