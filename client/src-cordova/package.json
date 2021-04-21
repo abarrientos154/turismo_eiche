@@ -1,7 +1,7 @@
 {
-  "name": "org.eiche.turismo",
+  "name": "org.mejillones.eiche",
   "displayName": "Turismo Mejillones",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
   "scripts": {
@@ -12,10 +12,8 @@
   ],
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
-  "dependencies": {
-    "cordova-android": "^8.1.0"
-  },
   "devDependencies": {
+    "cordova-android": "^9.0.0",
     "cordova-plugin-whitelist": "^1.3.4"
   },
   "cordova": {
